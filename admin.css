@@ -259,3 +259,260 @@ th{color:#0d8cff !important;}
     box-shadow:8px 0 30px rgba(15,23,42,.12) !important;
   }
 }
+/* ===========================
+   PREMIUM SIDEBAR
+=========================== */
+
+.sidebar{
+
+    background:linear-gradient(180deg,#0b5cff 0%,#1463ff 30%,#1f7bff 60%,#ffffff 100%) !important;
+
+    width:300px;
+
+    border-right:none;
+
+    box-shadow:8px 0 40px rgba(0,88,255,.20);
+
+    overflow:hidden;
+
+    position:fixed;
+
+}
+
+/* Animated Background */
+
+.sidebar::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+
+    height:450px;
+
+    background:radial-gradient(circle,#7fb8ff 0%,transparent 70%);
+
+    top:-180px;
+
+    left:-150px;
+
+    animation:moveOne 10s infinite linear;
+
+    opacity:.35;
+
+}
+
+.sidebar::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    background:radial-gradient(circle,#ffffff 0%,transparent 75%);
+
+    bottom:-120px;
+
+    right:-120px;
+
+    animation:moveTwo 8s infinite linear;
+
+    opacity:.45;
+
+}
+
+@keyframes moveOne{
+
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+
+}
+
+@keyframes moveTwo{
+
+0%{transform:rotate(360deg);}
+100%{transform:rotate(0deg);}
+
+}
+
+/* Logo */
+
+.brand{
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+.logo{
+
+    background:#fff;
+
+    color:#1565ff;
+
+    box-shadow:0 0 25px rgba(255,255,255,.9);
+
+    animation:logoGlow 2s infinite alternate;
+
+}
+
+@keyframes logoGlow{
+
+from{
+
+transform:scale(1);
+
+box-shadow:0 0 20px rgba(255,255,255,.6);
+
+}
+
+to{
+
+transform:scale(1.08);
+
+box-shadow:0 0 40px rgba(255,255,255,1);
+
+}
+
+}
+
+/* Menu */
+
+nav{
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+nav button{
+
+    background:rgba(255,255,255,.10);
+
+    color:#fff;
+
+    border-radius:15px;
+
+    margin-bottom:8px;
+
+    transition:.35s;
+
+    backdrop-filter:blur(8px);
+
+}
+
+nav button:hover{
+
+    background:#fff;
+
+    color:#1565ff;
+
+    transform:translateX(10px) scale(1.02);
+
+    box-shadow:0 12px 25px rgba(0,80,255,.30);
+
+}
+
+nav button.active{
+
+    background:#fff !important;
+
+    color:#1565ff !important;
+
+    font-weight:700;
+
+    box-shadow:0 15px 35px rgba(0,80,255,.35);
+
+}
+
+/* Left Glow */
+
+nav button::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:10%;
+
+    width:4px;
+
+    height:80%;
+
+    border-radius:20px;
+
+    background:#fff;
+
+    transform:scaleY(0);
+
+    transition:.35s;
+
+}
+
+nav button:hover::before,
+
+nav button.active::before{
+
+    transform:scaleY(1);
+
+}
+
+/* Badges */
+
+nav span,
+
+nav b{
+
+    background:#ff3d6d;
+
+    color:#fff;
+
+    animation:pulseBadge 1.5s infinite;
+
+}
+
+@keyframes pulseBadge{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.15);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+/* Scroll */
+
+.sidebar::-webkit-scrollbar{
+
+width:7px;
+
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+
+background:#fff;
+
+border-radius:30px;
+
+}
