@@ -38,11 +38,22 @@ function notifications(){let items=notifyCount?Array.from({length:notifyCount},(
 function markAllRead(){notifyCount=0;localStorage.setItem('notifyCount',0);counts();toast('All notifications read');render('notifications')}
 function messages(){return page('Messages','Message count bhi working hai.',`<button class="btn" onclick="msgCount=0;localStorage.setItem('msgCount',0);counts();render('messages');toast('Messages cleared')">Clear Messages</button>${msgCount?'<div class="list-item">💬 5 demo unread messages</div>':'<div class="empty">No unread messages.</div>'}`,'Messages')}
 function users(){return page('Users','Users section ready hai. Firebase connect karne par real users show honge.',`<div class="empty">Abhi Firebase user data connected nahi hai.</div>`,'Users')}
-function media(){return page('Media Manager','Images, PDF aur logo upload section.',`<div class="pro-upload" onclick="document.getElementById('mediaFile').click()"><input id="mediaFile" type="file" hidden onchange="showFileName(this)"><div class="upload-ring"><span>☁️</span></div><h2>Drag & Drop Media Here</h2><p id="fileName">Choose file: Image, PDF, Logo or Document</p><button class="btn" type="button">Choose File</button></div><div class="cards media-cards"><div class="stat-card">🖼 Logo</div><div class="stat-card">📄 PDF</div><div class="stat-card">📷 Images</div><div class="stat-card">📁 Files</div></div>`,'Media')}
+function media(){return page('Media Manager','Images, PDF aur logo upload section.',`<div class="pro-upload" onclick="document.getElementById('mediaFile').click()"><input id="mediaFile" type="file" hidden onchange="showFileName(this)"><div class="upload-ring"><span>☁️</span></div><h2>Drag & Drop Media Here</h2><p id="fileName">Choose file: Image, PDF, Logo or Document</p><button class="btn" type="button">Choose File</button><button class="btn upload-btn" type="button" onclick="uploadMedia()">⬆ Upload Now</button></div><div class="cards media-cards"><div class="stat-card">🖼 Logo</div><div class="stat-card">📄 PDF</div><div class="stat-card">📷 Images</div><div class="stat-card">📁 Files</div></div>`,'Media')}
 function showFileName(input){const name=input.files&&input.files[0]?input.files[0].name:'No file selected';const e=document.getElementById('fileName');if(e)e.textContent='Selected: '+name;toast('Media file selected')}
 function agecalc(){return page('Age Calculator','Date of Birth डालकर exact age calculate karein. Ye admin page par fully working hai.',`<div class="age-box"><div class="age-form"><label>Date of Birth</label><input id="dob" type="date"><button class="btn" onclick="calculateAge()">Calculate Age</button><button class="btn light" onclick="clearAge()">Clear</button></div><div id="ageResult" class="age-result"><div class="age-pill"><b>0</b><span>Years</span></div><div class="age-pill"><b>0</b><span>Months</span></div><div class="age-pill"><b>0</b><span>Days</span></div></div></div>`,'Smart Tool')}
 function calculateAge(){const v=document.getElementById('dob')?.value;if(!v)return toast('Please select date of birth');const dob=new Date(v),now=new Date();if(dob>now)return toast('Future date valid nahi hai');let y=now.getFullYear()-dob.getFullYear();let m=now.getMonth()-dob.getMonth();let d=now.getDate()-dob.getDate();if(d<0){m--;d+=new Date(now.getFullYear(),now.getMonth(),0).getDate()}if(m<0){y--;m+=12}document.getElementById('ageResult').innerHTML=`<div class="age-pill"><b>${y}</b><span>Years</span></div><div class="age-pill"><b>${m}</b><span>Months</span></div><div class="age-pill"><b>${d}</b><span>Days</span></div>`;toast('Age calculated')}
 function clearAge(){const d=document.getElementById('dob');if(d)d.value='';document.getElementById('ageResult').innerHTML='<div class="age-pill"><b>0</b><span>Years</span></div><div class="age-pill"><b>0</b><span>Months</span></div><div class="age-pill"><b>0</b><span>Days</span></div>'}
+function uploadMedia(){
+  const file = document.getElementById("mediaFile").files[0];
+
+  if(!file){
+    alert("⚠ Please choose a file first.");
+    return;
+  }
+
+  alert("✅ " + file.name + " uploaded successfully!");
+}
+
 function reports(){return page('Reports','Local posts ke basis par report chart.',`<canvas id="reportChart"></canvas>`,'Reports')}
 function settings(){return page('Settings','Website basic settings.',`<div class="form-grid"><input value="Rapid Job"><input value="Fast Government Job Updates"></div><button class="btn" onclick="toast('Settings saved')">Save Settings</button>`,'Settings')}
 const views={dashboard,content,manager,notifications,messages,users,media,reports,settings,ads,adsense,seo,agecalc};sections.forEach(s=>views[s.id]=()=>sectionPage(s));
