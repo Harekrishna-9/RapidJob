@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | Rapid Job</title>
+  <meta name="description" content="Contact Rapid Job for government job updates, admit card, result, syllabus and website support." />
+  <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+<body>
+  <div class="rj-page">
+    <header class="rj-head">
+      <div class="rj-head-glow"></div>
+      <h1>Rapid Job</h1>
+      <p>⚡ Fast Government Job Updates!</p>
+    </header>
+
+    <nav class="rj-nav" aria-label="Primary Navigation">
+      <a href="index.html">Home</a>
+      <a href="index.html#latest">Current Job</a>
+      <a href="index.html#admit">Admit Card</a>
+      <a href="index.html#result">Result</a>
+      <a href="index.html#syllabus">Syllabus</a>
+      <a href="index.html#admission">Admission</a>
+      <a class="active" href="contact.html">Contact Us</a>
+    </nav>
+
+    <main class="contact-wrap">
+      <section class="hero-card">
+        <span class="badge"><i class="fa-solid fa-headset"></i> Support Center</span>
+        <h2>Contact Us</h2>
+        <p>
+          This is the official contact page of Rapid Job. For any query related to job posts,
+          admit card, result, syllabus, admission, correction, or website issue, contact us anytime.
+        </p>
+      </section>
+
+      <section class="contact-grid">
+        <div class="contact-card main-card">
+          <h3><i class="fa-regular fa-envelope"></i> Official Email</h3>
+          <p>Send your query to our official email address. Our team will try to help you as soon as possible.</p>
+          <a class="email-box" href="mailto:rapidjob@gmail.com">
+            <i class="fa-regular fa-envelope"></i>
+            <span>rapidjob@gmail.com</span>
+          </a>
+
+          <div class="quick-actions">
+            <a class="action-btn call" href="tel:1800259630"><i class="fa-solid fa-phone"></i><span>Call Us</span></a>
+            <a class="action-btn mail" href="mailto:rapidjob@gmail.com"><i class="fa-solid fa-envelope"></i><span>Email</span></a>
+            <a class="action-btn whatsapp" href="https://wa.me/911800259630" target="_blank"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
+          </div>
+        </div>
+
+        <div class="contact-card form-card">
+          <h3><i class="fa-solid fa-message"></i> Send Message</h3>
+          <form id="contactForm">
+            <div class="field"><label for="name">Your Name</label><input id="name" type="text" placeholder="Enter your name" required /></div>
+            <div class="field"><label for="email">Email / Mobile</label><input id="email" type="text" placeholder="Enter email or mobile number" required /></div>
+            <div class="field"><label for="subject">Subject</label><input id="subject" type="text" placeholder="Example: Job post issue" required /></div>
+            <div class="field"><label for="message">Message</label><textarea id="message" rows="5" placeholder="Write your message here..." required></textarea></div>
+            <button class="submit-btn" type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+            <p class="form-status" id="formStatus"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="info-row">
+        <div class="mini-box"><i class="fa-solid fa-phone-volume"></i><h4>Phone</h4><p>1800259630</p></div>
+        <div class="mini-box"><i class="fa-solid fa-envelope-open-text"></i><h4>Email</h4><p>rapidjob@gmail.com</p></div>
+        <div class="mini-box"><i class="fa-solid fa-clock"></i><h4>Support Time</h4><p>10:00 AM - 6:00 PM</p></div>
+      </section>
+
+      <section class="notice-card">
+        <b><i class="fa-solid fa-shield-halved"></i> Important Notice</b>
+        <p>Rapid Job only provides job updates and information. Before applying any form, always verify details from the official notification or official website.</p>
+      </section>
+    </main>
+
+    <footer class="rj-footer">
+      <h3>Follow Us On</h3>
+      <div class="footer-icons">
+        <span><i class="fab fa-telegram-plane"></i></span>
+        <span><i class="fab fa-facebook-f"></i></span>
+        <span><i class="fab fa-x-twitter"></i></span>
+        <span><i class="fab fa-instagram"></i></span>
+        <span><i class="fab fa-youtube"></i></span>
+      </div>
+      <p>Copyright © 2017 - 2026 Rapid Job, All Rights Reserved</p>
+    </footer>
+  </div>
+  <button class="back-top" id="backTop" type="button" aria-label="Back to top"><i class="fa-solid fa-angle-up"></i></button>
+  <script src="contact.js"></script>
+</body>
+</html>
