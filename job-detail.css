@@ -83,6 +83,20 @@ a{color:inherit}
 .notification{background:linear-gradient(135deg,#2563eb,#1d4ed8)}
 .syllabus{background:linear-gradient(135deg,#8b5cf6,#7c3aed)}
 .website{background:linear-gradient(135deg,#f59e0b,#ea580c)}
+.side-card .important-links{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin:15px;
+}
+
+.side-card .important-links .imp-card{
+    width:100%;
+    justify-content:center;
+    font-size:16px;
+    padding:14px 18px;
+    border-radius:14px;
+}
 .side{position:sticky;top:74px;align-self:start}
 .side-card{border:1px solid #d6dfe9;background:#fff;margin-bottom:18px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow2)}
 .side-card h3{margin:0;background:linear-gradient(90deg,#eaf2ff,#f7fbff);padding:14px 16px;font-size:17px;color:#061326;border-bottom:1px solid #dfe8f5}
@@ -97,13 +111,7 @@ a{color:inherit}
 .print-row button:hover{background:#f2f8ff}
 .disclaimer{background:#fff1f3;border:1px solid #ffd1d8;padding:15px 16px;font-size:14px;line-height:1.58;text-align:justify;border-radius:16px;box-shadow:var(--shadow2)}
 .disclaimer b{display:block;color:#d61f3c;margin-bottom:8px}.bottom-disclaimer{display:none}
-.age-calc-card{position:relative;overflow:hidden;border-radius:18px;padding:16px 14px 18px;margin-bottom:18px;color:#fff;background:radial-gradient(circle at 30% 20%,rgba(147,51,234,.8),transparent 35%),linear-gradient(145deg,#26124c,#111b46 58%,#07172e);box-shadow:0 18px 35px rgba(45,25,110,.30);border:1px solid rgba(255,255,255,.16)}
-.age-calc-card:before{content:"";position:absolute;width:170px;height:170px;border-radius:50%;right:-70px;top:-70px;background:rgba(255,255,255,.12)}
-.age-calc-head{display:flex;align-items:center;justify-content:space-between;font-weight:950;font-size:16px;position:relative;z-index:2}.age-new{font-size:12px;background:#ff4566;color:#fff;padding:5px 9px;border-radius:999px;box-shadow:0 5px 15px rgba(255,69,102,.35)}
-.age-ring{width:176px;height:176px;margin:18px auto 12px;border-radius:50%;display:grid;place-items:center;position:relative;background:conic-gradient(from 90deg,#22d3ee,#3b82f6,#a855f7,#22d3ee);animation:ageSpin 3.8s linear infinite;box-shadow:0 0 28px rgba(34,211,238,.45)}
-.age-ring:after{content:"";position:absolute;inset:8px;border-radius:50%;background:linear-gradient(145deg,#18254d,#101832)}
-.age-inner{position:relative;z-index:2;text-align:center;animation:ageStop 3.8s linear infinite}.age-icon{width:42px;height:42px;margin:0 auto 9px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#60a5fa,#2563eb);box-shadow:0 8px 18px rgba(37,99,235,.35);font-size:21px}
-.age-inner b{display:block;font-size:15px;line-height:1.25;margin-bottom:10px}.age-open-btn{border:0;border-radius:10px;background:linear-gradient(135deg,#a855f7,#7c3aed);color:#fff;font-weight:950;padding:10px 14px;cursor:pointer;box-shadow:0 8px 18px rgba(124,58,237,.35);transition:.25s}.age-open-btn:hover{transform:translateY(-2px)}.age-calc-foot{text-align:center;font-size:13px;font-weight:700;color:#dbeafe;position:relative;z-index:2}.spark{color:#facc15;animation:sparkle 1.2s ease-in-out infinite alternate}
+
 .age-inline-card{margin-top:16px;display:flex;align-items:center;gap:15px;padding:14px;border-radius:18px;background:radial-gradient(circle at 15% 50%,rgba(34,211,238,.28),transparent 28%),linear-gradient(135deg,#081a3d,#4c1d95 72%,#6d28d9);color:#fff;cursor:pointer;overflow:hidden;position:relative;transition:.3s;box-shadow:0 14px 32px rgba(49,46,129,.25);max-width:330px}.age-inline-card:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(49,46,129,.34)}.age-inline-ring{width:72px;height:72px;border-radius:50%;padding:4px;background:conic-gradient(#06b6d4,#3b82f6,#8b5cf6,#06b6d4);animation:ageSpin 4s linear infinite;flex:0 0 auto;box-shadow:0 0 18px rgba(34,211,238,.42)}.age-inline-center{width:100%;height:100%;border-radius:50%;background:#0f172a;display:flex;align-items:center;justify-content:center;font-size:28px;animation:ageStop 4s linear infinite}.age-inline-text{flex:1}.age-inline-text h4{margin:0;font-size:19px;font-weight:950}.age-inline-text p{margin:4px 0 0;font-size:13px;opacity:.92;line-height:1.3}.age-inline-arrow{font-size:28px;color:#22d3ee;font-weight:900;animation:arrowMove .8s ease-in-out infinite alternate}
 .age-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,.62);backdrop-filter:blur(5px);padding:18px}.age-modal.show{display:flex}.age-popup{width:min(440px,100%);background:#fff;border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.32);overflow:hidden;animation:popIn .25s ease}.age-popup-head{padding:20px;background:linear-gradient(135deg,#075ee8,#7c3aed);color:#fff;display:flex;justify-content:space-between;align-items:center}.age-popup-head h2{margin:0;font-size:22px}.age-close{width:36px;height:36px;border:0;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;font-size:22px;cursor:pointer}.age-popup-body{padding:22px}.age-field{margin-bottom:14px}.age-field label{display:block;font-weight:900;margin-bottom:8px;color:#172033}.age-field input{width:100%;padding:14px;border:1px solid #dbe5f3;border-radius:12px;font-size:16px;outline:none}.age-field input:focus{border-color:#7c3aed;box-shadow:0 0 0 4px rgba(124,58,237,.12)}.age-result{display:none;margin-top:16px;background:linear-gradient(135deg,#f5faff,#fff);border:1px solid #dbeafe;border-radius:16px;padding:15px;text-align:center}.age-result strong{display:block;color:#075ee8;font-size:25px;margin-bottom:6px}.age-calc-submit{width:100%;border:0;border-radius:12px;background:linear-gradient(135deg,#16c76a,#075ee8);color:#fff;font-size:17px;font-weight:950;padding:14px;cursor:pointer;box-shadow:0 10px 22px rgba(7,94,232,.22)}
 .rj-footer{text-align:center;background:linear-gradient(135deg,#122033,#071428);color:#fff;padding:24px}.rj-footer h3{margin:0 0 14px;font-size:20px}.footer-icons{display:flex;justify-content:center;gap:32px;font-size:23px;margin-bottom:12px}.rj-footer p{margin:0;font-size:14px;color:#dbeafe}.back-top{position:fixed;right:22px;bottom:55px;width:52px;height:52px;border-radius:50%;border:0;background:rgba(7,20,40,.62);color:#fff;font-size:25px;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.22)}
