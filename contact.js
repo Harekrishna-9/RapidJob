@@ -38,7 +38,7 @@ if (contactForm) {
 
     db.ref("contactMessages").push(messageData)
       .then(() => {
-        alert("Your message has been sent successfully.");
+        showPopup("Your message has been sent successfully.");
         contactForm.reset();
       })
       .catch((error) => {
@@ -46,4 +46,16 @@ if (contactForm) {
         alert("Message could not be sent. Please try again.");
       });
   });
+}
+function showPopup(msg){
+  const box = document.createElement("div");
+  box.innerHTML = `
+    <div style="position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:99999;">
+      <div style="background:#fff;padding:28px;border-radius:18px;text-align:center;max-width:360px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.35);">
+        <h2 style="margin:0 0 12px;color:#16a34a;">✅ Success</h2>
+        <p style="font-size:16px;margin-bottom:20px;">${msg}</p>
+        <button onclick="this.closest('div[style*=position]').remove()" style="padding:10px 28px;border:0;border-radius:10px;background:#075ee8;color:#fff;font-weight:800;cursor:pointer;">OK</button>
+      </div>
+    </div>`;
+  document.body.appendChild(box);
 }
