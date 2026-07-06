@@ -131,7 +131,10 @@ function renderDetail(post) {
       <div class="info-grid">
         <div class="info-box"><h2><i class="fa-solid fa-calendar-check"></i> Important Dates</h2><div class="body"><ul><li>Application Start Date : <b>${br(val(data, "startDate"))}</b></li><li>Application Last Date : <span class="red">${br(val(data, "lastDate"))}</span></li><li>Fee Payment Last Date : <b>${br(val(data, "feeDate"))}</b></li><li>Exam Date : <b>${br(val(data, "examDate"))}</b></li></ul></div></div>
         <div class="info-box"><h2><i class="fa-solid fa-indian-rupee-sign"></i> Application Fee</h2><div class="body"><ul>${list(data.fee)}</ul></div></div>
-        <div class="info-box"><h2><i class="fa-solid fa-user-clock"></i> Age Limit (As on ${br(val(data, "ageAsOn", "01-01-2026"))})</h2><div class="body"><ul><li>Minimum Age : <b>${br(val(data, "minAge"))}</b></li><li>Maximum Age : <b>${br(val(data, "maxAge"))}</b></li><li>Age Relaxation : As per Government Rules</li></ul><a href="#" class="age-text-link">Age Calculator</a></div></div>
+        <div class="info-box"><h2><i class="fa-solid fa-user-clock"></i> Age Limit (As on ${br(val(data, "ageAsOn", "01-01-2026"))})</h2><div class="body"><ul><li>Minimum Age : <b>${br(val(data, "minAge"))}</b></li><li>Maximum Age : <b>${br(val(data, "maxAge"))}</b></li><li>Age Relaxation : As per Government Rules</li></ul><a href="#" class="imp-card apply age-text-link">
+    <i class="fa-solid fa-calendar-days"></i>
+    <span>Age Calculator</span>
+</a></div></div>
         <div class="info-box"><h2><i class="fa-solid fa-layer-group"></i> Total Post</h2><div class="total-post">${br(val(data, "totalPost", "--"))}</div></div>
       </div>
 
