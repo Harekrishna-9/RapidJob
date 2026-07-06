@@ -1,28 +1,49 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contactForm");
-  const status = document.getElementById("formStatus");
-  const backTop = document.getElementById("backTop");
+const firebaseConfig = {
+  apiKey: "AIzaSyBRLAUu228CbxbvokRG2Xp1hcGFhfrqpIQ",
+  authDomain: "rapid-job-09.firebaseapp.com",
+  databaseURL: "https://rapid-job-09-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "rapid-job-09",
+  storageBucket: "rapid-job-09.firebasestorage.app",
+  messagingSenderId: "129444686750",
+  appId: "1:129444686750:web:6175ba1f1bfe7c9fff048f"
+};
 
-  backTop?.addEventListener("click", () => scrollTo({ top: 0, behavior: "smooth" }));
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
 
-  form?.addEventListener("submit", event => {
-    event.preventDefault();
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
     const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
+    const emailMobile = document.getElementById("emailMobile").value.trim();
     const subject = document.getElementById("subject").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    if (!name || !email || !subject || !message) {
-      status.textContent = "Please fill all fields.";
-      status.style.color = "#e11d48";
+    if (!name || !emailMobile || !subject || !message) {
+      alert("Please fill all fields.");
       return;
     }
 
-    const body = encodeURIComponent(`Name: ${name}\nEmail/Mobile: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`);
-    window.location.href = `mailto:rapidjob@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    const messageData = {
+      name: name,
+      emailMobile: emailMobile,
+      subject: subject,
+      message: message,
+      createdAt: new Date().toLocaleString("en-IN"),
+      status: "New"
+    };
 
-    status.textContent = "Opening your email app...";
-    status.style.color = "#16a34a";
-    form.reset();
+    db.ref("contactMessages").push(messageData)
+      .then(() => {
+        alert("Your message has been sent successfully.");
+        contactForm.reset();
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("Message could not be sent. Please try again.");
+      });
   });
-});
+}
