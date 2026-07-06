@@ -118,3 +118,28 @@ a{color:inherit}
 @keyframes ageSpin{to{transform:rotate(360deg)}}@keyframes ageStop{to{transform:rotate(-360deg)}}@keyframes sparkle{from{opacity:.4;transform:scale(.85)}to{opacity:1;transform:scale(1.15)}}@keyframes arrowMove{to{transform:translateX(4px)}}@keyframes popIn{from{opacity:0;transform:scale(.88) translateY(18px)}to{opacity:1;transform:scale(1) translateY(0)}}
 @media(max-width:1000px){.rj-page{margin:0}.rj-wrap{display:block;padding:18px 12px}.side{display:none}.bottom-disclaimer{display:block;margin-top:18px}.rj-head h1{font-size:42px}.rj-head p{font-size:18px}.rj-nav{flex-wrap:nowrap;overflow-x:auto}.rj-nav a{white-space:nowrap;font-size:15px;padding:11px 14px}.top-flex{display:block}.job-card{padding:17px;border-radius:16px}.job-logo{margin:12px auto}.job-title{font-size:25px}.desc{font-size:16px}.btn-row,.info-grid,.two-col{grid-template-columns:1fr}.notice-box{display:block}.download-btn{display:inline-block;margin-top:12px}.vacancy-table,.exam-table{font-size:13px}.vacancy-table{display:block;overflow-x:auto;white-space:nowrap}.rj-footer{padding-bottom:70px}.back-top{width:46px;height:46px;right:14px;bottom:18px}.age-inline-card{max-width:100%}}
 @media print{.rj-nav,.side,.back-top,.rj-footer,.btn-row{display:none!important}.rj-wrap{display:block;padding:0}.rj-page{box-shadow:none}.job-card{box-shadow:none;border:0}.job-card:before{display:none}}
+.info-box .age-text-link{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    margin-top:14px;
+    padding:14px 18px;
+    border-radius:14px;
+    text-decoration:none;
+    color:#fff;
+    font-weight:700;
+    background:linear-gradient(135deg,#10b981,#16a34a);
+    box-shadow:0 8px 18px rgba(16,185,129,.25);
+    transition:.3s;
+}
+
+.info-box .age-text-link:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 24px rgba(16,185,129,.35);
+}
+
+.info-box .age-text-link i{
+    font-size:18px;
+}
