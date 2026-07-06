@@ -48,7 +48,37 @@
 .website{background:linear-gradient(135deg,#f59e0b,#ea580c)}
 
 @media(max-width:1000px){.rj-page{margin:0}.rj-wrap{display:block;padding:18px 12px}.side{display:none}.bottom-disclaimer{display:block;margin-top:18px}.rj-head h1{font-size:42px}.rj-head p{font-size:18px}.rj-nav{flex-wrap:nowrap;overflow-x:auto}.rj-nav a{white-space:nowrap;font-size:15px;padding:11px 14px}.top-flex{display:block}.job-card{padding:17px;border-radius:16px}.job-logo{margin:12px auto}.job-title{font-size:25px}.desc{font-size:16px}.btn-row,.info-grid,.two-col{grid-template-columns:1fr}.notice-box{display:block}.download-btn{display:inline-block;margin-top:12px}.vacancy-table,.exam-table{font-size:13px}.vacancy-table{display:block;overflow-x:auto;white-space:nowrap}.rj-footer{padding-bottom:70px}.back-top{width:46px;height:46px;right:14px;bottom:18px}.age-inline-card{max-width:100%}}
+<style>
+
+/* Tumhara pura CSS */
+
+.age-inline-ring{
+    width:38px !important;
+    height:38px !important;
+    border-radius:11px !important;
+    padding:0 !important;
+    background:#315ca8 !important;
+    animation:none !important;
+    box-shadow:0 8px 16px rgba(15,23,42,.12) !important;
+}
+
+.age-inline-center{
+    background:transparent !important;
+    animation:none !important;
+    font-size:0 !important;
+}
+
+.age-inline-center::before{
+    content:"🔗";
+    font-size:18px;
+}
+
+.age-inline-card{
+    padding:13px 16px !important;
+}
+
 </style>
+  </style>
   <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
   <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
   <script defer src="detail.js"></script>
