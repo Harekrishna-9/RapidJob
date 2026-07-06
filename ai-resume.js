@@ -218,3 +218,28 @@ setTimeout(() => {
     };
   }
 }, 0);
+/* ===== Clear Button Fix ===== */
+const clearBtnFix = document.getElementById("resetBtn");
+
+if (clearBtnFix) {
+  clearBtnFix.onclick = function () {
+    showConfirm("Clear Resume?", "All resume details will be removed.", function () {
+      localStorage.removeItem("resumeProClean");
+
+      fields.forEach(function (f) {
+        if ($(f)) $(f).value = "";
+      });
+
+      if ($("template")) $("template").value = "executive";
+
+      if ($("rPhoto")) {
+        $("rPhoto").src = "";
+        $("rPhoto").hidden = true;
+      }
+
+      update();
+
+      showAlert("Cleared", "Resume details cleared successfully.", "warning");
+    });
+  };
+}
