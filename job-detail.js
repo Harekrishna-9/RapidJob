@@ -217,7 +217,9 @@ function initAgeCalculator() {
   document.getElementById("closeAgeCalc")?.addEventListener("click", closeAge);
   document.getElementById("calcAgeBtn")?.addEventListener("click", calculateAge);
   modal?.addEventListener("click", event => { if (event.target === modal) closeAge(); });
-  document.addEventListener("click", event => { if (event.target.closest(".age-inline-card")) openAge(event); });
+ document.addEventListener("click", event => {
+  if (event.target.closest(".age-inline-card, .age-text-link")) openAge(event);
+});
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") closeAge();
     if ((event.key === "Enter" || event.key === " ") && event.target.closest?.(".age-inline-card")) openAge(event);
