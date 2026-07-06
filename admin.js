@@ -135,22 +135,6 @@ function form(type='job',editIndex=''){
       <button class="btn light" onclick="render('content')">Cancel</button>
     </div>
   </div>
-
-  <div class="preview-column">
-    <div class="live-preview-card">
-      <div class="post-card-head"><div><h2>Live Preview</h2><p>This is how your post will appear on the website.</p></div></div>
-      <article class="preview-post">
-        <div class="preview-top"><span id="previewCat">${labelByValue(type)}</span><b>NEW</b></div>
-        <h2 id="previewTitle">${esc(tmp.title)}</h2>
-        <div class="preview-meta"><span>👤 Admin</span><span>📅 <em id="previewDate">${today}</em></span><span>🕒 <em id="previewTime">${now}</em></span><span>👁 1254 Views</span></div>
-        <div class="preview-image" id="previewImage"><span>🖼️</span><p>Post Image</p></div>
-        <p id="previewDesc">${esc(tmp.short)}</p>
-        <div class="preview-bottom"><button type="button">Read More →</button><button type="button">↗</button></div>
-      </article>
-    </div>
-    <div class="tips-card"><h2>Post Tips</h2><p>✅ Choose the correct category for your post.</p><p>✅ Use a clear and attractive title.</p><p>✅ Add high quality image.</p><p>✅ Write SEO friendly content.</p><p>✅ Preview before publishing.</p></div>
-  </div>
- </div>`
 }
 function bindPostPreview(){
  const title=$('#postTitle'),desc=$('#postDetails'),type=$('#postType'),date=$('#postDate'),time=$('#postTime');
