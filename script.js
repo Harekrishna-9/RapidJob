@@ -36,7 +36,14 @@ function normalizeType(t){
  };
  return map[t]||t;
 }
-if($('categoryCards')) $('categoryCards').innerHTML=cats.map(c=>`<div class="cat"><h3>${c[1]}</h3><p id="count_${c[0]}">0 Updates</p></div>`).join('');
+if($('categoryCards')) {
+  $('categoryCards').innerHTML = cats.map(c => `
+    <div class="cat" onclick="openCategory('${c[0]}')">
+      <h3>${c[1]}</h3>
+      <p id="count_${c[0]}">0 Updates</p>
+    </div>
+  `).join('');
+}
 if($('darkBtn')) $('darkBtn').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('dark',document.body.classList.contains('dark'))};
 if(localStorage.getItem('dark')==='true')document.body.classList.add('dark');
 
@@ -92,3 +99,19 @@ if($('stateFilter')) $('stateFilter').onchange=render;
 setInterval(()=>{slideIndex++;updateSlider()},3500);
 loadData();
 if('serviceWorker'in navigator)navigator.serviceWorker.register('service-worker.js');
+function openCategory(type){
+  const targetType = normalizeType(type);
+
+  if(type === 'state'){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if($('stateFilter')) $('stateFilter').focus();
+    return;
+  }
+
+  const list = POSTS.filter(p => normalizeType(p.type) === targetType);
+
+  if($('posts')){
+    $('posts').innerHTML = list.map(postCard).join('') || '<div class="post">No updates found.</div>';
+    $('posts').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
