@@ -84,3 +84,37 @@ nav{display:flex;flex-direction:column;gap:9px}nav button,.open-web{position:rel
     width: 100% !important;
     max-width: 100% !important;
 }
+/* ===== Full Width Post Management ===== */
+
+.page{
+    max-width: 100% !important;
+}
+
+.cms-form-wrap{
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.post-layout,
+.post-builder,
+.post-form-grid,
+.content-layout,
+.content-manager{
+    display: block !important;
+    width: 100% !important;
+}
+
+.post-details,
+.post-form-card,
+.cms-form-left{
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+}
+
+.live-preview,
+.preview-card,
+.post-tips,
+.tips-card{
+    display: none !important;
+}
