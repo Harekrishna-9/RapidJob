@@ -157,19 +157,7 @@ function renderDetail(post) {
 }
 
 function makeInlineAgeCard() {
-  const links = detailBox.querySelectorAll("a.age-text-link, a");
-  links.forEach(link => {
-    if (link.dataset.ageConverted === "yes") return;
-    const text = link.textContent.trim().toLowerCase();
-    if (text.includes("age calculator")) {
-      const card = document.createElement("div");
-      card.className = "age-inline-card";
-      card.setAttribute("role", "button");
-      card.setAttribute("tabindex", "0");
-      card.innerHTML = `<div class="age-inline-ring"><div class="age-inline-center"><i class="fa-solid fa-calendar-days"></i></div></div><div class="age-inline-text"><h4>Age Calculator</h4><p>Click to calculate your exact age</p></div><div class="age-inline-arrow">➜</div>`;
-      link.replaceWith(card);
-    }
-  });
+    // Disabled - Sidebar button is used instead.
 }
 
 function initAgeCalculator() {
