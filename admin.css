@@ -63,3 +63,24 @@ nav{display:flex;flex-direction:column;gap:9px}nav button,.open-web{position:rel
   width: 100% !important;
   max-width: 100% !important;
 }
+/* Hide Post Tips */
+.post-tips,
+.tips-card,
+.post-tip-box{
+    display: none !important;
+}
+
+/* Make Post Form Full Width */
+.post-layout,
+.post-builder,
+.post-form-grid{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+}
+
+.post-details,
+.post-form-card,
+.cms-form-left{
+    width: 100% !important;
+    max-width: 100% !important;
+}
