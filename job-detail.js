@@ -222,5 +222,46 @@ window.addEventListener("scroll",()=>{if($("backTop")) $("backTop").style.displa
 if($("openAgeCalc")) $("openAgeCalc").onclick=e=>{e.preventDefault();if($("ageModal")){ $("ageModal").classList.add("show"); $("ageModal").setAttribute("aria-hidden","false"); }};
 if($("closeAgeCalc")) $("closeAgeCalc").onclick=()=>{if($("ageModal")){ $("ageModal").classList.remove("show"); $("ageModal").setAttribute("aria-hidden","true"); }};
 if($("ageModal")) $("ageModal").onclick=e=>{if(e.target===$("ageModal") && $("closeAgeCalc")) $("closeAgeCalc").click();};
-if($("calcAgeBtn")) $("calcAgeBtn").onclick=()=>{const dob=$("dobInput")?.value;if(!dob){if($("ageResult")) $("ageResult").innerHTML="Please select date of birth.";return;}const birth=new Date(dob),today=new Date();let y=today.getFullYear()-birth.getFullYear(),m=today.getMonth()-birth.getMonth(),d=today.getDate()-birth.getDate();if(d<0){m--;d+=new Date(today.getFullYear(),today.getMonth(),0).getDate();}if(m<0){y--;m+=12;}if($("ageResult")) $("ageResult").innerHTML=`<b>Your Age:</b> ${y} Years ${m} Months ${d} Days`;};
-loadPost();
+const dobInput = $("dobInput");
+if (dobInput) dobInput.max = new Date().toISOString().split("T")[0];
+
+if ($("calcAgeBtn")) {
+  $("calcAgeBtn").onclick = () => {
+    const dob = $("dobInput")?.value;
+
+    if (!dob) {
+      $("ageResult").style.display = "block";
+      $("ageResult").innerHTML = "Please select date of birth.";
+      return;
+    }
+
+    const birth = new Date(dob);
+    const today = new Date();
+
+    if (birth > today) {
+      $("ageResult").style.display = "block";
+      $("ageResult").innerHTML = "Future date allowed nahi hai.";
+      return;
+    }
+
+    let years = today.getFullYear() - birth.getFullYear();
+    let months = today.getMonth() - birth.getMonth();
+    let days = today.getDate() - birth.getDate();
+
+    if (days < 0) {
+      months--;
+      days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+    }
+
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    $("ageResult").style.display = "block";
+    $("ageResult").innerHTML = `
+      <strong>${years} Years ${months} Months ${days} Days</strong>
+      <span>Your exact age calculated successfully.</span>
+    `;
+  };
+}
