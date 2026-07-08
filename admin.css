@@ -978,7 +978,13 @@ body.admin-locked .admin-shell{
   font-size:32px;
   box-shadow:0 16px 35px rgba(16,185,129,.28);
 }
-.admin-modal-box:has(.small-pop){
+.admin-modal-box.wide{
+  width:min(1050px,96vw) !important;
+  max-width:1050px !important;
+}
+
+.admin-modal-box.delete-modal{
   width:min(430px,92vw) !important;
   max-width:430px !important;
+  overflow:hidden !important;
 }
