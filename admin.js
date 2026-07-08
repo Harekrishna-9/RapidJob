@@ -37,7 +37,54 @@ function blogSummaryTable(txt){const rows=String(txt||"").split("\n").filter(Boo
 function renderBlogBlock(b){if(b.style==="green")return `<h2 class="blog-green-title">${esc(b.title)}</h2><p>${br(b.content)}</p>`;if(b.style==="image")return `<h2>${esc(b.title)}</h2><img class="blog-preview-cover" src="${esc(b.content)}">`;if(b.style==="table")return `<h2>${esc(b.title)}</h2>${blogSummaryTable(b.content)}`;if(b.style==="button"){const rows=String(b.content).split("\n").filter(Boolean);return `<div class="blog-action-row">${rows.map((x,i)=>{let[t,u]=x.split("|").map(y=>y.trim());return `<a class="${i%2?'wa-btn':'tg-btn'}" href="${esc(u||'#')}" target="_blank">${esc(t||'Open')}</a>`}).join("")}</div>`}if(b.style==="faq"){return `<div class="cms-card"><h3>${esc(b.title)}</h3>${String(b.content).split("\n").filter(Boolean).map(x=>{let[q,a]=x.split("|");return `<p><b>Q.</b> ${esc(q||"")}<br><b>Ans:</b> ${esc(a||"Check details")}</p>`}).join("")}</div>`}if(b.style==="html")return `<div>${b.content}</div>`;return `<p>${br(b.content)}</p>`}
 function previewBlogDraft(){const d=collectBlogData("Draft");if(!d.title)return alert("Blog title required");const html=blogPreviewHtml(d);$("#blogLivePreview").innerHTML=html;openAdminModal(`<div class="modal-title-row"><h2>Blog Preview</h2><button class="btn green" onclick="closeAdminModal();saveBlog('Published')">Publish Blog</button></div>${html}`)}
 async function saveBlog(status){const d=collectBlogData(status);if(!d.title)return alert("Blog title required");await db.ref("posts/"+d.id).set(d);alertPopup(status==="Draft"?"Blog draft saved successfully.":"Blog published successfully.");render("blogEditor")}
-function messagesPage(){const empty=`<div class="empty-message-box"><i class="fa-solid fa-inbox"></i><h2>No Messages Yet</h2><p>Contact page se message aayega to yahan show hoga.</p></div>`;return page("Contact Messages","Contact page messages.",`<div class="panel">${messages.map(m=>`<div class="message-card"><b>${esc(m.name||"No Name")}</b><p>${esc(m.message||"")}</p></div>`).join("")||empty}</div>`)}
+function messagesPage(){
+  return page("Contact Messages","Contact page messages.",`
+    <div class="panel message-panel">
+      ${
+        messages.length
+        ? messages.map(m=>`
+          <div class="message-card pro-message-card">
+            <div class="msg-top">
+              <div>
+                <h3>${esc(m.name || "No Name")}</h3>
+                <p class="msg-email">📧 ${esc(m.email || "No Email")}</p>
+                <p class="msg-phone">📞 ${esc(m.phone || m.mobile || "No Phone")}</p>
+              </div>
+              <span class="msg-date">${esc(m.date || m.time || "New Message")}</span>
+            </div>
+
+            <div class="msg-body">
+              ${esc(m.message || "No message")}
+            </div>
+
+            <div class="msg-actions">
+              <a class="reply-btn" href="mailto:${esc(m.email || "")}?subject=Reply from Rapid Job&body=Hello ${esc(m.name || "")},%0D%0A%0D%0A">
+                <i class="fa-solid fa-reply"></i> Reply
+              </a>
+
+              <button class="delete-msg-btn" onclick="deleteMessage('${m.id}')">
+                <i class="fa-solid fa-trash"></i> Delete
+              </button>
+            </div>
+          </div>
+        `).join("")
+        : `<div class="empty-message-box">
+            <i class="fa-solid fa-inbox"></i>
+            <h2>No Messages Yet</h2>
+            <p>Contact page se message aayega to yahan show hoga.</p>
+          </div>`
+      }
+    </div>
+  `);
+}
+async function deleteMessage(id){
+  if(!id) return alertPopup("Message ID missing.");
+
+  if(confirm("Delete this message?")){
+    await db.ref("contactMessages/" + id).remove();
+    alertPopup("Message deleted successfully.");
+  }
+}
 function breaking(){return page("Breaking News","Ticker update manage karein.",`<div class="panel"><textarea id="breakingText" style="width:100%;min-height:140px"></textarea><br><br><button class="btn" onclick="db.ref('settings/breakingNews').set($('#breakingText').value);alertPopup('Saved')">Save</button></div>`)}
 function media(){return page("Media Manager","Media links store karein.",`<div class="panel"><p>Use direct image/PDF URL in visual builder.</p></div>`)}
 function settings(){return page("Settings","Website settings.",`<div class="panel"><p>Rapid Job CMS settings.</p></div>`)}
