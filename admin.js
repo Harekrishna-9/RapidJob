@@ -24,7 +24,26 @@ function loadFastTemplate(){if(confirm("FastJob template add karna hai? Current 
 function collectPostData(statusOverride=null){const get=id=>$("#"+id)?.value.trim()||"";const customBlocks=[...document.querySelectorAll(".builder-row")].map(r=>({title:r.querySelector(".b-title").value.trim(),style:r.querySelector(".b-style").value,content:r.querySelector(".b-content").value.trim(),order:Number(r.querySelector(".b-order").value||50)})).filter(b=>b.title||b.content).sort((a,b)=>a.order-b.order);const id=editId||("post_"+Date.now());return {id,type:get("type"),category:get("type"),section:get("type"),categoryName:catName(get("type")),status:statusOverride||get("status")||"Published",state:get("state")||"All India",featured:get("featured")==="true",trending:get("featured")==="true",title:get("title"),updatedOn:get("updatedOn"),description:get("description"),details:get("description"),customBlocks,time:Date.now(),date:new Date().toISOString().slice(0,10)}}
 function renderBlock(b){const rows=String(b.content||"").split("\n").filter(x=>x.trim());if(b.style==="html")return `<div class="cms-card"><h3>${esc(b.title)}</h3>${b.content}</div>`;if(b.style==="image")return `<div class="cms-card"><h3>${esc(b.title)}</h3><img src="${esc(b.content)}" style="width:100%;border-radius:12px"></div>`;if(b.style==="notice"||b.style==="alert")return `<div class="cms-${b.style}"><b>${esc(b.title)}</b><br>${br(b.content)}</div>`;if(b.style==="buttons")return `<div class="cms-buttons">${rows.map(x=>{let[t,u]=x.split("|").map(y=>y?.trim()||"");return `<a href="${esc(u||'#')}" target="_blank">${esc(t||'Open')}</a>`}).join("")}</div>`;if(b.style==="yellowLinks")return `<h2>${esc(b.title)}</h2><table class="cms-table cms-links"><tbody>${rows.map(x=>{let[a,c,u]=x.split("|").map(y=>y?.trim()||"");return `<tr><td>${esc(a)}</td><td><a href="${esc(u||'#')}" target="_blank">${esc(c||'Click Here')}</a></td></tr>`}).join("")}</tbody></table>`;if(b.style==="table"){let table=rows.map(x=>x.split("|").map(y=>y.trim()));let head=table.shift()||[];return `<h2>${esc(b.title)}</h2><table class="cms-table"><thead><tr>${head.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${table.map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>`}if(b.style==="twoCard"){let parts=String(b.content||"").split("---");return `<div class="preview-grid">${parts.map(p=>{let l=p.trim().split("\n");let title=l.shift()||b.title;return `<div class="cms-card"><h3>${esc(title)}</h3><ul>${l.filter(Boolean).map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`}).join("")}</div>`}if(b.style==="faq")return `<div class="cms-card"><h3>${esc(b.title)}</h3>${rows.map(x=>{let[q,a]=x.split("|");return `<p><b>Q.</b> ${esc(q||"")}<br><b>Ans:</b> ${esc(a||"Check details")}</p>`}).join("")}</div>`;return `<div class="cms-card"><h3>${esc(b.title)}</h3><ul>${rows.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`}
 function previewHtml(d){return `<div class="preview-post"><div class="preview-head"><span class="tag">${esc(d.categoryName)}</span><h1>${esc(d.title||"Post Title")}</h1><p><i class="fa-regular fa-clock"></i> Updated On : ${esc(d.updatedOn||"")}</p></div><p>${br(d.description||"")}</p>${(d.customBlocks||[]).map(renderBlock).join("")}</div>`}
-function ensureModal(){if(document.getElementById("adminModal"))return;let m=document.createElement("div");m.id="adminModal";m.className="admin-modal";m.innerHTML=`<div class="admin-modal-box wide"><button class="admin-modal-close" onclick="closeAdminModal()">×</button><div id="adminModalContent"></div></div>`;document.body.appendChild(m)}function openAdminModal(html){ensureModal();$("#adminModalContent").innerHTML=html;document.getElementById("adminModal").classList.add("show")}function closeAdminModal(){document.getElementById("adminModal")?.classList.remove("show")}
+function ensureModal(){if(document.getElementById("adminModal"))return;let m=document.createElement("div");m.id="adminModal";m.className="admin-modal";m.innerHTML=`<div class="admin-modal-box wide"><button class="admin-modal-close" onclick="closeAdminModal()">×</button><div id="adminModalContent"></div></div>`;document.body.appendChild(m)}
+function openAdminModal(html){
+  ensureModal();
+
+  const box = document.querySelector("#adminModal .admin-modal-box");
+
+  if(box){
+    box.classList.remove("wide","delete-modal");
+
+    if(html.includes("delete-pop") || html.includes("success-icon")){
+      box.classList.add("delete-modal");
+    }else{
+      box.classList.add("wide");
+    }
+  }
+
+  $("#adminModalContent").innerHTML = html;
+  document.getElementById("adminModal").classList.add("show");
+}
+function closeAdminModal(){document.getElementById("adminModal")?.classList.remove("show")}
 function alertPopup(m){
   openAdminModal(`
     <div class="modal-body delete-pop small-pop">
