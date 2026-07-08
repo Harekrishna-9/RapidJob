@@ -700,3 +700,224 @@ body.admin-locked .admin-shell{
   width:100% !important;
   max-width:100% !important;
 }
+/* ===== Contact Message Pro Card With Reply/Delete ===== */
+
+.message-panel{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.pro-message-card{
+  position:relative;
+  overflow:hidden;
+  padding:22px !important;
+  border-radius:22px !important;
+  background:linear-gradient(135deg,#ffffff,#f4f9ff) !important;
+  border:1px solid #dbeafe !important;
+  box-shadow:0 18px 38px rgba(7,94,232,.10) !important;
+  animation:adminFadeUp .45s ease both;
+}
+
+.pro-message-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:7px;
+  background:linear-gradient(180deg,#075ee8,#13c5dd,#10b981);
+}
+
+.msg-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:14px;
+}
+
+.msg-top h3{
+  margin:0 0 8px;
+  color:#075ee8;
+  font-size:22px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+.msg-email,
+.msg-phone{
+  margin:4px 0;
+  color:#475569;
+  font-size:14px;
+  font-weight:800;
+}
+
+.msg-date{
+  background:#eaf3ff;
+  color:#075ee8;
+  border:1px solid #cfe0f5;
+  padding:7px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.msg-body{
+  margin:14px 0;
+  padding:16px;
+  border-radius:16px;
+  background:#ffffff;
+  border:1px solid #e2e8f0;
+  color:#111827;
+  font-size:16px;
+  line-height:1.6;
+  font-weight:700;
+}
+
+.msg-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.reply-btn,
+.delete-msg-btn{
+  min-width:120px;
+  height:43px;
+  border:0;
+  border-radius:14px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  text-decoration:none;
+  color:#fff;
+  font-size:14px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.reply-btn{
+  background:linear-gradient(135deg,#075ee8,#13c5dd);
+  box-shadow:0 10px 22px rgba(7,94,232,.22);
+}
+
+.delete-msg-btn{
+  background:linear-gradient(135deg,#e11d48,#f97316);
+  box-shadow:0 10px 22px rgba(225,29,72,.20);
+}
+
+.reply-btn:hover,
+.delete-msg-btn:hover{
+  transform:translateY(-3px);
+}
+
+.empty-message-box{
+  text-align:center;
+  padding:55px 20px;
+  border-radius:22px;
+  border:2px dashed #bfdbfe;
+  background:linear-gradient(135deg,#ffffff,#eff6ff);
+  color:#075ee8;
+}
+
+.empty-message-box i{
+  width:72px;
+  height:72px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 14px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#075ee8,#13c5dd);
+  color:#fff;
+  font-size:30px;
+}
+
+.empty-message-box h2{
+  margin:0 0 8px;
+  font-size:26px;
+  font-weight:900;
+}
+
+.empty-message-box p{
+  margin:0;
+  font-weight:700;
+  color:#64748b;
+}
+/* ===== Center Animated Popup For Admin ===== */
+
+.admin-modal{
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 999999 !important;
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 18px !important;
+  background: rgba(2, 6, 23, .68) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.admin-modal.show{
+  display: flex !important;
+  animation: popupBgFade .25s ease both;
+}
+
+.admin-modal-box{
+  width: min(760px, 96vw) !important;
+  max-height: 86vh !important;
+  overflow: auto !important;
+  border-radius: 26px !important;
+  background: linear-gradient(180deg, #ffffff, #f8fbff) !important;
+  border: 1px solid rgba(96,165,250,.35) !important;
+  box-shadow: 0 35px 90px rgba(0,0,0,.38) !important;
+  animation: popupCenterShow .32s ease both !important;
+  transform-origin: center !important;
+}
+
+.admin-modal-box.wide{
+  width: min(1050px, 96vw) !important;
+}
+
+.admin-modal-close{
+  position: sticky !important;
+  top: 12px !important;
+  float: right !important;
+  z-index: 10 !important;
+  width: 42px !important;
+  height: 42px !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg,#eef6ff,#ffffff) !important;
+  color: #071428 !important;
+  font-size: 24px !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+  box-shadow: 0 10px 24px rgba(15,23,42,.12) !important;
+  transition: .25s ease !important;
+}
+
+.admin-modal-close:hover{
+  transform: rotate(90deg) scale(1.08) !important;
+  background: linear-gradient(135deg,#075ee8,#13c5dd) !important;
+  color: #fff !important;
+}
+
+@keyframes popupBgFade{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes popupCenterShow{
+  from{
+    opacity:0;
+    transform: scale(.88) translateY(25px);
+  }
+  to{
+    opacity:1;
+    transform: scale(1) translateY(0);
+  }
+}
