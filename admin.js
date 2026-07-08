@@ -78,12 +78,41 @@ function messagesPage(){
   `);
 }
 async function deleteMessage(id){
-  if(!id) return alertPopup("Message ID missing.");
+    if(!id) return alertPopup("Message ID missing.");
 
-  if(confirm("Delete this message?")){
+    openAdminModal(`
+        <div class="modal-body delete-pop">
+            <div class="delete-icon">
+                <i class="fa-solid fa-trash"></i>
+            </div>
+
+            <h2>Delete Message?</h2>
+
+            <p>Are you sure you want to permanently delete this message?</p>
+
+            <div class="delete-pop-actions">
+
+                <button class="btn red"
+                    onclick="confirmDeleteMessage('${id}')">
+                    <i class="fa-solid fa-trash"></i>
+                    Yes, Delete
+                </button>
+
+                <button class="btn light"
+                    onclick="closeAdminModal()">
+                    Cancel
+                </button>
+
+            </div>
+        </div>
+    `);
+}
+
+async function confirmDeleteMessage(id){
     await db.ref("contactMessages/" + id).remove();
+    closeAdminModal();
     alertPopup("Message deleted successfully.");
-  }
+}
 }
 function breaking(){return page("Breaking News","Ticker update manage karein.",`<div class="panel"><textarea id="breakingText" style="width:100%;min-height:140px"></textarea><br><br><button class="btn" onclick="db.ref('settings/breakingNews').set($('#breakingText').value);alertPopup('Saved')">Save</button></div>`)}
 function media(){return page("Media Manager","Media links store karein.",`<div class="panel"><p>Use direct image/PDF URL in visual builder.</p></div>`)}
