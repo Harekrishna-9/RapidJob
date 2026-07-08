@@ -141,3 +141,75 @@ function loadPosts(){db.ref("posts").on("value",s=>{posts=Object.entries(s.val()
 function loadMessages(){db.ref("contactMessages").on("value",s=>{messages=Object.entries(s.val()||{}).map(([id,m])=>({id,...m})).reverse();const badge=$("#msgBadge");if(badge)badge.textContent=messages.length;if(current==="messages")render(current)})}
 document.addEventListener("click",e=>{if(e.target.id==="adminModal")closeAdminModal();let b=e.target.closest("#sideNav button");if(b)render(b.dataset.page)});
 document.addEventListener("DOMContentLoaded",()=>{initAdminLogin();$("#quickPost")&&($("#quickPost").onclick=()=>openPostForm());$("#quickBlog")&&($("#quickBlog").onclick=()=>openBlogForm());$("#menuBtn")&&($("#menuBtn").onclick=()=>$("#sidebar").classList.toggle("show"));$("#themeBtn")&&($("#themeBtn").onclick=()=>document.documentElement.classList.toggle("dark"));$("#searchInput")&&$("#searchInput").addEventListener("input",e=>{if(current!=="posts"&&current!=="blogEditor")return;let q=e.target.value.toLowerCase();$("#app").innerHTML=page("Search Results","Filtered posts.",`<div class="panel">${postTable(posts.filter(p=>(p.title||"").toLowerCase().includes(q)))}</div>`)});loadPosts();loadMessages();render();});
+/* ===== Global Custom Alert / Confirm Popup ===== */
+
+function customPopupBox(type, title, message, okText = "OK", cancelText = "Cancel"){
+  return new Promise(resolve=>{
+    const old = document.getElementById("globalPopupOverlay");
+    if(old) old.remove();
+
+    const overlay = document.createElement("div");
+    overlay.id = "globalPopupOverlay";
+    overlay.className = "global-pop-overlay";
+
+    const icon = type === "success" ? "fa-check" : type === "delete" ? "fa-trash" : "fa-circle-info";
+
+    overlay.innerHTML = `
+      <div class="global-pop-box">
+        <button class="global-pop-close" id="globalPopClose">×</button>
+
+        <div class="global-pop-icon ${type}">
+          <i class="fa-solid ${icon}"></i>
+        </div>
+
+        <h2>${title}</h2>
+        <p>${message}</p>
+
+        <div class="global-pop-actions">
+          ${
+            type === "confirm" || type === "delete"
+            ? `<button class="global-btn cancel" id="globalCancel">${cancelText}</button>`
+            : ""
+          }
+          <button class="global-btn ok" id="globalOk">${okText}</button>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    setTimeout(()=>overlay.classList.add("show"),10);
+
+    function close(val){
+      overlay.classList.remove("show");
+      setTimeout(()=>{
+        overlay.remove();
+        resolve(val);
+      },220);
+    }
+
+    overlay.querySelector("#globalOk").onclick = ()=>close(true);
+    overlay.querySelector("#globalPopClose").onclick = ()=>close(false);
+
+    const cancel = overlay.querySelector("#globalCancel");
+    if(cancel) cancel.onclick = ()=>close(false);
+  });
+}
+
+window.customAlert = function(message, title="Success"){
+  return customPopupBox("success", title, message, "OK");
+};
+
+window.customConfirm = function(message, title="Confirm"){
+  return customPopupBox("delete", title, message, "Yes, Delete", "Cancel");
+};
+
+/* Old alert / confirm ko replace */
+window.alert = function(message){
+  customPopupBox("success", "Message", message, "OK");
+};
+
+window.confirm = function(message){
+  customPopupBox("delete", "Confirm", message, "OK", "Cancel");
+  return true;
+};
