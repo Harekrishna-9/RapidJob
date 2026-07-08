@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rapid Job Admin CMS</title>
+  <link rel="stylesheet" href="admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+  <script defer src="admin.js?v=101"></script>
+</head>
+<body class="admin-locked">
+
+  <div class="admin-login-screen" id="adminLoginScreen">
+    <div class="login-bg-orb orb-one"></div>
+    <div class="login-bg-orb orb-two"></div>
+    <div class="admin-login-card">
+      <div class="login-logo">RJ</div>
+      <h1>Rapid Job Admin</h1>
+      <p>Login with email and secret code</p>
+      <div class="login-field">
+        <label for="adminEmail">Email Address</label>
+        <div class="login-input-wrap">
+          <i class="fa-solid fa-envelope"></i>
+          <input id="adminEmail" type="email" placeholder="Enter admin email" autocomplete="email" />
+        </div>
+      </div>
+      <div class="login-field">
+        <label for="adminSecret">Secret Code</label>
+        <div class="login-input-wrap">
+          <i class="fa-solid fa-key"></i>
+          <input id="adminSecret" type="password" placeholder="Enter secret code" autocomplete="current-password" />
+          <button type="button" class="show-secret" id="toggleSecret" aria-label="Show secret code"><i class="fa-solid fa-eye"></i></button>
+        </div>
+      </div>
+      <div class="login-error" id="loginError"></div>
+      <button type="button" class="login-btn" id="adminLoginBtn">
+        <i class="fa-solid fa-right-to-bracket"></i> Login
+      </button>
+      <small>Protected Admin Panel</small>
+    </div>
+  </div>
+
+  <div class="admin-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-logo">RJ</div><div><h2>Rapid Job</h2><p>Visual CMS</p></div></div>
+      <nav class="side-nav" id="sideNav">
+        <button class="active" data-page="dashboard"><i class="fa-solid fa-chart-line"></i> Dashboard</button>
+        <button data-page="posts"><i class="fa-solid fa-briefcase"></i> Post Management</button>
+        <button data-page="messages"><i class="fa-solid fa-envelope"></i> Contact Messages <span id="msgBadge">0</span></button>
+        <button data-page="breaking"><i class="fa-solid fa-bolt"></i> Breaking News</button>
+        <button data-page="media"><i class="fa-solid fa-folder-open"></i> Media Manager</button>
+        <button data-page="settings"><i class="fa-solid fa-gear"></i> Settings</button>
+      </nav>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+        <div class="search"><i class="fa-solid fa-search"></i><input id="searchInput" placeholder="Search posts..." /></div>
+        <button class="top-btn" id="quickPost"><i class="fa-solid fa-plus"></i> New Post</button>
+        <button class="top-btn" id="themeBtn"><i class="fa-solid fa-moon"></i></button>
+        <button class="top-btn logout-btn" id="adminLogout"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </header>
+      <section id="app"></section>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+</body>
+</html>
