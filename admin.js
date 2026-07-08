@@ -113,7 +113,7 @@ async function confirmDeleteMessage(id){
     closeAdminModal();
     alertPopup("Message deleted successfully.");
 }
-}
+
 function breaking(){return page("Breaking News","Ticker update manage karein.",`<div class="panel"><textarea id="breakingText" style="width:100%;min-height:140px"></textarea><br><br><button class="btn" onclick="db.ref('settings/breakingNews').set($('#breakingText').value);alertPopup('Saved')">Save</button></div>`)}
 function media(){return page("Media Manager","Media links store karein.",`<div class="panel"><p>Use direct image/PDF URL in visual builder.</p></div>`)}
 function settings(){return page("Settings","Website settings.",`<div class="panel"><p>Rapid Job CMS settings.</p></div>`)}
