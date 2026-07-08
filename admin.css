@@ -921,3 +921,48 @@ body.admin-locked .admin-shell{
     transform: scale(1) translateY(0);
   }
 }
+/* ===== Delete Message Center Popup ===== */
+
+.delete-pop{
+  text-align:center;
+  padding:35px 28px !important;
+  animation:popupCenterShow .32s ease both;
+}
+
+.delete-icon{
+  width:78px;
+  height:78px;
+  margin:0 auto 18px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:linear-gradient(135deg,#e11d48,#f97316);
+  color:#fff;
+  font-size:32px;
+  box-shadow:0 16px 35px rgba(225,29,72,.28);
+}
+
+.delete-pop h2{
+  margin:0 0 10px;
+  font-size:28px;
+  font-weight:900;
+  color:#071428;
+}
+
+.delete-pop p{
+  margin:0 0 22px;
+  font-size:16px;
+  font-weight:700;
+  color:#64748b;
+}
+
+.delete-pop-actions{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.delete-pop-actions .btn{
+  min-width:150px;
+}
