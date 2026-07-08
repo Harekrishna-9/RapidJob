@@ -272,3 +272,51 @@ body.admin-locked .admin-shell{
     transform: translateY(0);
   }
 }
+/* ===== Sidebar Admin Info ===== */
+
+.brand-info h2{
+    margin:0;
+    font-size:34px;
+    font-weight:900;
+    color:#fff;
+}
+
+.admin-role{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-top:4px;
+    color:#22c55e;
+    font-size:13px;
+    font-weight:800;
+    animation: glowAdmin 2s infinite;
+}
+
+.admin-role i{
+    color:#22c55e;
+}
+
+.admin-name{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-top:2px;
+    color:#dbeafe;
+    font-size:14px;
+    font-weight:700;
+}
+
+.admin-name i{
+    color:#38bdf8;
+}
+
+@keyframes glowAdmin{
+    0%,100%{
+        opacity:1;
+        text-shadow:0 0 6px #22c55e;
+    }
+    50%{
+        opacity:.7;
+        text-shadow:0 0 18px #22c55e;
+    }
+}
