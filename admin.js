@@ -109,6 +109,28 @@ function messagesPage(){return page("Contact Messages","Contact page messages.",
     </div>
   `);
 }function settings(){return page("Settings","Website settings.",`<div class="panel"><p>Rapid Job CMS settings.</p></div>`)}
-function render(pageName=current){current=pageName;document.querySelectorAll("#sideNav button").forEach(b=>b.classList.toggle("active",b.dataset.page===pageName));const map=const map={dashboard,posts:postsPage,messages:messagesPage,breaking,media,blogEditor,settings};$("#app").innerHTML=(map[pageName]||dashboard)();if(innerWidth<1000)$("#sidebar").classList.remove("show")}
+function render(pageName=current){
+  current=pageName;
+
+  document.querySelectorAll("#sideNav button").forEach(b=>{
+    b.classList.toggle("active", b.dataset.page===pageName);
+  });
+
+  const map = {
+    dashboard,
+    posts:postsPage,
+    messages:messagesPage,
+    breaking,
+    media,
+    blogEditor,
+    settings
+  };
+
+  $("#app").innerHTML=(map[pageName]||dashboard)();
+
+  if(innerWidth<1000){
+    $("#sidebar").classList.remove("show");
+  }
+}
 function loadPosts(){db.ref("posts").on("value",s=>{posts=Object.entries(s.val()||{}).map(([id,p])=>({id,...p})).sort((a,b)=>(b.time||0)-(a.time||0));render(current)})}function loadMessages(){db.ref("contactMessages").on("value",s=>{messages=Object.entries(s.val()||{}).map(([id,m])=>({id,...m})).reverse();$("#msgBadge").textContent=messages.length;if(current==="messages")render(current)})}
 document.addEventListener("click",e=>{if(e.target.id==="adminModal")closeAdminModal();let b=e.target.closest("#sideNav button");if(b)render(b.dataset.page)});$("#quickPost").onclick=()=>openPostForm();$("#menuBtn").onclick=()=>$("#sidebar").classList.toggle("show");$("#themeBtn").onclick=()=>document.documentElement.classList.toggle("dark");$("#searchInput").addEventListener("input",e=>{if(current!=="posts")return;let q=e.target.value.toLowerCase();$("#app").innerHTML=page("Search Results","Filtered posts.",`<div class="panel">${postTable(posts.filter(p=>(p.title||"").toLowerCase().includes(q)))}</div>`)});loadPosts();loadMessages();render();
