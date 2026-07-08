@@ -27,7 +27,7 @@ function previewHtml(d){return `<div class="preview-post"><div class="preview-he
 function ensureModal(){if(document.getElementById("adminModal"))return;let m=document.createElement("div");m.id="adminModal";m.className="admin-modal";m.innerHTML=`<div class="admin-modal-box wide"><button class="admin-modal-close" onclick="closeAdminModal()">×</button><div id="adminModalContent"></div></div>`;document.body.appendChild(m)}function openAdminModal(html){ensureModal();$("#adminModalContent").innerHTML=html;document.getElementById("adminModal").classList.add("show")}function closeAdminModal(){document.getElementById("adminModal")?.classList.remove("show")}
 function alertPopup(m){
   openAdminModal(`
-    <div class="modal-body delete-pop">
+    <div class="modal-body delete-pop small-pop">
       <div class="success-icon">
         <i class="fa-solid fa-check"></i>
       </div>
@@ -100,7 +100,7 @@ async function deleteMessage(id){
     if(!id) return alertPopup("Message ID missing.");
 
     openAdminModal(`
-        <div class="modal-body delete-pop">
+        <div class="modal-body delete-pop small-pop">
             <div class="delete-icon">
                 <i class="fa-solid fa-trash"></i>
             </div>
