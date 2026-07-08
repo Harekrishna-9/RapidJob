@@ -198,3 +198,77 @@ body.admin-locked .admin-shell{
   .admin-login-card h1{font-size:25px}
   .logout-btn{padding:12px 14px}
 }
+/* ===== Premium Contact Messages Redesign ===== */
+.message-card,
+#app .panel {
+  animation: adminFadeUp .45s ease both;
+}
+
+#app .panel {
+  border-radius: 24px !important;
+  border: 1px solid rgba(7, 94, 232, .14) !important;
+  background: linear-gradient(180deg, #ffffff, #f8fbff) !important;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, .10) !important;
+}
+
+.message-card {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 22px !important;
+  border-radius: 20px !important;
+  border: 1px solid #dbeafe !important;
+  background: linear-gradient(135deg, #ffffff, #f3f8ff) !important;
+  box-shadow: 0 12px 28px rgba(7, 94, 232, .10) !important;
+  transition: .3s ease;
+}
+
+.message-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 6px;
+  background: linear-gradient(180deg, #075ee8, #13c5dd, #10b981);
+}
+
+.message-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(7, 94, 232, .18) !important;
+}
+
+.message-card b {
+  display: block;
+  font-size: 18px;
+  font-weight: 900;
+  color: #075ee8;
+  margin-bottom: 8px;
+}
+
+.message-card p {
+  margin: 8px 0 0;
+  color: #1f2937;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+#app .panel:has(.message-card),
+#app .panel {
+  min-height: 70px;
+}
+
+#app .panel:not(:has(.message-card)) {
+  font-size: 17px;
+  font-weight: 800;
+  color: #64748b;
+}
+
+@keyframes adminFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
