@@ -110,25 +110,25 @@ function messagesPage(){return page("Contact Messages","Contact page messages.",
   `);
 }function settings(){return page("Settings","Website settings.",`<div class="panel"><p>Rapid Job CMS settings.</p></div>`)}
 function render(pageName=current){
-  current=pageName;
+  current = pageName;
 
   document.querySelectorAll("#sideNav button").forEach(b=>{
-    b.classList.toggle("active", b.dataset.page===pageName);
+    b.classList.toggle("active", b.dataset.page === pageName);
   });
 
   const map = {
-    dashboard,
-    posts:postsPage,
-    messages:messagesPage,
-    breaking,
-    media,
-    blogEditor,
-    settings
+    dashboard: dashboard,
+    posts: postsPage,
+    messages: messagesPage,
+    breaking: breaking,
+    media: media,
+    blogEditor: blogEditor,
+    settings: settings
   };
 
-  $("#app").innerHTML=(map[pageName]||dashboard)();
+  $("#app").innerHTML = (map[pageName] || dashboard)();
 
-  if(innerWidth<1000){
+  if (innerWidth < 1000) {
     $("#sidebar").classList.remove("show");
   }
 }
