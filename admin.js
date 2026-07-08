@@ -47,8 +47,8 @@ function messagesPage(){
             <div class="msg-top">
               <div>
                 <h3>${esc(m.name || "No Name")}</h3>
-                <p class="msg-email">📧 ${esc(m.email || "No Email")}</p>
-                <p class="msg-phone">📞 ${esc(m.phone || m.mobile || "No Phone")}</p>
+                <p class="msg-email">📧 ${esc(m.email || m.userEmail || m.customerEmail || m.mail || "No Email")}</p>
+                <p class="msg-phone">📞 ${esc(m.phone || m.mobile || m.contact || m.number || m.phoneNumber || m.mobileNumber || "No Phone")}</p>
               </div>
               <span class="msg-date">${esc(m.date || m.time || "New Message")}</span>
             </div>
@@ -58,7 +58,7 @@ function messagesPage(){
             </div>
 
             <div class="msg-actions">
-              <a class="reply-btn" href="mailto:${esc(m.email || "")}?subject=Reply from Rapid Job&body=Hello ${esc(m.name || "")},%0D%0A%0D%0A">
+              <a class="reply-btn" href="mailto:${esc(m.email || m.userEmail || m.customerEmail || m.mail || "")}?subject=Reply from Rapid Job&body=Hello ${esc(m.name || "")},%0D%0A%0D%0A">
                 <i class="fa-solid fa-reply"></i> Reply
               </a>
 
