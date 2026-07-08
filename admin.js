@@ -126,11 +126,59 @@ function render(pageName=current){
     settings: settings
   };
 
-  $("#app").innerHTML = (map[pageName] || dashboard)();
+  const fn = map[pageName] || dashboard;
+  $("#app").innerHTML = fn();
 
-  if (innerWidth < 1000) {
+  if (window.innerWidth < 1000) {
     $("#sidebar").classList.remove("show");
   }
 }
-function loadPosts(){db.ref("posts").on("value",s=>{posts=Object.entries(s.val()||{}).map(([id,p])=>({id,...p})).sort((a,b)=>(b.time||0)-(a.time||0));render(current)})}function loadMessages(){db.ref("contactMessages").on("value",s=>{messages=Object.entries(s.val()||{}).map(([id,m])=>({id,...m})).reverse();$("#msgBadge").textContent=messages.length;if(current==="messages")render(current)})}
-document.addEventListener("click",e=>{if(e.target.id==="adminModal")closeAdminModal();let b=e.target.closest("#sideNav button");if(b)render(b.dataset.page)});$("#quickPost").onclick=()=>openPostForm();$("#menuBtn").onclick=()=>$("#sidebar").classList.toggle("show");$("#themeBtn").onclick=()=>document.documentElement.classList.toggle("dark");$("#searchInput").addEventListener("input",e=>{if(current!=="posts")return;let q=e.target.value.toLowerCase();$("#app").innerHTML=page("Search Results","Filtered posts.",`<div class="panel">${postTable(posts.filter(p=>(p.title||"").toLowerCase().includes(q)))}</div>`)});loadPosts();loadMessages();render();
+
+function loadPosts(){
+  db.ref("posts").on("value",s=>{
+    posts = Object.entries(s.val()||{})
+      .map(([id,p])=>({id,...p}))
+      .sort((a,b)=>(b.time||0)-(a.time||0));
+    render(current);
+  });
+}
+
+function loadMessages(){
+  db.ref("contactMessages").on("value",s=>{
+    messages = Object.entries(s.val()||{})
+      .map(([id,m])=>({id,...m}))
+      .reverse();
+
+    const badge = $("#msgBadge");
+    if(badge) badge.textContent = messages.length;
+
+    if(current==="messages") render(current);
+  });
+}
+
+document.addEventListener("click",e=>{
+  if(e.target.id==="adminModal") closeAdminModal();
+
+  let b = e.target.closest("#sideNav button");
+  if(b) render(b.dataset.page);
+});
+
+if($("#quickPost")) $("#quickPost").onclick = ()=>openPostForm();
+if($("#menuBtn")) $("#menuBtn").onclick = ()=>$("#sidebar").classList.toggle("show");
+if($("#themeBtn")) $("#themeBtn").onclick = ()=>document.documentElement.classList.toggle("dark");
+
+if($("#searchInput")){
+  $("#searchInput").addEventListener("input",e=>{
+    if(current!=="posts") return;
+    let q = e.target.value.toLowerCase();
+    $("#app").innerHTML = page(
+      "Search Results",
+      "Filtered posts.",
+      `<div class="panel">${postTable(posts.filter(p=>(p.title||"").toLowerCase().includes(q)))}</div>`
+    );
+  });
+}
+
+loadPosts();
+loadMessages();
+render();
