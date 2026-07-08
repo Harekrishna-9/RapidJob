@@ -203,9 +203,34 @@ async function findPostById(id){
   for(const [cat,group] of Object.entries(data)){if(group && typeof group==="object" && group[id]) return {id,category:cat,...group[id]};}
   return null;
 }
-async function loadPost(){
-  if(!postId){renderError("Post ID missing in URL. Example: job-detail.html?id=POST_ID"); return;}
-  try{const post=await findPostById(postId); if(!post){renderError("This post is not available in Firebase database."); return;} renderDetail(post);}catch(err){console.error(err); renderError("Unable to load details. Please check Firebase connection and database path.");}
+async function loadPost() {
+
+    if (!postId) {
+        renderError("Post ID missing in URL.");
+        return;
+    }
+
+    try {
+
+        const post = await findPostById(postId);
+
+        if (!post) {
+            renderError("This post is not available in Firebase database.");
+            return;
+        }
+
+        renderDetail(post);
+
+    } catch (err) {
+
+        console.error("Job Detail Error :", err);
+
+        renderError(
+            "Unable to load details. Please check Firebase connection."
+        );
+
+    }
+
 }
 function setupShare(title){
   const url=window.location.href; const text=`${title} - Rapid Job`;
@@ -265,3 +290,5 @@ if ($("calcAgeBtn")) {
     `;
   };
 }
+// Start page
+loadPost();
