@@ -1372,3 +1372,65 @@ body{
     text-align:left;
   }
 }
+/* ===== STATE CARD TEXT ALIGNMENT FIX ===== */
+
+.location-grid{
+  grid-template-columns:repeat(8, minmax(0, 1fr));
+  gap:12px;
+}
+
+.state-card{
+  min-width:0;
+  min-height:72px;
+  padding:10px 8px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+
+.state-card img{
+  width:32px;
+  height:32px;
+  flex-shrink:0;
+  object-fit:contain;
+}
+
+.state-card span{
+  display:block;
+  flex:1;
+  min-width:0;
+  font-size:12.5px;
+  line-height:1.15;
+  font-weight:800;
+  text-align:center;
+
+  /* Important fix */
+  word-break:normal;
+  overflow-wrap:normal;
+  white-space:normal;
+  hyphens:none;
+}
+
+/* Long state names only */
+.state-card span{
+  max-width:78px;
+}
+
+/* Mobile */
+@media (max-width:520px){
+  .location-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .state-card{
+    justify-content:flex-start;
+  }
+
+  .state-card span{
+    max-width:none;
+    text-align:left;
+    font-size:12px;
+  }
+}
