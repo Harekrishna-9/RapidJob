@@ -1294,3 +1294,81 @@ body{
     text-align: left;
   }
 }
+/* ===== LOCATION GRID SIZE FIX - 8 CARDS PER ROW ===== */
+
+.location-grid{
+  display:grid;
+  grid-template-columns:repeat(8, minmax(0, 1fr));
+  gap:12px;
+  align-items:stretch;
+}
+
+.state-card{
+  min-width:0;
+  min-height:72px;
+  padding:10px 8px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border-radius:14px;
+  overflow:hidden;
+}
+
+.state-card img{
+  width:34px;
+  height:34px;
+  object-fit:contain;
+  flex-shrink:0;
+}
+
+.state-card span{
+  font-size:13px;
+  line-height:1.15;
+  font-weight:800;
+  text-align:center;
+  overflow-wrap:anywhere;
+}
+
+/* Laptop */
+@media (max-width:1100px){
+  .location-grid{
+    grid-template-columns:repeat(6, minmax(0, 1fr));
+  }
+}
+
+/* Tablet */
+@media (max-width:800px){
+  .location-grid{
+    grid-template-columns:repeat(4, minmax(0, 1fr));
+  }
+
+  .state-card{
+    min-height:68px;
+  }
+}
+
+/* Mobile */
+@media (max-width:520px){
+  .location-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:9px;
+  }
+
+  .state-card{
+    justify-content:flex-start;
+    min-height:62px;
+    padding:9px;
+  }
+
+  .state-card img{
+    width:30px;
+    height:30px;
+  }
+
+  .state-card span{
+    font-size:12px;
+    text-align:left;
+  }
+}
