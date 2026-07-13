@@ -357,12 +357,12 @@ body{
     content:"";
     position:absolute;
     left:50%;
-    top:58%;
-    width:210px;
-    height:210px;
+    top:64%;
+    width: 230px;
+    height: auto;
     transform:translate(-50%,-50%);
     background:url("rapid-job-logo-horizontal.png") center/contain no-repeat;
-    opacity:.055;
+    opacity: 0.035;
     pointer-events:none;
     z-index:0;
 }
