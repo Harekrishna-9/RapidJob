@@ -297,27 +297,3 @@
     border:1px solid rgba(255,255,255,.38);
     pointer-events:none;
 }
-.head{
-    position:relative;
-}
-.rj-datetime{
-    position:absolute;
-    top:20px;
-    right:25px;      /* Right Corner */
-    left:auto;       /* Ye line bahut zaruri hai */
-    transform:none;
-
-    display:flex;
-    align-items:center;
-    gap:12px;
-    padding:10px 18px;
-
-    border-radius:50px;
-    background:rgba(0,90,255,.20);
-    border:1px solid rgba(255,255,255,.35);
-    color:#fff;
-    font-weight:700;
-    backdrop-filter:blur(12px);
-    box-shadow:0 8px 25px rgba(0,0,0,.18);
-    z-index:999;
-}
