@@ -260,67 +260,89 @@ body{
   .rj-nav a{font-size:13px !important;padding:10px 12px !important}
   .rj-nav a span{display:none}
 }
-.quick-actions{
+/* ===== OFFICIAL EMAIL + BOTTOM BUTTONS FIX ===== */
+
+.contact-card.main-card{
     display:flex;
-    gap:10px;
-    margin-top:16px;
+    flex-direction:column;
 }
 
-.quick-actions .action-btn{
+/* Email aur buttons wale area ko poori height dega */
+.official-contact-area{
+    display:flex;
+    flex-direction:column;
     flex:1;
-    height:48px;
+    width:100%;
+    margin-top:18px;
+}
+
+/* Email ko dobara premium centered box banayega */
+.official-email-box{
+    width:100%;
+    min-height:54px;
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:8px;
+    gap:10px;
+    padding:13px 12px;
+    color:#0964e8;
+    background:linear-gradient(135deg,#f4f9ff,#eaf4ff);
+    border:1.5px solid #a9d0ff;
     border-radius:12px;
+    font-size:17px;
+    font-weight:800;
+    text-align:center;
     text-decoration:none;
-    color:#fff;
-    font-weight:700;
-    background:linear-gradient(135deg,#1d8fff,#0b63ea);
-    box-shadow:0 8px 20px rgba(11,99,234,.22);
-    transition:.25s;
+    overflow-wrap:anywhere;
 }
 
-.quick-actions .action-btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 12px 25px rgba(11,99,234,.30);
+.official-email-box:hover{
+    color:#075ee8;
+    background:#ffffff;
+    border-color:#087df2;
 }
 
-@media(max-width:600px){
-    .quick-actions{
-        flex-direction:column;
-    }
-}
+/* Teen buttons card ke bilkul niche jayenge */
 .official-contact-buttons{
     display:flex;
     gap:10px;
-    margin-top:16px;
+    width:100%;
+    margin-top:auto;
+    padding-top:18px;
 }
 
-.official-contact-buttons .official-action-btn{
+.official-action-btn{
     flex:1;
-    height:48px;
+    min-height:48px;
     display:flex;
     align-items:center;
     justify-content:center;
     gap:8px;
+    padding:12px 8px;
     border-radius:12px;
-    text-decoration:none;
-    color:#fff;
-    font-weight:700;
-    background:linear-gradient(135deg,#1d8fff,#0b63ea);
+    color:#ffffff;
+    background:linear-gradient(135deg,#1995f8,#0863e9);
     box-shadow:0 8px 20px rgba(11,99,234,.22);
-    transition:.25s;
+    font-size:15px;
+    font-weight:800;
+    text-decoration:none;
+    transition:.25s ease;
 }
 
-.official-contact-buttons .official-action-btn:hover{
-    transform:translateY(-3px);
+.official-action-btn:hover{
+    color:#ffffff;
+    transform:translateY(-2px);
     box-shadow:0 12px 25px rgba(11,99,234,.30);
 }
 
+/* Mobile */
 @media(max-width:600px){
     .official-contact-buttons{
         flex-direction:column;
+        margin-top:22px;
+    }
+
+    .official-email-box{
+        font-size:14px;
     }
 }
