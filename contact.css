@@ -260,3 +260,87 @@ body{
   .rj-nav a{font-size:13px !important;padding:10px 12px !important}
   .rj-nav a span{display:none}
 }
+/* =========================================
+   CENTER EMAIL + FULL WIDTH CONTACT BUTTONS
+========================================= */
+
+.official-contact-area {
+  width: 100%;
+  margin-top: 22px;
+}
+
+.official-email-box {
+  width: 100%;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 18px;
+  margin: 0 auto 16px;
+  text-align: center;
+  text-decoration: none;
+  color: #0864e8;
+  background: linear-gradient(135deg, #f5faff, #eaf4ff);
+  border: 1.5px solid #a9d0ff;
+  border-radius: 13px;
+  font-size: 18px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+  transition: 0.25s ease;
+}
+
+.official-email-box:hover {
+  transform: translateY(-3px);
+  background: #ffffff;
+  border-color: #087df2;
+  box-shadow: 0 10px 24px rgba(7, 101, 236, 0.16);
+}
+
+.official-contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.official-action-btn {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 18px;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1594f7, #0862e8);
+  box-shadow: 0 9px 20px rgba(7, 101, 236, 0.22);
+  transition: 0.25s ease;
+}
+
+.official-action-btn:hover {
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 13px 27px rgba(7, 101, 236, 0.30);
+}
+
+.official-action-btn i {
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  .official-email-box {
+    font-size: 15px;
+    padding: 13px 10px;
+  }
+
+  .official-action-btn {
+    font-size: 15px;
+  }
+}
