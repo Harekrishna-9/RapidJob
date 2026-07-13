@@ -1,0 +1,254 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Passport Size Photo Maker | Rapid Job</title><link rel="icon" href="favicon-32.png"><link rel="stylesheet" href="common.css">
+<style>
+:root{
+  --rj-blue:#087cf0;
+  --rj-cyan:#23c3e6;
+  --rj-deep:#075bd8;
+}
+body{
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(35,195,230,.16), transparent 28%),
+    radial-gradient(circle at 90% 20%, rgba(8,124,240,.14), transparent 30%),
+    linear-gradient(135deg,#f7fbff,#eef7ff 45%,#f9fcff);
+  background-size:140% 140%;
+  animation:rjPageBg 12s ease-in-out infinite alternate;
+}
+@keyframes rjPageBg{
+  0%{background-position:0% 0%}
+  100%{background-position:100% 100%}
+}
+.page{position:relative;isolation:isolate}
+.page::before,.page::after{
+  content:"";
+  position:fixed;
+  width:260px;height:260px;
+  border-radius:50%;
+  filter:blur(12px);
+  opacity:.22;
+  z-index:-1;
+  animation:rjFloat 8s ease-in-out infinite;
+}
+.page::before{
+  top:18%;left:-100px;
+  background:linear-gradient(135deg,var(--rj-blue),var(--rj-cyan));
+}
+.page::after{
+  right:-110px;bottom:8%;
+  background:linear-gradient(135deg,#6f5cff,var(--rj-cyan));
+  animation-delay:-4s;
+}
+@keyframes rjFloat{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-22px) scale(1.07)}
+}
+.head{
+  position:relative;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  overflow:hidden;
+  background:linear-gradient(110deg,var(--rj-deep),var(--rj-blue),var(--rj-cyan));
+  background-size:220% 220%;
+  animation:rjHeaderFlow 7s ease infinite;
+}
+.head::after{
+  content:"";
+  position:absolute;
+  inset:-40% auto -40% -35%;
+  width:36%;
+  transform:skewX(-22deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
+  animation:rjShine 4.8s linear infinite;
+  pointer-events:none;
+}
+@keyframes rjHeaderFlow{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+@keyframes rjShine{
+  0%{left:-45%}
+  100%{left:125%}
+}
+.logo{
+  box-shadow:0 0 0 5px rgba(255,255,255,.18),0 10px 30px rgba(0,0,0,.16);
+  animation:rjLogoPulse 2.8s ease-in-out infinite;
+}
+@keyframes rjLogoPulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.045);filter:drop-shadow(0 0 10px rgba(255,255,255,.48))}
+}
+.nav{
+  animation:rjDrop .7s ease both;
+  backdrop-filter:blur(12px);
+}
+.nav a{
+  position:relative;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.nav a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 22px rgba(7,91,216,.16);
+}
+.main{animation:rjFadeUp .75s ease both}
+@keyframes rjDrop{
+  from{opacity:0;transform:translateY(-14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes rjFadeUp{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(120deg,var(--rj-deep),var(--rj-blue),var(--rj-cyan));
+  background-size:200% 200%;
+  animation:rjHeaderFlow 8s ease infinite,rjHeroIn .8s ease both;
+  box-shadow:0 18px 45px rgba(7,91,216,.18);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  width:220px;height:220px;
+  border-radius:50%;
+  right:-70px;top:-90px;
+  background:rgba(255,255,255,.16);
+  animation:rjOrbit 7s ease-in-out infinite;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  left:-65px;bottom:-95px;
+  width:190px;height:190px;
+  border-radius:50%;
+  border:26px solid rgba(255,255,255,.08);
+  animation:rjOrbit 9s ease-in-out infinite reverse;
+}
+@keyframes rjHeroIn{
+  from{opacity:0;transform:scale(.97)}
+  to{opacity:1;transform:scale(1)}
+}
+@keyframes rjOrbit{
+  0%,100%{transform:translate(0,0) rotate(0deg)}
+  50%{transform:translate(-18px,18px) rotate(180deg)}
+}
+.card{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(8,124,240,.22);
+  box-shadow:0 18px 45px rgba(20,77,130,.12);
+  transition:transform .3s ease,box-shadow .3s ease;
+  animation:rjCardIn .85s .12s ease both;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 24px 60px rgba(7,91,216,.18);
+}
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;left:-120%;
+  width:55%;height:3px;
+  background:linear-gradient(90deg,transparent,var(--rj-blue),var(--rj-cyan),transparent);
+  animation:rjBorderSweep 3.8s linear infinite;
+}
+@keyframes rjCardIn{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes rjBorderSweep{to{left:160%}}
+input,select{
+  transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease;
+}
+input:focus,select:focus{
+  border-color:var(--rj-blue)!important;
+  box-shadow:0 0 0 4px rgba(8,124,240,.12)!important;
+  transform:translateY(-1px);
+}
+button{
+  position:relative;
+  overflow:hidden;
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;
+}
+button:hover{
+  transform:translateY(-3px) scale(1.015);
+  box-shadow:0 12px 26px rgba(7,91,216,.22);
+  filter:saturate(1.1);
+}
+button:active{transform:scale(.98)}
+#pc{
+  max-width:100%;
+  border-radius:18px;
+  border:2px solid rgba(8,124,240,.18);
+  box-shadow:0 18px 40px rgba(7,91,216,.14);
+  background:#fff;
+  animation:rjPreviewGlow 3s ease-in-out infinite;
+  cursor:grab;
+}
+#pc:active{cursor:grabbing}
+@keyframes rjPreviewGlow{
+  0%,100%{box-shadow:0 18px 40px rgba(7,91,216,.14)}
+  50%{box-shadow:0 22px 50px rgba(35,195,230,.24)}
+}
+.rj-datetime{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 16px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:999px;
+  background:rgba(0,91,190,.34);
+  color:#fff;
+  font-weight:700;
+  box-shadow:0 10px 24px rgba(0,0,0,.12);
+  backdrop-filter:blur(12px);
+  white-space:nowrap;
+  animation:rjDatePulse 3s ease-in-out infinite;
+  z-index:2;
+}
+.rj-datetime span{display:flex;align-items:center;gap:6px}
+@keyframes rjDatePulse{
+  0%,100%{box-shadow:0 10px 24px rgba(0,0,0,.12)}
+  50%{box-shadow:0 10px 30px rgba(255,255,255,.18)}
+}
+@media(max-width:760px){
+  .head{
+    flex-direction:column;
+    align-items:flex-start;
+    padding-bottom:14px;
+  }
+  .brand{flex-wrap:wrap}
+  .rj-datetime{
+    width:100%;
+    justify-content:center;
+    margin:12px 0 0;
+    border-radius:18px;
+    font-size:13px;
+  }
+}
+</style>
+</head><body><div class="page"><header class="head"><div class="brand"><div class="logo">RJ</div><div><h1>Rapid Job</h1><p>⚡ Fast Government Job Updates!</p></div></div><div class="rj-datetime" aria-label="Current date and time"><span>📅 <b id="rjDate">--</b></span><span>🕒 <b id="rjTime">--</b></span></div></header><nav class="nav"><a class="" href="index.html">Home</a><a class="" href="index.html#current">Current Job</a><a class="" href="index.html#admit">Admit Card</a><a class="" href="index.html#result">Result</a><a class="" href="index.html#admission">Admission</a><a class="active" href="tools.html">Tools</a><a class="" href="contact.html">Contact Us</a></nav><main class="main"><section class="hero"><h2>Passport Size Photo Maker</h2><p>Crop, resize and download passport photos or A4 sheets.</p></section><section class="wrap"><div class="card"><div class="grid2"><div><label>Choose Photo<input type="file" id="pfile" accept="image/*"></label><label style="margin-top:15px">Size<select id="preset"><option value="413x531">Passport 35×45 mm</option><option value="602x602">India Passport 51×51 mm</option><option value="295x413">Aadhaar/PAN 25×35 mm</option></select></label><label style="margin-top:15px">Background<select id="bg"><option value="#fff">White</option><option value="#e6f4ff">Light Blue</option><option value="#2563eb">Blue</option></select></label><div class="btns"><button onclick="zoom(.08)">Zoom +</button><button class="purple" onclick="zoom(-.08)">Zoom -</button><button class="orange" onclick="resetP()">Reset</button><button class="green" onclick="downP()">Download HD</button><button class="purple" onclick="sheet()">A4 Sheet</button></div></div><div style="text-align:center"><h3>Live Preview</h3><canvas id="pc"></canvas></div></div></div></section></main><footer class="footer"><img src="rapid-job-logo-horizontal.png" alt="Rapid Job"><p>Fast Government Job Updates</p><p>© 2022 - 2026 Rapid Job</p></footer></div><script src="common.js"></script><script>let img=new Image(),loaded=false,scale=1,ox=0,oy=0,drag=false,sx=0,sy=0,c=pc,x=c.getContext('2d');function size(){let[w,h]=preset.value.split('x').map(Number);c.width=w;c.height=h;draw()}function draw(){x.fillStyle=bg.value;x.fillRect(0,0,c.width,c.height);if(!loaded){x.fillStyle='#64748b';x.font='bold 24px Arial';x.textAlign='center';x.fillText('Upload Photo',c.width/2,c.height/2);return}let r=Math.max(c.width/img.width,c.height/img.height)*scale,w=img.width*r,h=img.height*r;x.drawImage(img,(c.width-w)/2+ox,(c.height-h)/2+oy,w,h)}pfile.onchange=e=>{let f=e.target.files[0];if(!f)return;img.onload=()=>{loaded=true;scale=1;ox=oy=0;draw()};img.src=URL.createObjectURL(f)};preset.onchange=size;bg.onchange=draw;function zoom(v){scale=Math.max(.45,scale+v);draw()}function resetP(){scale=1;ox=oy=0;draw()}c.onmousedown=e=>{drag=true;sx=e.offsetX-ox;sy=e.offsetY-oy};c.onmousemove=e=>{if(drag){ox=e.offsetX-sx;oy=e.offsetY-sy;draw()}};onmouseup=()=>drag=false;function downP(){let a=document.createElement('a');a.download='rapid-job-passport.png';a.href=c.toDataURL();a.click()}function sheet(){let s=document.createElement('canvas');s.width=2480;s.height=3508;let q=s.getContext('2d');q.fillStyle='#fff';q.fillRect(0,0,s.width,s.height);let pw=420,ph=pw/(c.width/c.height),gx=160,gy=160;for(let i=0;i<20;i++){q.drawImage(c,gx,gy,pw,ph);gx+=500;if((i+1)%4===0){gx=160;gy+=ph+80}}let a=document.createElement('a');a.download='rapid-job-a4-sheet.png';a.href=s.toDataURL();a.click()}size()</script>
+<script>
+(function(){
+  const dateEl=document.getElementById('rjDate');
+  const timeEl=document.getElementById('rjTime');
+  function updateRapidJobClock(){
+    const now=new Date();
+    if(dateEl){
+      dateEl.textContent=new Intl.DateTimeFormat('en-IN',{
+        weekday:'long',day:'2-digit',month:'long',year:'numeric'
+      }).format(now);
+    }
+    if(timeEl){
+      timeEl.textContent=new Intl.DateTimeFormat('en-IN',{
+        hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true
+      }).format(now);
+    }
+  }
+  updateRapidJobClock();
+  setInterval(updateRapidJobClock,1000);
+})();
+</script>
+</body></html>
