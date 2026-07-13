@@ -346,3 +346,37 @@ body{
         font-size:14px;
     }
 }
+/* ===== RAPID JOB CONTACT CARD BRANDING ===== */
+
+.contact-card.main-card{
+    position:relative;
+    overflow:hidden;
+}
+
+.contact-card.main-card::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:58%;
+    width:210px;
+    height:210px;
+    transform:translate(-50%,-50%);
+    background:url("rapid-job-logo.png") center/contain no-repeat;
+    opacity:.055;
+    pointer-events:none;
+    z-index:0;
+}
+
+.contact-card.main-card > *{
+    position:relative;
+    z-index:1;
+}
+
+@media(max-width:600px){
+    .contact-card.main-card::after{
+        width:150px;
+        height:150px;
+        top:62%;
+        opacity:.045;
+    }
+}
