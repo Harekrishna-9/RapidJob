@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rapid Job - Fast Government Job Updates</title>
+  <meta name="description" content="Rapid Job provides fast government job updates, admit cards, results, answer keys, syllabus, admissions and scholarships.">
+  <meta name="keywords" content="Rapid Job, government jobs, sarkari job, admit card, results, answer key, syllabus">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=42">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+  <script defer src="script.js?v=42"></script>
+</head>
+<body>
+  <div class="page-wrap">
+    <header class="site-head">
+      <div class="brand-wrap">
+        <div class="rj-logo" aria-label="Rapid Job logo"><span>RJ</span></div>
+        <div class="brand-copy">
+          <h1>Rapid Job</h1>
+          <p>⚡ Fast Government Job Updates!</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="date-time-pill" aria-live="polite">
+          <span>📅 <b id="liveDate">Loading...</b></span>
+          <i></i>
+          <span>🕒 <b id="liveTime">--:--</b></span>
+        </div>
+        <button id="darkBtn" class="mode-btn" title="Dark Mode" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </header>
+
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="active" href="#home"><span>🏠</span> Home</a>
+      <a href="#current"><span>💼</span> Current Job</a>
+      <a href="#admit"><span>🪪</span> Admit Card</a>
+      <a href="#result"><span>🏅</span> Result</a>
+      <a href="#syllabus"><span>📘</span> Syllabus</a>
+      <a href="#admission"><span>🎓</span> Admission</a>
+      <a href="#Study Material"><span>📄</span> Study Material</a>
+      <a href="#Tool"><span>🛠️</span> Tools</a>
+      <a href="contact.html"><span>✉️</span> Contact Us</a>
+    </nav>
+
+    <main class="main-box" id="home">
+      <section class="hero-section">
+        <div class="hero-content">
+          <span class="hero-badge">India's Fast Job Update Portal</span>
+          <h2><span>Rapid</span> Job</h2>
+          <p>Your One Stop Destination for</p>
+          <h3>Sarkari Job, Result, Admit Card</h3>
+          <p>and Latest Exam Updates!</p>
+          <a class="hero-btn" href="#current">Explore Now <span>→</span></a>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <span class="float-icon icon-bank">🏛️</span>
+          <span class="float-icon icon-card">🪪</span>
+          <span class="float-icon icon-doc">📄</span>
+          <span class="float-icon icon-cup">🏆</span>
+          <div class="monitor">
+            <div class="monitor-top"><i></i><i></i><i></i></div>
+            <div class="monitor-screen">
+              <strong>JOBS</strong>
+              <span class="yellow-line"></span>
+              <span></span><span></span><span></span>
+            </div>
+            <div class="monitor-stand"></div>
+          </div>
+          <div class="magnifier"><span></span></div>
+          <div class="briefcase">▰</div>
+          <div class="plant"><span>🌿</span></div>
+        </div>
+      </section>
+
+ 
+  <!-- ===== LOCATION SECTION START ===== -->
+<section class="location-section">
+
+    <div class="location-grid">
+
+        <a href="#" class="state-card">
+            <img src="ap.svg" alt="Andhra Pradesh">
+            <span>Andhra Pradesh</span>
+        </a>
+
+        <a href="#" class="state-card">
+            <img src="assam.svg" alt="Assam">
+            <span>Assam</span>
+        </a>
+
+        <a href="#" class="state-card">
+            <img src="bihar.svg" alt="Bihar">
+            <span>Bihar</span>
+        </a>
+
+        <a href="#" class="state-card">
+            <img src="chhattisgarh.svg" alt="Chhattisgarh">
+            <span>Chhattisgarh</span>
+        </a>
+
+        <a href="#" class="state-card">
+            <img src="delhi.svg" alt="Delhi">
+            <span>Delhi</span>
+        </a>
+
+        <a href="#" class="state-card">
+            <img src="jharkhand.svg" alt="Jharkhand">
+            <span>Jharkhand</span>
+        </a>
+
+        <a href="#" class="state-card">
+            <img src="haryana.svg" alt="Haryana">
+            <span>Haryana</span>
+        </a>
+
+        <a href="#" class="state-card">
+            <img src="hp.svg" alt="Himachal Pradesh">
+            <span>Himachal Pradesh</span>
+        </a>
+
+        <a href="#" class="state-card">
+            <img src="mp.svg" alt="Madhya Pradesh">
+            <span>Madhya Pradesh</span>
+        </a>
+
+        <a href="#" class="state-card">
+            <img src="odisha.svg" alt="Odisha">
+            <span>Odisha</span>
+        </a>
+
+        <a href="#" class="state-card">
+            <img src="rajasthan.svg" alt="Rajasthan">
+            <span>Rajasthan</span>
+        </a>
+
+        <a href="#" class="state-card">
+            <img src="telangana.svg" alt="Telangana">
+            <span>Telangana</span>
+        </a>
+
+        <a href="#" class="state-card">
+            <img src="uk.svg" alt="Uttarakhand">
+            <span>Uttarakhand</span>
+        </a>
+
+        <a href="#" class="state-card">
+            <img src="up.svg" alt="Uttar Pradesh">
+            <span>Uttar Pradesh</span>
+        </a>
+
+        <a href="#" class="state-card">
+            <img src="wb.svg" alt="West Bengal">
+            <span>West Bengal</span>
+        </a>
+
+      <a href="#" class="state-card">
+            <img src="wb.svg" alt="West Bengal">
+            <span>West Bengal</span>
+        </a>
+      
+    </div>
+
+ </section>
+
+         <section><div class="ticker-pill"><b>🔥 Breaking</b><marquee id="tickerText">Loading latest updates...</marquee></div>
+      </section>
+
+      <section class="quick-grid" id="topCards"></section>
+
+      <div class="social-row">
+        <a href="#" class="social-card">
+          <span class="social-icon telegram">➤</span>
+          <span><small>Join Our</small><b>Telegram Channel</b></span>
+          <em>Join Now</em>
+        </a>
+        <a href="#" class="social-card">
+          <span class="social-icon whatsapp">☎</span>
+          <span><small>Join Our</small><b>WhatsApp Channel</b></span>
+          <em>Join Now</em>
+        </a>
+        <a href="#" class="social-card">
+          <span class="social-icon app">▣</span>
+          <span><small>Get Our</small><b>Rapid Job App</b></span>
+          <em>Soon</em>
+        </a>
+      </div>
+      
+      <section class="three-col">
+        <div class="panel"><h3>⚡ New Update</h3><div id="newList"></div></div>
+        <div class="panel" id="current"><h3>💼 Current Job</h3><div id="jobList"></div></div>
+        <div class="panel auto-panel" id="admission"><h3>🎓 Admission</h3><div id="admissionList"></div></div>
+      </section>
+
+      <section class="three-col extra-update-row">
+        <div class="panel" id="admit"><h3>📥 Admit Card</h3><div id="admitList"></div></div>
+        <div class="panel auto-panel" id="answer-key"><h3>✅ Answer Key</h3><div id="answerKeyList"></div></div>
+        <div class="panel auto-panel" id="result"><h3>📊 Result</h3><div id="resultList"></div></div>
+      </section>
+
+      <section class="three-col extra-update-row">
+        <div class="panel auto-panel" id="scholarship"><h3>🏆 Scholarship</h3><div id="scholarshipList"></div></div>
+        <div class="panel auto-panel" id="latest-blog"><h3>📰 Latest Blog</h3><div id="blogList"></div></div>
+        <div class="panel auto-panel" id="document"><h3>📄 Document</h3><div id="documentList"></div></div>
+      </section>
+
+      <section class="category-section">
+        <h3>Popular Categories</h3>
+        <div class="category-grid" id="categoryCards"></div>
+      </section>
+      
+    </main>
+
+    <footer class="main-footer" id="contact">
+    
+    <img class="footer-brand-logo" src="rapid-job-logo-horizontal.png" alt="Rapid Job - Fast Government Job Updates">
+    
+    <h2>Rapid Job</h2>
+    <p>Fast Government Job Updates</p>
+    <p>© 2022 - 2026 Rapid Job. All Rights Reserved.</p>
+
+    <div class="footer-links">
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="correction-policy.html">Correction Policy</a>
+        <a href="cookie-policy.html">Cookie Policy</a>
+        <a href="dmca.html">DMCA Policy</a>
+        <a href="editorial-policy.html">Editorial Policy</a>
+    </div>
+
+</footer>     
+  </div>
+  <script>
+window.addEventListener("pageshow", function (event) {
+    const nav = performance.getEntriesByType("navigation")[0];
+    if (event.persisted || (nav && nav.type === "back_forward")) {
+        window.location.reload();
+    }
+});
+</script>
+</body>
+</html>
