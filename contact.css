@@ -361,7 +361,7 @@ body{
     width:210px;
     height:210px;
     transform:translate(-50%,-50%);
-    background:url("rapid-job-logo.png") center/contain no-repeat;
+    background:url("rapid-job-logo-horizontal.png") center/contain no-repeat;
     opacity:.055;
     pointer-events:none;
     z-index:0;
