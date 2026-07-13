@@ -357,9 +357,9 @@ body{
     content:"";
     position:absolute;
     left:50%;
-    top:64%;
-    width: 230px;
-    height: auto;
+    top:58%;
+    width:210px;
+    height:210px;
     transform:translate(-50%,-50%);
     background:url("rapid-job-logo-horizontal.png") center/contain no-repeat;
     opacity:.055;
