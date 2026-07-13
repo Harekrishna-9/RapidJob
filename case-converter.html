@@ -1,0 +1,263 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Text Case Converter | Rapid Job</title><link rel="icon" href="favicon-32.png"><link rel="stylesheet" href="common.css">
+<style>
+:root{
+  --rj-blue:#087cf0;
+  --rj-cyan:#23c3e6;
+  --rj-deep:#075bd8;
+}
+body{
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(35,195,230,.16),transparent 28%),
+    radial-gradient(circle at 90% 20%,rgba(8,124,240,.14),transparent 30%),
+    linear-gradient(135deg,#f7fbff,#eef7ff 45%,#f9fcff);
+  background-size:140% 140%;
+  animation:rjPageBg 12s ease-in-out infinite alternate;
+}
+@keyframes rjPageBg{
+  0%{background-position:0 0}
+  100%{background-position:100% 100%}
+}
+.page-wrap{
+  position:relative;
+  isolation:isolate;
+}
+.page-wrap::before,.page-wrap::after{
+  content:"";
+  position:fixed;
+  width:260px;height:260px;
+  border-radius:50%;
+  filter:blur(12px);
+  opacity:.22;
+  z-index:-1;
+  animation:rjFloat 8s ease-in-out infinite;
+}
+.page-wrap::before{
+  top:18%;left:-100px;
+  background:linear-gradient(135deg,var(--rj-blue),var(--rj-cyan));
+}
+.page-wrap::after{
+  right:-110px;bottom:8%;
+  background:linear-gradient(135deg,#6f5cff,var(--rj-cyan));
+  animation-delay:-4s;
+}
+@keyframes rjFloat{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-22px) scale(1.07)}
+}
+.site-head{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  overflow:hidden;
+  background:linear-gradient(110deg,var(--rj-deep),var(--rj-blue),var(--rj-cyan));
+  background-size:220% 220%;
+  animation:rjHeaderFlow 7s ease infinite;
+}
+.site-head::after{
+  content:"";
+  position:absolute;
+  inset:-40% auto -40% -35%;
+  width:36%;
+  transform:skewX(-22deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
+  animation:rjShine 4.8s linear infinite;
+  pointer-events:none;
+}
+@keyframes rjHeaderFlow{
+  0%,100%{background-position:0 50%}
+  50%{background-position:100% 50%}
+}
+@keyframes rjShine{
+  0%{left:-45%}
+  100%{left:125%}
+}
+.rj-logo{
+  box-shadow:0 0 0 5px rgba(255,255,255,.18),0 10px 30px rgba(0,0,0,.16);
+  animation:rjLogoPulse 2.8s ease-in-out infinite;
+}
+@keyframes rjLogoPulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.045);filter:drop-shadow(0 0 10px rgba(255,255,255,.48))}
+}
+.rj-head-right{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:12px;
+  z-index:2;
+}
+.rj-datetime{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 16px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:999px;
+  background:rgba(0,91,190,.34);
+  color:#fff;
+  font-weight:700;
+  box-shadow:0 10px 24px rgba(0,0,0,.12);
+  backdrop-filter:blur(12px);
+  white-space:nowrap;
+  animation:rjDatePulse 3s ease-in-out infinite;
+}
+.rj-datetime span{display:flex;align-items:center;gap:6px}
+@keyframes rjDatePulse{
+  0%,100%{box-shadow:0 10px 24px rgba(0,0,0,.12)}
+  50%{box-shadow:0 10px 30px rgba(255,255,255,.18)}
+}
+.header-actions{margin:0!important}
+.top-nav{
+  animation:rjDrop .7s ease both;
+  backdrop-filter:blur(12px);
+}
+.top-nav a{
+  position:relative;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.top-nav a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 22px rgba(7,91,216,.16);
+}
+.main{animation:rjFadeUp .75s ease both}
+@keyframes rjDrop{
+  from{opacity:0;transform:translateY(-14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes rjFadeUp{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(120deg,var(--rj-deep),var(--rj-blue),var(--rj-cyan));
+  background-size:200% 200%;
+  animation:rjHeaderFlow 8s ease infinite,rjHeroIn .8s ease both;
+  box-shadow:0 18px 45px rgba(7,91,216,.18);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  width:220px;height:220px;
+  border-radius:50%;
+  right:-70px;top:-90px;
+  background:rgba(255,255,255,.16);
+  animation:rjOrbit 7s ease-in-out infinite;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  left:-65px;bottom:-95px;
+  width:190px;height:190px;
+  border-radius:50%;
+  border:26px solid rgba(255,255,255,.08);
+  animation:rjOrbit 9s ease-in-out infinite reverse;
+}
+@keyframes rjHeroIn{
+  from{opacity:0;transform:scale(.97)}
+  to{opacity:1;transform:scale(1)}
+}
+@keyframes rjOrbit{
+  0%,100%{transform:translate(0,0) rotate(0)}
+  50%{transform:translate(-18px,18px) rotate(180deg)}
+}
+.card{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(8,124,240,.22);
+  box-shadow:0 18px 45px rgba(20,77,130,.12);
+  transition:transform .3s ease,box-shadow .3s ease;
+  animation:rjCardIn .85s .12s ease both;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 24px 60px rgba(7,91,216,.18);
+}
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;left:-120%;
+  width:55%;height:3px;
+  background:linear-gradient(90deg,transparent,var(--rj-blue),var(--rj-cyan),transparent);
+  animation:rjBorderSweep 3.8s linear infinite;
+}
+@keyframes rjCardIn{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes rjBorderSweep{to{left:160%}}
+input,select,textarea{
+  transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--rj-blue)!important;
+  box-shadow:0 0 0 4px rgba(8,124,240,.12)!important;
+  transform:translateY(-1px);
+}
+button,.btn,.home-btn{
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;
+}
+button:hover,.btn:hover,.home-btn:hover{
+  transform:translateY(-3px) scale(1.015);
+  box-shadow:0 12px 26px rgba(7,91,216,.22);
+  filter:saturate(1.1);
+}
+.result,.progress,.check-list,.table-wrap{
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.result:hover,.progress:hover,.check-list:hover,.table-wrap:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(7,91,216,.10);
+}
+@media(max-width:860px){
+  .site-head{
+    flex-direction:column;
+    align-items:flex-start;
+    padding-bottom:14px;
+  }
+  .rj-head-right{
+    width:100%;
+    margin-left:0;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .rj-datetime{
+    width:100%;
+    justify-content:center;
+    border-radius:18px;
+    font-size:13px;
+  }
+}
+</style>
+</head>
+<body><div class="page-wrap"><header class="site-head"><div class="brand-wrap"><div class="rj-logo">RJ</div><div class="brand-copy"><h1>Rapid Job</h1><p>⚡ Fast Government Job Updates!</p></div></div><div class="rj-head-right"><div class="rj-datetime" aria-label="Current date and time"><span>📅 <b id="rjDate">--</b></span><span>🕒 <b id="rjTime">--</b></span></div><div class="header-actions"><a class="home-btn" href="tools.html">All Tools</a></div></div></header>
+<nav class="top-nav"><a class="" href="index.html">Home</a><a class="" href="index.html#current">Current Job</a><a class="" href="index.html#admit">Admit Card</a><a class="" href="index.html#result">Result</a><a class="" href="index.html#syllabus">Syllabus</a><a class="" href="index.html#admission">Admission</a><a class="" href="index.html#Study Material">Study Material</a><a class="active" href="tools.html">Tools</a><a class="" href="contact.html">Contact Us</a></nav><main class="main"><section class="hero"><span class="badge">Rapid Job Tools</span><h2>Text Case Converter</h2><p>Convert text to uppercase, lowercase, title case or sentence case.</p></section><section class="tool-shell"><div class="card"><h3>Text Converter</h3><textarea id="ctext" rows="10"></textarea><div class="btn-row"><button class="btn" onclick="upper()">UPPERCASE</button><button class="btn secondary" onclick="lower()">lowercase</button><button class="btn green" onclick="titleCase()">Title Case</button><button class="btn orange" onclick="sentence()">Sentence case</button></div></div></section></main>
+<footer class="main-footer"><img class="footer-logo" src="rapid-job-logo-horizontal.png" alt="Rapid Job"><p>Fast Government Job Updates</p><p>© 2022 - 2026 Rapid Job. All Rights Reserved.</p></footer></div><script src="common.js"></script><script>function upper(){ctext.value=ctext.value.toUpperCase()}function lower(){ctext.value=ctext.value.toLowerCase()}function titleCase(){ctext.value=ctext.value.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase())}function sentence(){let t=ctext.value.toLowerCase();ctext.value=t.replace(/(^\s*\w|[.!?]\s*\w)/g,c=>c.toUpperCase())}</script>
+<script>
+(function(){
+  const dateEl=document.getElementById('rjDate');
+  const timeEl=document.getElementById('rjTime');
+  function updateRapidJobClock(){
+    const now=new Date();
+    if(dateEl){
+      dateEl.textContent=new Intl.DateTimeFormat('en-IN',{
+        weekday:'long',day:'2-digit',month:'long',year:'numeric'
+      }).format(now);
+    }
+    if(timeEl){
+      timeEl.textContent=new Intl.DateTimeFormat('en-IN',{
+        hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true
+      }).format(now);
+    }
+  }
+  updateRapidJobClock();
+  setInterval(updateRapidJobClock,1000);
+})();
+</script>
+</body></html>
