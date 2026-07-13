@@ -292,3 +292,35 @@ body{
         flex-direction:column;
     }
 }
+.official-contact-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:16px;
+}
+
+.official-contact-buttons .official-action-btn{
+    flex:1;
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border-radius:12px;
+    text-decoration:none;
+    color:#fff;
+    font-weight:700;
+    background:linear-gradient(135deg,#1d8fff,#0b63ea);
+    box-shadow:0 8px 20px rgba(11,99,234,.22);
+    transition:.25s;
+}
+
+.official-contact-buttons .official-action-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(11,99,234,.30);
+}
+
+@media(max-width:600px){
+    .official-contact-buttons{
+        flex-direction:column;
+    }
+}
