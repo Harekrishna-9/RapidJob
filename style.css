@@ -1580,37 +1580,8 @@ body{
   box-shadow:0 10px 24px rgba(4,39,95,.18);
 }
 
-.hero-section::after{
-  content:"";
-  position:absolute;
-  right:24px;
-  bottom:14px;
-  width:150px;
-  height:150px;
-  background:url("rapid-job-logo.png") center/contain no-repeat;
-  opacity:.045;
-  pointer-events:none;
-  z-index:1;
-}
-
-.hero-content,
-.hero-visual{
-  position:relative;
-  z-index:2;
-}
-
 @media(max-width:760px){
   .footer-brand-logo{
     width:min(285px,92%);
     margin-bottom:14px;
   }
-
-  .hero-section::after{
-    width:105px;
-    height:105px;
-    right:8px;
-    bottom:8px;
-    opacity:.04;
-  }
-}
-
