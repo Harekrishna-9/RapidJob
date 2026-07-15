@@ -1160,3 +1160,270 @@ body{
 @keyframes powerPulse{50%{transform:scale(1.07);box-shadow:0 15px 32px rgba(220,38,38,.36)}}
 @media(max-width:1200px){.control-grid{grid-template-columns:repeat(2,1fr)}.chart-grid{grid-template-columns:1fr}.stats.power-stats{grid-template-columns:repeat(2,1fr)}.toggle-grid{grid-template-columns:repeat(2,1fr)}.user-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.control-grid,.stats.power-stats,.settings-grid,.user-grid{grid-template-columns:1fr}.toggle-grid{grid-template-columns:1fr}.chart-grid,.control-grid{margin:12px}.notification-card{grid-template-columns:42px 1fr}.notification-card>.inline-actions{grid-column:1/-1}}
+/* =====================================================
+   RAPID JOB ADMIN PROFILE SECTION FIX
+   Paste at the very end of admin.css
+   ===================================================== */
+
+.sidebar .brand-box{
+  width:100% !important;
+  padding:14px !important;
+  margin:0 0 16px !important;
+
+  display:flex !important;
+  flex-direction:column !important;
+  gap:12px !important;
+
+  border:1px solid rgba(56,189,248,.32) !important;
+  border-radius:20px !important;
+
+  background:
+    linear-gradient(145deg,#0c2344,#071a36) !important;
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.06) !important;
+
+  overflow:hidden !important;
+  position:relative !important;
+}
+
+/* Animated top border */
+.sidebar .brand-box::before{
+  content:"" !important;
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  top:0 !important;
+  height:4px !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      #087cf0,
+      #25c5df,
+      #10b981,
+      #7c3aed,
+      #087cf0
+    ) !important;
+
+  background-size:260% 100% !important;
+  animation:adminProfileBorder 4s linear infinite !important;
+}
+
+/* Rapid Job logo and name */
+.sidebar .brand{
+  width:100% !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:12px !important;
+
+  padding:0 !important;
+  margin:0 !important;
+}
+
+.sidebar .brand .logo,
+.sidebar .brand .brand-logo,
+.sidebar .brand-box .logo{
+  width:50px !important;
+  height:50px !important;
+  min-width:50px !important;
+
+  display:grid !important;
+  place-items:center !important;
+
+  border-radius:15px !important;
+
+  color:#fff !important;
+  font-size:20px !important;
+  font-weight:900 !important;
+
+  background:
+    linear-gradient(135deg,#087cf0,#25c5df) !important;
+
+  box-shadow:
+    0 10px 24px rgba(8,124,240,.30) !important;
+}
+
+.sidebar .brand h2,
+.sidebar .brand h3,
+.sidebar .brand strong{
+  margin:0 !important;
+  color:#fff !important;
+  font-size:19px !important;
+  font-weight:900 !important;
+  white-space:nowrap !important;
+}
+
+/* Super Admin badge */
+.sidebar .admin-badge{
+  width:100% !important;
+  min-height:38px !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:7px !important;
+
+  padding:9px 12px !important;
+  margin:0 !important;
+
+  border:1px solid rgba(255,255,255,.18) !important;
+  border-radius:13px !important;
+
+  color:#fff !important;
+  font-size:13px !important;
+  font-weight:900 !important;
+
+  background:
+    linear-gradient(135deg,#12c96f,#05a95d) !important;
+
+  box-shadow:
+    0 10px 22px rgba(16,185,129,.22) !important;
+
+  animation:adminBadgePulse 2.7s ease-in-out infinite !important;
+}
+
+/* Admin personal profile card */
+.sidebar .profile-mini{
+  width:100% !important;
+  min-height:66px !important;
+
+  display:grid !important;
+  grid-template-columns:1fr auto !important;
+  align-items:center !important;
+  gap:10px !important;
+
+  padding:11px 12px !important;
+  margin:0 !important;
+
+  border:1px solid rgba(96,165,250,.32) !important;
+  border-radius:15px !important;
+
+  background:
+    linear-gradient(135deg,#0968ec,#0754cf) !important;
+
+  box-shadow:
+    0 12px 26px rgba(7,91,216,.25) !important;
+
+  overflow:hidden !important;
+  position:relative !important;
+}
+
+/* Shine animation */
+.sidebar .profile-mini::after{
+  content:"" !important;
+  position:absolute !important;
+  top:-60% !important;
+  bottom:-60% !important;
+  left:-45% !important;
+  width:32% !important;
+
+  transform:skewX(-22deg) !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.25),
+      transparent
+    ) !important;
+
+  animation:adminProfileShine 5s linear infinite !important;
+  pointer-events:none !important;
+}
+
+/* Name */
+.sidebar .profile-mini strong,
+.sidebar .profile-mini .profile-name,
+.sidebar .profile-mini b{
+  display:block !important;
+  margin:0 !important;
+
+  color:#fff !important;
+  font-size:13px !important;
+  line-height:1.2 !important;
+  font-weight:900 !important;
+
+  white-space:normal !important;
+  word-break:break-word !important;
+
+  position:relative !important;
+  z-index:2 !important;
+}
+
+/* Email */
+.sidebar .profile-mini small,
+.sidebar .profile-mini .profile-email,
+.sidebar .profile-mini span{
+  display:block !important;
+  max-width:108px !important;
+
+  color:#eaf4ff !important;
+  font-size:9px !important;
+  line-height:1.3 !important;
+  font-weight:700 !important;
+
+  overflow:hidden !important;
+  white-space:nowrap !important;
+  text-overflow:ellipsis !important;
+
+  position:relative !important;
+  z-index:2 !important;
+}
+
+/* Prevent profile content from touching */
+.sidebar .profile-mini > div{
+  min-width:0 !important;
+  display:grid !important;
+  gap:4px !important;
+  position:relative !important;
+  z-index:2 !important;
+}
+
+/* Sidebar navigation starts with proper spacing */
+.sidebar .side-nav{
+  margin-top:4px !important;
+}
+
+/* Animation */
+@keyframes adminProfileBorder{
+  to{
+    background-position:260% 0;
+  }
+}
+
+@keyframes adminBadgePulse{
+  0%,100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.025);
+    box-shadow:
+      0 13px 28px rgba(16,185,129,.30);
+  }
+}
+
+@keyframes adminProfileShine{
+  to{
+    left:135%;
+  }
+}
+
+/* Small screen */
+@media(max-width:1000px){
+
+  .sidebar .brand-box{
+    padding:12px !important;
+  }
+
+  .sidebar .profile-mini{
+    grid-template-columns:1fr !important;
+  }
+
+  .sidebar .profile-mini small,
+  .sidebar .profile-mini .profile-email{
+    max-width:100% !important;
+  }
+}
