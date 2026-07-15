@@ -1,0 +1,597 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Current Affairs Practice Quiz | Rapid Job</title><link rel="icon" href="favicon-32.png"><link rel="stylesheet" href="common.css">
+
+<style>
+:root{--rj-blue:#087cf0;--rj-deep:#075bd8;--rj-cyan:#25c5df;--rj-text:#071b45}
+*{box-sizing:border-box}
+body{margin:0;overflow-x:hidden;color:var(--rj-text);background:radial-gradient(circle at 8% 14%,rgba(37,197,223,.16),transparent 28%),radial-gradient(circle at 92% 20%,rgba(8,124,240,.14),transparent 30%),linear-gradient(135deg,#f8fcff,#edf7ff 48%,#fff);background-size:145% 145%;animation:rjPageFlow 12s ease-in-out infinite alternate}
+@keyframes rjPageFlow{from{background-position:0 0}to{background-position:100% 100%}}
+.page-wrap{min-height:100vh;position:relative;isolation:isolate}
+.page-wrap:before,.page-wrap:after{content:"";position:fixed;width:250px;height:250px;border-radius:50%;filter:blur(18px);opacity:.2;z-index:-1;pointer-events:none;animation:rjBlob 8s ease-in-out infinite}
+.page-wrap:before{top:18%;left:-100px;background:linear-gradient(135deg,var(--rj-blue),var(--rj-cyan))}
+.page-wrap:after{right:-110px;bottom:7%;background:linear-gradient(135deg,#705cff,var(--rj-cyan));animation-delay:-4s}
+@keyframes rjBlob{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-24px) scale(1.07)}}
+.site-head{min-height:120px;padding:18px 42px;display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;overflow:hidden;color:#fff;background:linear-gradient(110deg,#075bd8,#087cf0,#25c5df);background-size:220% 220%;animation:rjHeaderFlow 7s ease infinite}
+.site-head:before{content:"";position:absolute;width:470px;height:180px;left:34%;top:14px;border:2px solid rgba(255,255,255,.12);border-radius:50%;transform:rotate(-9deg);pointer-events:none}
+.site-head:after{content:"";position:absolute;top:-50%;bottom:-50%;left:-40%;width:34%;transform:skewX(-23deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);animation:rjHeaderShine 5s linear infinite;pointer-events:none}
+@keyframes rjHeaderFlow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+@keyframes rjHeaderShine{from{left:-45%}to{left:125%}}
+.brand-wrap{display:flex;align-items:center;gap:16px;position:relative;z-index:2}
+.rj-logo{width:82px;height:82px;flex:0 0 82px;border:4px solid #fff;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:28px;font-weight:900;background:rgba(255,255,255,.1);box-shadow:0 0 0 5px rgba(255,255,255,.17),0 12px 30px rgba(0,0,0,.16);animation:rjLogoPulse 2.8s ease-in-out infinite}
+.rj-logo:after{content:"★";position:absolute;margin:0 0 44px 48px;font-size:12px}
+@keyframes rjLogoPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.045);filter:drop-shadow(0 0 10px rgba(255,255,255,.48))}}
+.brand-copy h1{margin:0;color:#fff;font-size:clamp(30px,4vw,50px);line-height:1;font-weight:900;letter-spacing:-1px}
+.brand-copy p{margin:10px 0 0;color:#fff;font-size:18px;font-weight:700}
+.rj-head-right{margin-left:auto;display:flex;align-items:center;justify-content:flex-end;gap:12px;position:relative;z-index:3}
+.rj-datetime{display:flex;align-items:center;gap:12px;padding:12px 18px;border:1px solid rgba(255,255,255,.38);border-radius:999px;color:#fff;font-weight:800;background:rgba(0,77,178,.3);backdrop-filter:blur(12px);box-shadow:0 10px 25px rgba(0,0,0,.14);white-space:nowrap;animation:rjDateGlow 3s ease-in-out infinite}
+.rj-datetime span{display:flex;align-items:center;gap:6px}
+@keyframes rjDateGlow{0%,100%{box-shadow:0 10px 25px rgba(0,0,0,.14)}50%{box-shadow:0 10px 32px rgba(255,255,255,.2)}}
+.header-actions{margin:0!important}
+.home-btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border:1px solid rgba(255,255,255,.38);border-radius:999px;color:#fff!important;text-decoration:none;font-weight:800;background:rgba(255,255,255,.13);box-shadow:0 10px 24px rgba(0,0,0,.11);transition:.25s}
+.home-btn:hover{transform:translateY(-3px);background:rgba(255,255,255,.22);box-shadow:0 14px 28px rgba(0,0,0,.16)}
+.top-nav{margin:0;padding:10px 28px;display:flex;align-items:center;gap:8px;overflow-x:auto;background:#fff;border-bottom:1px solid #d9e9fa;box-shadow:0 8px 22px rgba(20,77,130,.08);animation:rjNavDrop .7s ease both;scrollbar-width:thin}
+.top-nav a{flex:0 0 auto;padding:12px 15px;border-radius:13px;color:#071b45;text-decoration:none;font-weight:800;white-space:nowrap;transition:.24s}
+.top-nav a:hover,.top-nav a.active{color:#fff;background:linear-gradient(135deg,var(--rj-blue),var(--rj-deep));transform:translateY(-2px);box-shadow:0 10px 22px rgba(7,91,216,.2)}
+@keyframes rjNavDrop{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+.main{padding:34px 24px 54px;animation:rjMainIn .8s ease both}
+@keyframes rjMainIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.hero{max-width:1000px;margin:0 auto 24px;padding:32px 28px;text-align:center;color:#fff;position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(120deg,#075bd8,#087cf0,#25c5df);background-size:200% 200%;box-shadow:0 18px 45px rgba(7,91,216,.18);animation:rjHeaderFlow 8s ease infinite,rjHeroIn .8s ease both}
+.hero:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;right:-70px;top:-90px;background:rgba(255,255,255,.16);animation:rjOrbit 7s ease-in-out infinite}
+.hero:after{content:"";position:absolute;width:190px;height:190px;left:-65px;bottom:-95px;border:26px solid rgba(255,255,255,.08);border-radius:50%;animation:rjOrbit 9s ease-in-out infinite reverse}
+.hero .badge{display:inline-flex;position:relative;z-index:1;padding:7px 14px;border:1px solid rgba(255,255,255,.34);border-radius:999px;background:rgba(255,255,255,.13);font-weight:800}
+.hero h2{margin:13px 0 8px;position:relative;z-index:1;font-size:clamp(28px,4vw,44px);color:#fff}
+.hero p{margin:0;position:relative;z-index:1;color:#fff;font-size:17px}
+@keyframes rjHeroIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+@keyframes rjOrbit{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(-18px,18px) rotate(180deg)}}
+.tool-shell{max-width:1215px;margin:auto}
+.card{position:relative;overflow:hidden;padding:26px;border:1px solid rgba(8,124,240,.22);border-radius:24px;background:rgba(255,255,255,.95);box-shadow:0 18px 45px rgba(20,77,130,.12);animation:rjCardIn .85s .12s ease both;transition:.3s}
+.card:hover{transform:translateY(-5px);box-shadow:0 25px 62px rgba(7,91,216,.18)}
+.card:before{content:"";position:absolute;top:0;left:-120%;width:55%;height:3px;background:linear-gradient(90deg,transparent,var(--rj-blue),var(--rj-cyan),transparent);animation:rjCardSweep 3.8s linear infinite}
+@keyframes rjCardIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes rjCardSweep{to{left:160%}}
+.card h3{margin:0 0 20px;color:#075bd8;font-size:25px}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+label{display:block;color:#071b45;font-weight:800}
+input{width:100%;margin-top:8px;padding:15px 16px;border:1px solid #c9def6;border-radius:15px;outline:none;color:#071b45;background:#fbfdff;font:inherit;transition:.25s}
+input:focus{border-color:var(--rj-blue);box-shadow:0 0 0 4px rgba(8,124,240,.12);transform:translateY(-1px)}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{border:0;border-radius:14px;padding:13px 20px;color:#fff;background:linear-gradient(135deg,var(--rj-blue),var(--rj-deep));font-weight:800;cursor:pointer;box-shadow:0 10px 22px rgba(7,91,216,.18);transition:.22s}
+.btn.orange{background:linear-gradient(135deg,#ff9c18,#ff7100)}
+.btn:hover{transform:translateY(-3px) scale(1.015);box-shadow:0 14px 28px rgba(7,91,216,.24);filter:saturate(1.1)}
+.result{margin-top:18px;padding:17px 18px;border:1px solid #bddcff;border-radius:16px;background:#edf6ff;color:#071b45;font-weight:700;transition:.25s}
+.result:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(7,91,216,.11)}
+.main-footer{padding:30px 20px;text-align:center;color:#fff;background:linear-gradient(110deg,#075bd8,#087cf0,#25c5df);background-size:220% 220%;animation:rjHeaderFlow 8s ease infinite}
+.footer-logo{max-width:310px;width:80%;padding:8px;border-radius:14px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.16)}
+.main-footer p{margin:8px 0 0;color:#fff;font-weight:700}
+@media(max-width:760px){.site-head{padding:18px 24px;flex-direction:column;align-items:flex-start}.rj-head-right{width:100%;margin-left:0;justify-content:center;flex-wrap:wrap}.rj-datetime{width:100%;justify-content:center;border-radius:18px;font-size:13px}.brand-copy h1{font-size:34px}.brand-copy p{font-size:14px}.grid-2{grid-template-columns:1fr}.main{padding:24px 14px 40px}.card{padding:20px}}
+</style>
+<style>
+.notice{
+  margin:0 0 18px;
+  padding:14px 16px;
+  border:1px solid #bddcff;
+  border-radius:14px;
+  background:#f2f8ff;
+  color:#24466f;
+  font-weight:700;
+}
+#caquiz > div{
+  padding:18px;
+  margin:14px 0!important;
+  border:1px solid #d7e8fa;
+  border-radius:16px;
+  background:linear-gradient(135deg,#ffffff,#f7fbff);
+  box-shadow:0 10px 24px rgba(7,91,216,.08);
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+}
+#caquiz > div:hover{
+  transform:translateY(-3px);
+  border-color:#9dcaff;
+  box-shadow:0 16px 34px rgba(7,91,216,.13);
+}
+.quiz-option{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:10px;
+  padding:11px 13px;
+  border:1px solid #dbe9f8;
+  border-radius:13px;
+  background:#fbfdff;
+  cursor:pointer;
+  transition:transform .2s ease,background .2s ease,border-color .2s ease;
+}
+.quiz-option:hover{
+  transform:translateX(4px);
+  background:#edf6ff;
+  border-color:#9dcaff;
+}
+.quiz-option input{
+  width:auto!important;
+  margin:0!important;
+  accent-color:#087cf0;
+}
+</style>
+
+<style>
+/* ===== RAPID JOB BILINGUAL UNLIMITED QUIZ – SCOPED ADDITIONS ===== */
+.ca-toolbar{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(150px,1fr));
+  gap:12px;
+  margin:0 0 18px;
+}
+.ca-control{
+  display:grid;
+  gap:7px;
+  color:#071b45;
+  font-weight:800;
+}
+.ca-control select{
+  width:100%;
+  padding:12px 13px;
+  border:1px solid #c9def6;
+  border-radius:13px;
+  outline:none;
+  color:#071b45;
+  background:#fbfdff;
+  font:inherit;
+}
+.ca-stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin:15px 0;
+}
+.ca-stat{
+  padding:12px;
+  border:1px solid #d4e7fb;
+  border-radius:14px;
+  text-align:center;
+  background:linear-gradient(135deg,#fff,#f3f9ff);
+  font-weight:900;
+}
+.ca-stat small{display:block;margin-top:4px;color:#61738d;font-size:11px}
+.ca-progress{
+  height:11px;
+  margin:12px 0 20px;
+  overflow:hidden;
+  border-radius:999px;
+  background:#e7f0fa;
+}
+.ca-progress span{
+  display:block;
+  width:0;
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg,#087cf0,#25c5df,#10b981);
+  transition:width .3s ease;
+}
+.ca-question-card{
+  padding:22px!important;
+  margin:0!important;
+  border:1px solid #cce2fa!important;
+  border-radius:20px!important;
+  background:linear-gradient(135deg,#fff,#f7fbff)!important;
+  box-shadow:0 14px 34px rgba(7,91,216,.10)!important;
+}
+.ca-qtop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:14px;
+}
+.ca-chip{
+  display:inline-flex;
+  padding:7px 11px;
+  border-radius:999px;
+  color:#075bd8;
+  background:#eaf4ff;
+  border:1px solid #c7e0fb;
+  font-size:12px;
+  font-weight:900;
+}
+.ca-question{
+  margin:0 0 16px;
+  color:#071b45;
+  font-size:20px;
+  line-height:1.5;
+}
+.ca-question .hi{
+  display:block;
+  margin-top:6px;
+  color:#24466f;
+  font-size:17px;
+}
+.ca-option{
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  margin-top:10px;
+  padding:13px 14px;
+  border:1px solid #d9e8f8;
+  border-radius:14px;
+  background:#fff;
+  cursor:pointer;
+  transition:.2s;
+}
+.ca-option:hover{
+  transform:translateX(4px);
+  border-color:#8fc3fb;
+  background:#eef7ff;
+}
+.ca-option input{
+  width:auto!important;
+  margin:3px 0 0!important;
+  accent-color:#087cf0;
+}
+.ca-option.correct{
+  border-color:#50c878;
+  background:#ecfff3;
+}
+.ca-option.wrong{
+  border-color:#ff7d7d;
+  background:#fff0f0;
+}
+.ca-explanation{
+  display:none;
+  margin-top:16px;
+  padding:14px 15px;
+  border-left:4px solid #087cf0;
+  border-radius:12px;
+  background:#edf6ff;
+  line-height:1.6;
+  font-weight:700;
+}
+.ca-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:18px;
+}
+.ca-actions .btn.secondary{
+  color:#075bd8;
+  background:#eaf4ff;
+  box-shadow:none;
+}
+.ca-actions .btn.green{
+  background:linear-gradient(135deg,#16a34a,#10b981);
+}
+.ca-actions .btn.purple{
+  background:linear-gradient(135deg,#7c3aed,#4f46e5);
+}
+.ca-result-box{
+  display:none;
+  margin-top:20px;
+  padding:20px;
+  border:1px solid #b9dcff;
+  border-radius:18px;
+  background:linear-gradient(135deg,#eef7ff,#fff);
+}
+.ca-result-score{
+  font-size:34px;
+  font-weight:900;
+  color:#075bd8;
+}
+.ca-empty{
+  padding:28px;
+  text-align:center;
+  border:1px dashed #9dcaff;
+  border-radius:16px;
+  background:#f8fbff;
+  font-weight:800;
+}
+@media(max-width:900px){
+  .ca-toolbar{grid-template-columns:repeat(2,1fr)}
+  .ca-stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .ca-toolbar{grid-template-columns:1fr}
+  .ca-question{font-size:18px}
+  .ca-question .hi{font-size:15px}
+  .ca-actions .btn{flex:1 1 44%}
+}
+</style>
+
+</head>
+<body><div class="page-wrap"><header class="site-head"><div class="brand-wrap"><div class="rj-logo">RJ</div><div class="brand-copy"><h1>Rapid Job</h1><p>⚡ Fast Government Job Updates!</p></div></div><div class="rj-head-right"><div class="rj-datetime" aria-label="Current date and time"><span>📅 <b id="rjDate">--</b></span><span>🕒 <b id="rjTime">--</b></span></div><div class="header-actions"><a class="home-btn" href="tools.html">All Tools</a></div></div></header>
+<nav class="top-nav"><a class="" href="index.html">Home</a><a class="" href="index.html#current">Current Job</a><a class="" href="index.html#admit">Admit Card</a><a class="" href="index.html#result">Result</a><a class="" href="index.html#syllabus">Syllabus</a><a class="" href="index.html#admission">Admission</a><a class="" href="index.html#Study Material">Study Material</a><a class="active" href="tools.html">Tools</a><a class="" href="contact.html">Contact Us</a></nav><main class="main"><section class="hero"><span class="badge">Rapid Job Tools</span><h2>Current Affairs Practice Quiz</h2><p>Use this editable quiz format for daily current-affairs practice.</p></section><section class="tool-shell">
+<div class="card">
+  <h3>Unlimited Current Affairs Quiz</h3>
+  <p class="notice">English + Hindi bilingual practice. Choose category, difficulty and number of questions, then start a fresh random quiz.</p>
+
+  <div class="ca-toolbar">
+    <label class="ca-control">Language
+      <select id="caLanguage">
+        <option value="both">English + Hindi</option>
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+      </select>
+    </label>
+    <label class="ca-control">Category
+      <select id="caCategory">
+        <option value="all">All Categories</option>
+      </select>
+    </label>
+    <label class="ca-control">Difficulty
+      <select id="caDifficulty">
+        <option value="all">All Levels</option>
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+      </select>
+    </label>
+    <label class="ca-control">Questions
+      <select id="caCount">
+        <option value="10">10 Questions</option>
+        <option value="20">20 Questions</option>
+        <option value="30">30 Questions</option>
+        <option value="all">All Available</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="btn-row" style="margin:0 0 16px">
+    <button class="btn" type="button" onclick="caStartQuiz()">Start New Quiz</button>
+    <button class="btn orange" type="button" onclick="caShuffleQuiz()">Shuffle Again</button>
+  </div>
+
+  <div class="ca-stats">
+    <div class="ca-stat"><span id="caCurrent">0</span><small>CURRENT</small></div>
+    <div class="ca-stat"><span id="caTotal">0</span><small>TOTAL</small></div>
+    <div class="ca-stat"><span id="caAnswered">0</span><small>ANSWERED</small></div>
+    <div class="ca-stat"><span id="caLiveScore">0</span><small>SCORE</small></div>
+  </div>
+
+  <div class="ca-progress"><span id="caProgressBar"></span></div>
+  <div id="caquiz"></div>
+
+  <div class="ca-actions">
+    <button class="btn secondary" type="button" onclick="caPrevious()">← Previous</button>
+    <button class="btn purple" type="button" onclick="caBookmark()">🔖 Bookmark</button>
+    <button class="btn secondary" type="button" onclick="caSkip()">Skip</button>
+    <button class="btn" type="button" onclick="caNext()">Save & Next →</button>
+    <button class="btn green" type="button" onclick="caSubmit()">Submit Quiz</button>
+  </div>
+
+  <div class="ca-result-box" id="caout"></div>
+</div>
+</section></main>
+<footer class="main-footer"><img class="footer-logo" src="rapid-job-logo-horizontal.png" alt="Rapid Job"><p>Fast Government Job Updates</p><p>© 2022 - 2026 Rapid Job. All Rights Reserved.</p></footer></div><script src="common.js"></script>
+<script>
+/* ===== RAPID JOB BILINGUAL CURRENT AFFAIRS QUESTION BANK =====
+   Add unlimited questions by copying any object below and changing its values.
+*/
+const caQuestionBank = [
+{category:"India",difficulty:"Easy",en:"What is the national currency of India?",hi:"भारत की राष्ट्रीय मुद्रा क्या है?",options:[["Rupee","रुपया"],["Dollar","डॉलर"],["Euro","यूरो"],["Yen","येन"]],answer:0,exEn:"The Indian Rupee (INR) is the official currency of India.",exHi:"भारतीय रुपया (INR) भारत की आधिकारिक मुद्रा है।"},
+{category:"Polity",difficulty:"Easy",en:"When did the Constitution of India come into effect?",hi:"भारत का संविधान कब लागू हुआ?",options:[["15 August 1947","15 अगस्त 1947"],["26 January 1950","26 जनवरी 1950"],["26 November 1949","26 नवंबर 1949"],["2 October 1950","2 अक्टूबर 1950"]],answer:1,exEn:"The Constitution came into effect on 26 January 1950.",exHi:"संविधान 26 जनवरी 1950 को लागू हुआ।"},
+{category:"Science",difficulty:"Easy",en:"ISRO is primarily related to which field?",hi:"इसरो मुख्य रूप से किस क्षेत्र से संबंधित है?",options:[["Agriculture","कृषि"],["Space","अंतरिक्ष"],["Banking","बैंकिंग"],["Health","स्वास्थ्य"]],answer:1,exEn:"ISRO is India's national space agency.",exHi:"इसरो भारत की राष्ट्रीय अंतरिक्ष एजेंसी है।"},
+{category:"Geography",difficulty:"Easy",en:"Which is the longest river in India?",hi:"भारत की सबसे लंबी नदी कौन-सी है?",options:[["Ganga","गंगा"],["Yamuna","यमुना"],["Godavari","गोदावरी"],["Narmada","नर्मदा"]],answer:0,exEn:"The Ganga is generally regarded as India's longest river.",exHi:"गंगा को सामान्यतः भारत की सबसे लंबी नदी माना जाता है।"},
+{category:"History",difficulty:"Easy",en:"Who was the first President of India?",hi:"भारत के प्रथम राष्ट्रपति कौन थे?",options:[["Dr. Rajendra Prasad","डॉ. राजेंद्र प्रसाद"],["Jawaharlal Nehru","जवाहरलाल नेहरू"],["S. Radhakrishnan","एस. राधाकृष्णन"],["B. R. Ambedkar","बी. आर. आंबेडकर"]],answer:0,exEn:"Dr. Rajendra Prasad was the first President of India.",exHi:"डॉ. राजेंद्र प्रसाद भारत के प्रथम राष्ट्रपति थे।"},
+{category:"Economy",difficulty:"Medium",en:"Which institution issues currency notes in India, except the one-rupee note?",hi:"एक रुपये के नोट को छोड़कर भारत में मुद्रा नोट कौन जारी करता है?",options:[["SEBI","सेबी"],["RBI","आरबीआई"],["Finance Commission","वित्त आयोग"],["NITI Aayog","नीति आयोग"]],answer:1,exEn:"The Reserve Bank of India issues banknotes except the one-rupee note.",exHi:"एक रुपये के नोट को छोड़कर बैंक नोट भारतीय रिज़र्व बैंक जारी करता है।"},
+{category:"Sports",difficulty:"Easy",en:"How many players are there in a cricket team on the field?",hi:"मैदान पर एक क्रिकेट टीम में कितने खिलाड़ी होते हैं?",options:[["9","9"],["10","10"],["11","11"],["12","12"]],answer:2,exEn:"A cricket team has 11 players.",exHi:"एक क्रिकेट टीम में 11 खिलाड़ी होते हैं।"},
+{category:"Computer",difficulty:"Easy",en:"What does CPU stand for?",hi:"CPU का पूर्ण रूप क्या है?",options:[["Central Processing Unit","सेंट्रल प्रोसेसिंग यूनिट"],["Computer Personal Unit","कंप्यूटर पर्सनल यूनिट"],["Central Program Utility","सेंट्रल प्रोग्राम यूटिलिटी"],["Control Processing User","कंट्रोल प्रोसेसिंग यूज़र"]],answer:0,exEn:"CPU stands for Central Processing Unit.",exHi:"CPU का अर्थ Central Processing Unit है।"},
+{category:"Science",difficulty:"Medium",en:"Which gas is most abundant in Earth's atmosphere?",hi:"पृथ्वी के वायुमंडल में सबसे अधिक कौन-सी गैस है?",options:[["Oxygen","ऑक्सीजन"],["Nitrogen","नाइट्रोजन"],["Carbon dioxide","कार्बन डाइऑक्साइड"],["Hydrogen","हाइड्रोजन"]],answer:1,exEn:"Nitrogen makes up about 78% of Earth's atmosphere.",exHi:"पृथ्वी के वायुमंडल में लगभग 78% नाइट्रोजन है।"},
+{category:"Polity",difficulty:"Medium",en:"Who is known as the architect of the Indian Constitution?",hi:"भारतीय संविधान के शिल्पकार के रूप में किसे जाना जाता है?",options:[["Mahatma Gandhi","महात्मा गांधी"],["B. R. Ambedkar","बी. आर. आंबेडकर"],["Rajendra Prasad","राजेंद्र प्रसाद"],["Sardar Patel","सरदार पटेल"]],answer:1,exEn:"Dr. B. R. Ambedkar chaired the Drafting Committee.",exHi:"डॉ. बी. आर. आंबेडकर प्रारूप समिति के अध्यक्ष थे।"},
+{category:"Geography",difficulty:"Medium",en:"Which is the largest state of India by area?",hi:"क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य कौन-सा है?",options:[["Madhya Pradesh","मध्य प्रदेश"],["Maharashtra","महाराष्ट्र"],["Rajasthan","राजस्थान"],["Uttar Pradesh","उत्तर प्रदेश"]],answer:2,exEn:"Rajasthan is India's largest state by area.",exHi:"राजस्थान क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य है।"},
+{category:"History",difficulty:"Medium",en:"In which year did India become independent?",hi:"भारत किस वर्ष स्वतंत्र हुआ?",options:[["1945","1945"],["1946","1946"],["1947","1947"],["1950","1950"]],answer:2,exEn:"India became independent on 15 August 1947.",exHi:"भारत 15 अगस्त 1947 को स्वतंत्र हुआ।"},
+{category:"India",difficulty:"Easy",en:"What is the national animal of India?",hi:"भारत का राष्ट्रीय पशु कौन-सा है?",options:[["Lion","सिंह"],["Tiger","बाघ"],["Elephant","हाथी"],["Leopard","तेंदुआ"]],answer:1,exEn:"The Bengal tiger is India's national animal.",exHi:"बंगाल टाइगर भारत का राष्ट्रीय पशु है।"},
+{category:"India",difficulty:"Easy",en:"What is the national flower of India?",hi:"भारत का राष्ट्रीय फूल कौन-सा है?",options:[["Rose","गुलाब"],["Lotus","कमल"],["Sunflower","सूरजमुखी"],["Jasmine","चमेली"]],answer:1,exEn:"The lotus is India's national flower.",exHi:"कमल भारत का राष्ट्रीय फूल है।"},
+{category:"Economy",difficulty:"Easy",en:"What is the full form of GST?",hi:"GST का पूर्ण रूप क्या है?",options:[["Goods and Services Tax","वस्तु एवं सेवा कर"],["General Sales Tariff","सामान्य बिक्री शुल्क"],["Government Service Tax","सरकारी सेवा कर"],["Gross State Tax","सकल राज्य कर"]],answer:0,exEn:"GST stands for Goods and Services Tax.",exHi:"GST का अर्थ वस्तु एवं सेवा कर है।"},
+{category:"Computer",difficulty:"Medium",en:"Which of these is an operating system?",hi:"इनमें से कौन एक ऑपरेटिंग सिस्टम है?",options:[["Windows","विंडोज़"],["Google","गूगल"],["HTML","एचटीएमएल"],["Python","पाइथन"]],answer:0,exEn:"Windows is an operating system.",exHi:"विंडोज़ एक ऑपरेटिंग सिस्टम है।"},
+{category:"Science",difficulty:"Easy",en:"Which planet is known as the Red Planet?",hi:"किस ग्रह को लाल ग्रह कहा जाता है?",options:[["Venus","शुक्र"],["Mars","मंगल"],["Jupiter","बृहस्पति"],["Mercury","बुध"]],answer:1,exEn:"Mars is called the Red Planet.",exHi:"मंगल को लाल ग्रह कहा जाता है।"},
+{category:"Sports",difficulty:"Medium",en:"The Olympic Games are generally held after how many years?",hi:"ओलंपिक खेल सामान्यतः कितने वर्षों के अंतराल पर होते हैं?",options:[["2 years","2 वर्ष"],["3 years","3 वर्ष"],["4 years","4 वर्ष"],["5 years","5 वर्ष"]],answer:2,exEn:"The Summer and Winter Olympics each follow a four-year cycle.",exHi:"ग्रीष्म और शीतकालीन ओलंपिक प्रत्येक चार वर्षीय चक्र का पालन करते हैं।"},
+{category:"Geography",difficulty:"Easy",en:"What is the capital of Bihar?",hi:"बिहार की राजधानी क्या है?",options:[["Gaya","गया"],["Patna","पटना"],["Bhagalpur","भागलपुर"],["Muzaffarpur","मुजफ्फरपुर"]],answer:1,exEn:"Patna is the capital of Bihar.",exHi:"पटना बिहार की राजधानी है।"},
+{category:"History",difficulty:"Hard",en:"Who founded the Maurya Empire?",hi:"मौर्य साम्राज्य की स्थापना किसने की?",options:[["Ashoka","अशोक"],["Chandragupta Maurya","चंद्रगुप्त मौर्य"],["Bindusara","बिंदुसार"],["Harsha","हर्ष"]],answer:1,exEn:"Chandragupta Maurya founded the Maurya Empire.",exHi:"चंद्रगुप्त मौर्य ने मौर्य साम्राज्य की स्थापना की।"},
+{category:"Polity",difficulty:"Hard",en:"Which Article of the Constitution deals with equality before law?",hi:"संविधान का कौन-सा अनुच्छेद कानून के समक्ष समानता से संबंधित है?",options:[["Article 14","अनुच्छेद 14"],["Article 19","अनुच्छेद 19"],["Article 21","अनुच्छेद 21"],["Article 32","अनुच्छेद 32"]],answer:0,exEn:"Article 14 guarantees equality before law and equal protection of laws.",exHi:"अनुच्छेद 14 कानून के समक्ष समानता और कानूनों के समान संरक्षण की गारंटी देता है।"},
+{category:"Economy",difficulty:"Hard",en:"Which body recommends the distribution of taxes between the Union and States?",hi:"केंद्र और राज्यों के बीच करों के वितरण की सिफारिश कौन-सा निकाय करता है?",options:[["Election Commission","निर्वाचन आयोग"],["Finance Commission","वित्त आयोग"],["UPSC","संघ लोक सेवा आयोग"],["NITI Aayog","नीति आयोग"]],answer:1,exEn:"The Finance Commission recommends tax distribution between the Union and States.",exHi:"वित्त आयोग केंद्र और राज्यों के बीच कर वितरण की सिफारिश करता है।"},
+{category:"Computer",difficulty:"Hard",en:"Which protocol is mainly used to securely browse websites?",hi:"वेबसाइटों को सुरक्षित रूप से ब्राउज़ करने के लिए मुख्यतः कौन-सा प्रोटोकॉल उपयोग होता है?",options:[["FTP","एफटीपी"],["HTTP","एचटीटीपी"],["HTTPS","एचटीटीपीएस"],["SMTP","एसएमटीपी"]],answer:2,exEn:"HTTPS encrypts communication between the browser and website.",exHi:"HTTPS ब्राउज़र और वेबसाइट के बीच संचार को एन्क्रिप्ट करता है।"},
+{category:"Science",difficulty:"Hard",en:"What is the SI unit of electric current?",hi:"विद्युत धारा की SI इकाई क्या है?",options:[["Volt","वोल्ट"],["Ampere","एम्पियर"],["Ohm","ओम"],["Watt","वाट"]],answer:1,exEn:"The ampere is the SI unit of electric current.",exHi:"एम्पियर विद्युत धारा की SI इकाई है।"},
+{category:"India",difficulty:"Medium",en:"Which city is known as the Silicon Valley of India?",hi:"भारत की सिलिकॉन वैली किस शहर को कहा जाता है?",options:[["Hyderabad","हैदराबाद"],["Pune","पुणे"],["Bengaluru","बेंगलुरु"],["Chennai","चेन्नई"]],answer:2,exEn:"Bengaluru is widely called the Silicon Valley of India.",exHi:"बेंगलुरु को व्यापक रूप से भारत की सिलिकॉन वैली कहा जाता है।"},
+{category:"Geography",difficulty:"Hard",en:"The Tropic of Cancer passes through how many Indian states?",hi:"कर्क रेखा भारत के कितने राज्यों से होकर गुजरती है?",options:[["6","6"],["7","7"],["8","8"],["9","9"]],answer:2,exEn:"The Tropic of Cancer passes through eight Indian states.",exHi:"कर्क रेखा भारत के आठ राज्यों से होकर गुजरती है।"},
+{category:"History",difficulty:"Medium",en:"Who gave the slogan 'Do or Die'?",hi:"'करो या मरो' का नारा किसने दिया?",options:[["Subhas Chandra Bose","सुभाष चंद्र बोस"],["Mahatma Gandhi","महात्मा गांधी"],["Bhagat Singh","भगत सिंह"],["Bal Gangadhar Tilak","बाल गंगाधर तिलक"]],answer:1,exEn:"Mahatma Gandhi gave the slogan during the Quit India Movement.",exHi:"महात्मा गांधी ने भारत छोड़ो आंदोलन के दौरान यह नारा दिया।"},
+{category:"Sports",difficulty:"Hard",en:"Which country hosted the first modern Olympic Games?",hi:"पहले आधुनिक ओलंपिक खेलों की मेजबानी किस देश ने की?",options:[["France","फ्रांस"],["Greece","ग्रीस"],["Italy","इटली"],["United Kingdom","यूनाइटेड किंगडम"]],answer:1,exEn:"The first modern Olympic Games were held in Athens, Greece, in 1896.",exHi:"पहले आधुनिक ओलंपिक खेल 1896 में एथेंस, ग्रीस में हुए थे।"},
+{category:"Polity",difficulty:"Medium",en:"What is the minimum age to become a member of the Lok Sabha?",hi:"लोकसभा का सदस्य बनने की न्यूनतम आयु क्या है?",options:[["21 years","21 वर्ष"],["25 years","25 वर्ष"],["30 years","30 वर्ष"],["35 years","35 वर्ष"]],answer:1,exEn:"A candidate must be at least 25 years old for the Lok Sabha.",exHi:"लोकसभा के लिए उम्मीदवार की आयु कम से कम 25 वर्ष होनी चाहिए।"},
+{category:"Economy",difficulty:"Medium",en:"Which tax is directly paid by an individual to the government?",hi:"कौन-सा कर व्यक्ति द्वारा सीधे सरकार को दिया जाता है?",options:[["Income Tax","आयकर"],["GST","जीएसटी"],["Customs Duty","सीमा शुल्क"],["Excise Duty","उत्पाद शुल्क"]],answer:0,exEn:"Income tax is a direct tax.",exHi:"आयकर एक प्रत्यक्ष कर है।"}
+];
+
+let caQuiz = [];
+let caIndex = 0;
+let caAnswers = {};
+let caBookmarks = new Set();
+let caSubmitted = false;
+
+const $ = id => document.getElementById(id);
+
+function caShuffleArray(arr){
+  const copy=[...arr];
+  for(let i=copy.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [copy[i],copy[j]]=[copy[j],copy[i]];
+  }
+  return copy;
+}
+
+function caBuildCategories(){
+  const categories=[...new Set(caQuestionBank.map(q=>q.category))].sort();
+  $("caCategory").innerHTML='<option value="all">All Categories</option>'+
+    categories.map(c=>`<option value="${c}">${c}</option>`).join("");
+}
+
+function caStartQuiz(){
+  const category=$("caCategory").value;
+  const difficulty=$("caDifficulty").value;
+  const countValue=$("caCount").value;
+
+  let pool=caQuestionBank.filter(q=>
+    (category==="all"||q.category===category) &&
+    (difficulty==="all"||q.difficulty===difficulty)
+  );
+
+  pool=caShuffleArray(pool);
+  const limit=countValue==="all"?pool.length:Math.min(Number(countValue),pool.length);
+  caQuiz=pool.slice(0,limit);
+  caIndex=0;
+  caAnswers={};
+  caBookmarks=new Set();
+  caSubmitted=false;
+  $("caout").style.display="none";
+  caRender();
+}
+
+function caShuffleQuiz(){ caStartQuiz(); }
+
+function caQuestionText(q){
+  const lang=$("caLanguage").value;
+  if(lang==="en") return q.en;
+  if(lang==="hi") return q.hi;
+  return `${q.en}<span class="hi">${q.hi}</span>`;
+}
+
+function caOptionText(option){
+  const lang=$("caLanguage").value;
+  if(lang==="en") return option[0];
+  if(lang==="hi") return option[1];
+  return `${option[0]} / ${option[1]}`;
+}
+
+function caRender(){
+  if(!caQuiz.length){
+    $("caquiz").innerHTML='<div class="ca-empty">No questions found for this filter. Please choose another category or difficulty.</div>';
+    caUpdateStats();
+    return;
+  }
+
+  const q=caQuiz[caIndex];
+  const selected=caAnswers[caIndex];
+  const disabled=caSubmitted?"disabled":"";
+  const options=q.options.map((o,j)=>{
+    let cls="ca-option";
+    if(caSubmitted){
+      if(j===q.answer) cls+=" correct";
+      else if(selected===j) cls+=" wrong";
+    }
+    return `<label class="${cls}">
+      <input type="radio" name="caAnswer" value="${j}" ${selected===j?"checked":""} ${disabled}
+        onchange="caSelect(${j})">
+      <span><b>${String.fromCharCode(65+j)}.</b> ${caOptionText(o)}</span>
+    </label>`;
+  }).join("");
+
+  $("caquiz").innerHTML=`
+    <div class="ca-question-card">
+      <div class="ca-qtop">
+        <span class="ca-chip">${q.category} • ${q.difficulty}</span>
+        <span class="ca-chip">${caBookmarks.has(caIndex)?"🔖 Bookmarked":"Question "+(caIndex+1)}</span>
+      </div>
+      <h4 class="ca-question">${caQuestionText(q)}</h4>
+      <div>${options}</div>
+      <div class="ca-explanation" id="caExplanation" style="${caSubmitted?"display:block":""}">
+        <b>Explanation / व्याख्या:</b><br>${q.exEn}<br>${q.exHi}
+      </div>
+    </div>`;
+  caUpdateStats();
+}
+
+function caSelect(value){
+  if(caSubmitted) return;
+  caAnswers[caIndex]=value;
+  caUpdateStats();
+}
+
+function caUpdateStats(){
+  $("caCurrent").textContent=caQuiz.length?caIndex+1:0;
+  $("caTotal").textContent=caQuiz.length;
+  $("caAnswered").textContent=Object.keys(caAnswers).length;
+  let score=0;
+  Object.keys(caAnswers).forEach(i=>{
+    if(caAnswers[i]===caQuiz[i].answer) score++;
+  });
+  $("caLiveScore").textContent=score;
+  const progress=caQuiz.length?((caIndex+1)/caQuiz.length)*100:0;
+  $("caProgressBar").style.width=progress+"%";
+}
+
+function caPrevious(){
+  if(caIndex>0){caIndex--;caRender();}
+}
+
+function caNext(){
+  if(caIndex<caQuiz.length-1){caIndex++;caRender();}
+  else caSubmit();
+}
+
+function caSkip(){
+  if(caIndex<caQuiz.length-1){caIndex++;caRender();}
+}
+
+function caBookmark(){
+  if(!caQuiz.length)return;
+  caBookmarks.has(caIndex)?caBookmarks.delete(caIndex):caBookmarks.add(caIndex);
+  caRender();
+}
+
+function caSubmit(){
+  if(!caQuiz.length)return;
+  caSubmitted=true;
+  let score=0;
+  Object.keys(caAnswers).forEach(i=>{
+    if(caAnswers[i]===caQuiz[i].answer)score++;
+  });
+  const answered=Object.keys(caAnswers).length;
+  const percent=Math.round((score/caQuiz.length)*100);
+  let message=percent>=80?"Excellent! / शानदार!":percent>=60?"Good Job! / अच्छा प्रयास!":percent>=40?"Keep Practising / अभ्यास जारी रखें":"Try Again / फिर प्रयास करें";
+  $("caout").innerHTML=`
+    <div class="ca-result-score">${score}/${caQuiz.length} (${percent}%)</div>
+    <p><b>${message}</b></p>
+    <p>Answered: ${answered} &nbsp; | &nbsp; Unanswered: ${caQuiz.length-answered} &nbsp; | &nbsp; Bookmarked: ${caBookmarks.size}</p>
+    <button class="btn" type="button" onclick="caRetryWrong()">Retry Wrong Questions</button>
+    <button class="btn orange" type="button" onclick="caStartQuiz()">Start New Quiz</button>`;
+  $("caout").style.display="block";
+  caRender();
+  $("caout").scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function caRetryWrong(){
+  const wrong=caQuiz.filter((q,i)=>caAnswers[i]!==q.answer);
+  if(!wrong.length){
+    alert("All answers are correct! / सभी उत्तर सही हैं!");
+    return;
+  }
+  caQuiz=caShuffleArray(wrong);
+  caIndex=0;
+  caAnswers={};
+  caBookmarks=new Set();
+  caSubmitted=false;
+  $("caout").style.display="none";
+  caRender();
+}
+
+$("caLanguage").addEventListener("change",caRender);
+caBuildCategories();
+caStartQuiz();
+</script>
+
+<script>
+(function(){
+  const dateEl=document.getElementById('rjDate');
+  const timeEl=document.getElementById('rjTime');
+  function updateRapidJobClock(){
+    const now=new Date();
+    if(dateEl){
+      dateEl.textContent=new Intl.DateTimeFormat('en-IN',{
+        weekday:'long',day:'2-digit',month:'long',year:'numeric'
+      }).format(now);
+    }
+    if(timeEl){
+      timeEl.textContent=new Intl.DateTimeFormat('en-IN',{
+        hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true
+      }).format(now);
+    }
+  }
+  updateRapidJobClock();
+  setInterval(updateRapidJobClock,1000);
+})();
+</script>
+</body></html>
