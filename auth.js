@@ -133,7 +133,7 @@ function initSignup(){
 }
 function initForgot(){
   const form=$("forgotForm");if(!form)return;
-  form.addEventListener("submit",async e=>{
+  ,async e=>{
     e.preventDefault();const btn=$("forgotSubmit");setLoading(btn,true);
     try{await auth.sendPasswordResetEmail($("forgotEmail").value.trim());showMessage("Password reset link sent. Check your inbox and spam folder.","success")}
     catch(err){showMessage(authError(err.code,err.message))}
@@ -163,22 +163,110 @@ function initProfile(){
     const photo=$("profilePhoto");if(p.photoURL)photo.src=p.photoURL;
     $("verificationStatus").textContent=user.emailVerified?"Verified":"Not Verified";
     $("verificationStatus").className="status-pill "+(user.emailVerified?"verified":"unverified");
-    form.addEventListener("submit",async e=>{
-      e.preventDefault();const btn=$("profileSave");setLoading(btn,true);
-      try{
-        let photoURL=p.photoURL||"";
-        const file=$("profilePhotoFile").files[0];
-        if(file&&storage){
-          if(file.size>2*1024*1024)throw new Error("Profile photo must be under 2 MB.");
-          const ref=storage.ref(`user-profile/${user.uid}/${Date.now()}-${file.name.replace(/[^a-z0-9.]/gi,"-")}`);
-          await ref.put(file);photoURL=await ref.getDownloadURL()
-        }
-        const extra={name:$("profile_name").value.trim(),mobile:$("profile_mobile").value.trim(),state:$("profile_state").value,district:$("profile_district").value.trim(),qualification:$("profile_qualification").value,preferredExams:$("profile_preferredExams").value.trim(),photoURL};
-        await user.updateProfile({displayName:extra.name,photoURL});await upsertUser(user,extra);
-        showMessage("Profile updated successfully.","success");if(photoURL)photo.src=photoURL
-      }catch(err){showMessage(authError(err.code,err.message))}
-      finally{setLoading(btn,false)}
+    form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const btn = $("profileSave");
+  const oldButtonText = btn.innerHTML;
+
+  btn.disabled = true;
+  btn.classList.add("loading");
+
+  try {
+    let photoURL = p.photoURL || "";
+    const fileInput = $("profilePhotoFile");
+    const file = fileInput?.files?.[0];
+
+    if (file) {
+      if (!storage) {
+        throw new Error("Firebase Storage is not available.");
+      }
+
+      if (!file.type.startsWith("image/")) {
+        throw new Error("Please choose a valid JPG or PNG image.");
+      }
+
+      if (file.size > 2 * 1024 * 1024) {
+        throw new Error("Profile photo must be under 2 MB.");
+      }
+
+      const safeName = file.name.replace(/[^a-zA-Z0-9.-]/g, "-");
+
+      const storageRef = storage.ref(
+        `user-profile/${user.uid}/${Date.now()}-${safeName}`
+      );
+
+      const uploadSnapshot = await Promise.race([
+        storageRef.put(file),
+
+        new Promise((_, reject) =>
+          setTimeout(() => {
+            reject(
+              new Error(
+                "Photo upload timed out. Firebase Storage rules check karein."
+              )
+            );
+          }, 30000)
+        )
+      ]);
+
+      photoURL = await uploadSnapshot.ref.getDownloadURL();
+    }
+
+    const extra = {
+      name: $("profile_name").value.trim(),
+      mobile: $("profile_mobile").value.trim(),
+      state: $("profile_state").value,
+      district: $("profile_district").value.trim(),
+      qualification: $("profile_qualification").value,
+      preferredExams: $("profile_preferredExams").value.trim(),
+      photoURL
+    };
+
+    if (!extra.name) {
+      throw new Error("Full name is required.");
+    }
+
+    if (extra.mobile && !/^[0-9]{10}$/.test(extra.mobile)) {
+      throw new Error("Please enter a valid 10-digit mobile number.");
+    }
+
+    await user.updateProfile({
+      displayName: extra.name,
+      photoURL: photoURL || null
     });
+
+    await db.ref("users/" + user.uid).update({
+      ...extra,
+      email: user.email,
+      emailVerified: user.emailVerified,
+      lastUpdated: new Date().toISOString()
+    });
+
+    if (photoURL) {
+      $("profilePhoto").src = photoURL;
+    }
+
+    if (fileInput) {
+      fileInput.value = "";
+    }
+
+    showMessage("Profile updated successfully.", "success");
+
+  } catch (error) {
+    console.error("Profile save error:", error);
+
+    showMessage(
+      error.message || "Profile save nahi hua. Please try again.",
+      "error"
+    );
+
+  } finally {
+    btn.disabled = false;
+    btn.classList.remove("loading");
+    btn.innerHTML = oldButtonText;
+  }
+});
     $("profilePhotoFile").addEventListener("change",e=>{const f=e.target.files[0];if(f)$("profilePhoto").src=URL.createObjectURL(f)});
     $("verifyEmailBtn").onclick=async()=>{try{await user.sendEmailVerification();showMessage("Verification email sent.","success")}catch(err){showMessage(authError(err.code,err.message))}};
     $("deleteAccountBtn").onclick=()=>openAuthModal();
