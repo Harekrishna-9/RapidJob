@@ -133,7 +133,7 @@ function initSignup(){
 }
 function initForgot(){
   const form=$("forgotForm");if(!form)return;
-  ,async e=>{
+  form.addEventListener("submit",async e=>{
     e.preventDefault();const btn=$("forgotSubmit");setLoading(btn,true);
     try{await auth.sendPasswordResetEmail($("forgotEmail").value.trim());showMessage("Password reset link sent. Check your inbox and spam folder.","success")}
     catch(err){showMessage(authError(err.code,err.message))}
