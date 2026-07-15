@@ -296,3 +296,180 @@
     margin-right:8px;
   }
 }
+/* ===== PROFILE PHOTO UPLOAD AREA FIX ===== */
+
+.profile-premium-page .premium-photo-wrap{
+  display:grid !important;
+  grid-template-columns:110px 1fr !important;
+  align-items:center !important;
+  gap:18px !important;
+
+  padding:18px !important;
+  border:1px solid #d7e9fb !important;
+  border-radius:20px !important;
+
+  background:
+    linear-gradient(135deg,#fafdff,#eef7ff) !important;
+
+  box-shadow:
+    0 12px 28px rgba(7,91,216,.08) !important;
+}
+
+/* Photo fixed left side */
+.profile-premium-page .profile-photo-ring{
+  width:104px !important;
+  height:104px !important;
+  flex:0 0 104px !important;
+  grid-row:1 / span 2 !important;
+}
+
+/* Right side upload content */
+.profile-premium-page .photo-upload-copy{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:8px !important;
+  min-width:0 !important;
+}
+
+.profile-premium-page .photo-upload-copy b{
+  display:block !important;
+  margin:0 !important;
+
+  color:#071b45 !important;
+  font-size:17px !important;
+  font-weight:900 !important;
+}
+
+/* File input full width */
+.profile-premium-page #profilePhotoFile{
+  display:block !important;
+  width:100% !important;
+  max-width:430px !important;
+
+  padding:7px !important;
+  border:1px solid #cfe2f7 !important;
+  border-radius:14px !important;
+
+  background:linear-gradient(135deg,#fff,#f3f9ff) !important;
+  color:#526987 !important;
+
+  font-size:13px !important;
+  font-weight:800 !important;
+
+  overflow:hidden !important;
+  white-space:nowrap !important;
+  text-overflow:ellipsis !important;
+}
+
+/* Premium choose file button */
+.profile-premium-page #profilePhotoFile::file-selector-button{
+  min-height:38px !important;
+  margin-right:12px !important;
+  padding:9px 16px !important;
+
+  border:0 !important;
+  border-radius:10px !important;
+
+  color:#fff !important;
+  font-size:13px !important;
+  font-weight:900 !important;
+
+  cursor:pointer !important;
+
+  background:
+    linear-gradient(135deg,#087cf0,#075bd8,#25c5df) !important;
+
+  background-size:220% 220% !important;
+
+  box-shadow:
+    0 9px 20px rgba(7,91,216,.22) !important;
+
+  animation:profileUploadFlow 4s ease infinite !important;
+}
+
+/* Chrome support */
+.profile-premium-page #profilePhotoFile::-webkit-file-upload-button{
+  min-height:38px !important;
+  margin-right:12px !important;
+  padding:9px 16px !important;
+
+  border:0 !important;
+  border-radius:10px !important;
+
+  color:#fff !important;
+  font-weight:900 !important;
+  cursor:pointer !important;
+
+  background:
+    linear-gradient(135deg,#087cf0,#075bd8,#25c5df) !important;
+}
+
+/* Description text */
+.profile-premium-page .photo-upload-copy small{
+  display:block !important;
+  margin:0 !important;
+
+  color:#526987 !important;
+  font-size:12px !important;
+  font-weight:800 !important;
+}
+
+/* Hint badge */
+.profile-premium-page .upload-hint{
+  display:inline-flex !important;
+  width:max-content !important;
+  max-width:100% !important;
+
+  margin-top:2px !important;
+  padding:6px 10px !important;
+
+  border-radius:999px !important;
+
+  background:#eaf4ff !important;
+  color:#075bd8 !important;
+
+  font-size:11px !important;
+  font-weight:900 !important;
+}
+
+/* Remove text collision */
+.profile-premium-page .premium-photo-wrap br{
+  display:none !important;
+}
+
+@keyframes profileUploadFlow{
+  0%,100%{
+    background-position:0% 50%;
+  }
+
+  50%{
+    background-position:100% 50%;
+  }
+}
+
+/* Mobile */
+@media(max-width:650px){
+
+  .profile-premium-page .premium-photo-wrap{
+    grid-template-columns:1fr !important;
+    justify-items:center !important;
+    text-align:center !important;
+  }
+
+  .profile-premium-page .profile-photo-ring{
+    grid-row:auto !important;
+  }
+
+  .profile-premium-page .photo-upload-copy{
+    width:100% !important;
+    justify-items:center !important;
+  }
+
+  .profile-premium-page #profilePhotoFile{
+    max-width:100% !important;
+  }
+
+  .profile-premium-page .upload-hint{
+    width:auto !important;
+  }
+}
