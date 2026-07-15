@@ -1,0 +1,707 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Image Compressor | Rapid Job</title><link rel="icon" href="favicon-32.png"><link rel="stylesheet" href="common.css">
+<style>
+:root{
+  --rj-blue:#087cf0;
+  --rj-cyan:#23c3e6;
+  --rj-deep:#075bd8;
+}
+body{
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(35,195,230,.16), transparent 28%),
+    radial-gradient(circle at 90% 20%, rgba(8,124,240,.14), transparent 30%),
+    linear-gradient(135deg,#f7fbff,#eef7ff 45%,#f9fcff);
+  background-size:140% 140%;
+  animation:rjPageBg 12s ease-in-out infinite alternate;
+}
+@keyframes rjPageBg{
+  0%{background-position:0% 0%}
+  100%{background-position:100% 100%}
+}
+.page{position:relative;isolation:isolate}
+.page::before,.page::after{
+  content:"";
+  position:fixed;
+  width:260px;height:260px;
+  border-radius:50%;
+  filter:blur(12px);
+  opacity:.22;
+  z-index:-1;
+  animation:rjFloat 8s ease-in-out infinite;
+}
+.page::before{
+  top:18%;left:-100px;
+  background:linear-gradient(135deg,var(--rj-blue),var(--rj-cyan));
+}
+.page::after{
+  right:-110px;bottom:8%;
+  background:linear-gradient(135deg,#6f5cff,var(--rj-cyan));
+  animation-delay:-4s;
+}
+@keyframes rjFloat{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-22px) scale(1.07)}
+}
+.head{
+  position:relative;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  overflow:hidden;
+  background:linear-gradient(110deg,var(--rj-deep),var(--rj-blue),var(--rj-cyan));
+  background-size:220% 220%;
+  animation:rjHeaderFlow 7s ease infinite;
+}
+.head::after{
+  content:"";
+  position:absolute;
+  inset:-40% auto -40% -35%;
+  width:36%;
+  transform:skewX(-22deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
+  animation:rjShine 4.8s linear infinite;
+  pointer-events:none;
+}
+@keyframes rjHeaderFlow{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+@keyframes rjShine{
+  0%{left:-45%}
+  100%{left:125%}
+}
+.logo{
+  box-shadow:0 0 0 5px rgba(255,255,255,.18),0 10px 30px rgba(0,0,0,.16);
+  animation:rjLogoPulse 2.8s ease-in-out infinite;
+}
+@keyframes rjLogoPulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.045);filter:drop-shadow(0 0 10px rgba(255,255,255,.48))}
+}
+.nav{
+  animation:rjDrop .7s ease both;
+  backdrop-filter:blur(12px);
+}
+.nav a{
+  position:relative;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.nav a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 22px rgba(7,91,216,.16);
+}
+.main{animation:rjFadeUp .75s ease both}
+@keyframes rjDrop{
+  from{opacity:0;transform:translateY(-14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes rjFadeUp{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(120deg,var(--rj-deep),var(--rj-blue),var(--rj-cyan));
+  background-size:200% 200%;
+  animation:rjHeaderFlow 8s ease infinite,rjHeroIn .8s ease both;
+  box-shadow:0 18px 45px rgba(7,91,216,.18);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  width:220px;height:220px;
+  border-radius:50%;
+  right:-70px;top:-90px;
+  background:rgba(255,255,255,.16);
+  animation:rjOrbit 7s ease-in-out infinite;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  left:-65px;bottom:-95px;
+  width:190px;height:190px;
+  border-radius:50%;
+  border:26px solid rgba(255,255,255,.08);
+  animation:rjOrbit 9s ease-in-out infinite reverse;
+}
+@keyframes rjHeroIn{
+  from{opacity:0;transform:scale(.97)}
+  to{opacity:1;transform:scale(1)}
+}
+@keyframes rjOrbit{
+  0%,100%{transform:translate(0,0) rotate(0deg)}
+  50%{transform:translate(-18px,18px) rotate(180deg)}
+}
+.card{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(8,124,240,.22);
+  box-shadow:0 18px 45px rgba(20,77,130,.12);
+  transition:transform .3s ease,box-shadow .3s ease;
+  animation:rjCardIn .85s .12s ease both;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 24px 60px rgba(7,91,216,.18);
+}
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;left:-120%;
+  width:55%;height:3px;
+  background:linear-gradient(90deg,transparent,var(--rj-blue),var(--rj-cyan),transparent);
+  animation:rjBorderSweep 3.8s linear infinite;
+}
+@keyframes rjCardIn{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes rjBorderSweep{to{left:160%}}
+input,select,textarea{
+  transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--rj-blue)!important;
+  box-shadow:0 0 0 4px rgba(8,124,240,.12)!important;
+  transform:translateY(-1px);
+}
+button{
+  position:relative;
+  overflow:hidden;
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;
+}
+button:hover{
+  transform:translateY(-3px) scale(1.015);
+  box-shadow:0 12px 26px rgba(7,91,216,.22);
+  filter:saturate(1.1);
+}
+button:active{transform:scale(.98)}
+canvas,#resume{
+  max-width:100%;
+  border-radius:18px;
+  border:2px solid rgba(8,124,240,.18);
+  box-shadow:0 18px 40px rgba(7,91,216,.14);
+  background:#fff;
+  animation:rjPreviewGlow 3s ease-in-out infinite;
+}
+@keyframes rjPreviewGlow{
+  0%,100%{box-shadow:0 18px 40px rgba(7,91,216,.14)}
+  50%{box-shadow:0 22px 50px rgba(35,195,230,.24)}
+}
+.rj-datetime{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 16px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:999px;
+  background:rgba(0,91,190,.34);
+  color:#fff;
+  font-weight:700;
+  box-shadow:0 10px 24px rgba(0,0,0,.12);
+  backdrop-filter:blur(12px);
+  white-space:nowrap;
+  animation:rjDatePulse 3s ease-in-out infinite;
+  z-index:2;
+}
+.rj-datetime span{display:flex;align-items:center;gap:6px}
+@keyframes rjDatePulse{
+  0%,100%{box-shadow:0 10px 24px rgba(0,0,0,.12)}
+  50%{box-shadow:0 10px 30px rgba(255,255,255,.18)}
+}
+@media(max-width:760px){
+  .head{
+    flex-direction:column;
+    align-items:flex-start;
+    padding-bottom:14px;
+  }
+  .brand{flex-wrap:wrap}
+  .rj-datetime{
+    width:100%;
+    justify-content:center;
+    margin:12px 0 0;
+    border-radius:18px;
+    font-size:13px;
+  }
+}
+</style>
+
+<style>
+/* ===== RAPID JOB PREMIUM IMAGE COMPRESSOR ===== */
+.rj-compressor{position:relative;z-index:2}
+.rj-compressor *{box-sizing:border-box}
+.rj-tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:17px}
+.rj-tab{background:#edf6ff;color:#075bd8;box-shadow:none;border:1px solid #c9e1fb}
+.rj-tab.active{color:#fff;background:linear-gradient(135deg,#087cf0,#075bd8);box-shadow:0 10px 23px rgba(7,91,216,.2)}
+.rj-panel{display:none;animation:icPanelIn .45s ease both}
+.rj-panel.active{display:block}
+.ic-upload{
+  position:relative;display:grid;place-items:center;min-height:210px;padding:24px;
+  border:2px dashed #8ec6ff;border-radius:22px;text-align:center;cursor:pointer;
+  background:linear-gradient(135deg,#fafdff,#eef7ff);overflow:hidden;
+  transition:.3s;animation:icUploadPulse 3s ease-in-out infinite
+}
+.ic-upload:before{
+  content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent,#25c5df33,transparent,#087cf033,transparent);
+  animation:icSpin 9s linear infinite;pointer-events:none
+}
+.ic-upload>*{position:relative;z-index:2}
+.ic-upload.drag{border-color:#10b981;background:#ecfff5;transform:scale(1.01)}
+.ic-upload .ic-icon{font-size:52px;filter:drop-shadow(0 8px 13px rgba(7,91,216,.2))}
+.ic-upload h4{margin:10px 0 6px;color:#075bd8;font-size:22px}
+.ic-upload p{margin:0;color:#60738e}
+.ic-upload input{display:none}
+.ic-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-top:16px}
+.ic-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ic-field{display:grid;gap:7px;padding:13px;border:1px solid #d5e8fb;border-radius:16px;background:#fff;box-shadow:0 9px 22px rgba(7,91,216,.07);font-weight:800;transition:.25s}
+.ic-field:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(7,91,216,.12)}
+.ic-field input,.ic-field select{margin:0;background:#fbfdff}
+.ic-checks{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.ic-check{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid #d7e8fa;border-radius:999px;background:#fff;font-weight:800}
+.ic-check input{width:auto;margin:0}
+.ic-presets{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+.ic-preset{padding:10px 13px;border-radius:999px;background:#edf6ff;color:#075bd8;box-shadow:none;border:1px solid #c9e1fb}
+.ic-preset:hover,.ic-preset.active{color:#fff;background:linear-gradient(135deg,#7c3aed,#4f46e5)}
+.ic-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}
+.ic-actions .green{background:linear-gradient(135deg,#10b981,#059669)}
+.ic-actions .orange{background:linear-gradient(135deg,#f59e0b,#f97316)}
+.ic-actions .purple{background:linear-gradient(135deg,#7c3aed,#4f46e5)}
+.ic-actions .gray{background:#edf6ff;color:#075bd8;box-shadow:none}
+.ic-progress-wrap{margin-top:16px;padding:14px;border:1px solid #d6e8fa;border-radius:16px;background:#fff}
+.ic-progress{height:13px;overflow:hidden;border-radius:999px;background:#e7eff8}
+.ic-progress span{display:block;width:0;height:100%;border-radius:999px;background:linear-gradient(90deg,#087cf0,#25c5df,#10b981);transition:width .25s}
+.ic-progress-meta{display:flex;justify-content:space-between;gap:10px;margin-top:8px;color:#60738e;font-size:13px;font-weight:800}
+.ic-stats{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:16px}
+.ic-stat{position:relative;overflow:hidden;padding:14px;border:1px solid #d6e8fa;border-radius:16px;background:linear-gradient(135deg,#fff,#f5faff);box-shadow:0 9px 22px rgba(7,91,216,.06)}
+.ic-stat:after{content:"";position:absolute;width:62px;height:62px;border-radius:50%;right:-24px;bottom:-30px;background:#087cf012}
+.ic-stat strong{display:block;color:#075bd8;font-size:20px}
+.ic-stat small{color:#60738e;font-weight:800}
+.ic-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:17px}
+.ic-card{position:relative;overflow:hidden;padding:12px;border:1px solid #d5e8fb;border-radius:18px;background:#fff;box-shadow:0 12px 26px rgba(7,91,216,.09);animation:icCardIn .45s ease both}
+.ic-card img{width:100%;height:190px;object-fit:contain;border-radius:13px;background:#f5f9ff}
+.ic-card h5{margin:10px 0 4px;color:#075bd8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ic-card p{margin:4px 0;color:#60738e;font-size:12px}
+.ic-card .mini-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.ic-card .mini-actions button{padding:8px 10px;font-size:12px}
+.ic-preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:17px}
+.ic-preview-box{padding:13px;border:1px solid #d5e8fb;border-radius:18px;background:#fff;box-shadow:0 12px 28px rgba(7,91,216,.08)}
+.ic-preview-box h4{margin:0 0 10px;color:#075bd8}
+.ic-preview-box img,.ic-preview-box canvas{width:100%;max-height:420px;object-fit:contain;border-radius:14px;background:#f6f9ff;border:1px solid #dceafb}
+.ic-compare{position:relative;height:420px;overflow:hidden;border-radius:18px;border:1px solid #d5e8fb;background:#fff;margin-top:16px}
+.ic-compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#f5f9ff}
+.ic-compare .after-wrap{position:absolute;inset:0;width:50%;overflow:hidden;border-right:3px solid #fff;box-shadow:5px 0 15px rgba(0,0,0,.12)}
+.ic-compare input{position:absolute;left:5%;right:5%;bottom:14px;width:90%;z-index:5}
+.ic-tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.ic-tool-card{padding:16px;border:1px solid #d5e8fb;border-radius:18px;background:#fff;box-shadow:0 10px 24px rgba(7,91,216,.07)}
+.ic-tool-card h4{margin:0 0 10px;color:#075bd8}
+.ic-tool-card .btns{margin-top:10px}
+.ic-watermark-preview{margin-top:14px;text-align:center}
+.ic-watermark-preview canvas{max-width:100%;max-height:450px}
+.ic-dark{background:#0d1728!important;color:#eaf2ff!important}
+.ic-dark .ic-field,.ic-dark .ic-stat,.ic-dark .ic-card,.ic-dark .ic-preview-box,.ic-dark .ic-tool-card,.ic-dark .ic-progress-wrap{background:#111c2f;border-color:#29466b;color:#eaf2ff}
+.ic-dark input,.ic-dark select{background:#0d1728;color:#fff;border-color:#29466b}
+.ic-dark .ic-upload{background:#111c2f}
+@keyframes icPanelIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes icUploadPulse{0%,100%{box-shadow:0 12px 28px rgba(7,91,216,.08)}50%{box-shadow:0 17px 38px rgba(37,197,223,.18)}}
+@keyframes icSpin{to{transform:rotate(360deg)}}
+@keyframes icCardIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:1000px){.ic-grid{grid-template-columns:repeat(2,1fr)}.ic-stats{grid-template-columns:repeat(3,1fr)}.ic-gallery{grid-template-columns:repeat(2,1fr)}.ic-tools-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.ic-grid,.ic-grid.two,.ic-preview-grid,.ic-gallery,.ic-tools-grid{grid-template-columns:1fr}.ic-stats{grid-template-columns:repeat(2,1fr)}.ic-compare{height:300px}}
+</style>
+
+</head><body><div class="page"><header class="head"><div class="brand"><div class="logo">RJ</div><div><h1>Rapid Job</h1><p>⚡ Fast Government Job Updates!</p></div></div><div class="rj-datetime" aria-label="Current date and time"><span>📅 <b id="rjDate">--</b></span><span>🕒 <b id="rjTime">--</b></span></div></header><nav class="nav"><a class="" href="index.html">Home</a><a class="" href="index.html#current">Current Job</a><a class="" href="index.html#admit">Admit Card</a><a class="" href="index.html#result">Result</a><a class="" href="index.html#admission">Admission</a><a class="active" href="tools.html">Tools</a><a class="" href="contact.html">Contact Us</a></nav><main class="main"><section class="hero"><h2>Image Compressor</h2><p>Reduce image file size for online forms.</p></section><section class="wrap">
+<div class="card">
+<h3>Premium Image Compressor</h3>
+<div class="rj-compressor" id="rjCompressor">
+
+  <div class="rj-tabs">
+    <button class="rj-tab active" data-panel="compressPanel">🗜 Compress</button>
+    <button class="rj-tab" data-panel="comparePanel">🖼 Compare</button>
+    <button class="rj-tab" data-panel="toolsPanel">🛠 Extra Tools</button>
+  </div>
+
+  <section class="rj-panel active" id="compressPanel">
+    <label class="ic-upload" id="dropZone">
+      <input type="file" id="cf" accept="image/*" multiple>
+      <div class="ic-icon">📤</div>
+      <h4>Drag & Drop Images Here</h4>
+      <p>Click to browse, paste with Ctrl+V, or select multiple images</p>
+      <small>JPG, PNG, WEBP supported</small>
+    </label>
+
+    <div class="ic-presets" id="presetButtons">
+      <button class="ic-preset" data-kb="50">Railway 50KB</button>
+      <button class="ic-preset" data-kb="50">SSC 50KB</button>
+      <button class="ic-preset" data-kb="100">UPSC 100KB</button>
+      <button class="ic-preset" data-kb="50">Bihar Police 50KB</button>
+      <button class="ic-preset" data-kb="50">Navy 50KB</button>
+      <button class="ic-preset" data-kb="50">Army 50KB</button>
+      <button class="ic-preset" data-kb="50">Air Force 50KB</button>
+      <button class="ic-preset" data-kb="100">Aadhaar 100KB</button>
+      <button class="ic-preset" data-kb="100">PAN 100KB</button>
+      <button class="ic-preset" data-kb="50">Passport 50KB</button>
+      <button class="ic-preset" data-kb="20">Signature 20KB</button>
+    </div>
+
+    <div class="ic-grid">
+      <label class="ic-field">Quality
+        <input id="qualityRange" type="range" min="10" max="100" value="75">
+        <small><span id="qualityValue">75</span>%</small>
+      </label>
+      <label class="ic-field">Target Size
+        <select id="targetSize">
+          <option value="0">Auto</option>
+          <option value="20">20 KB</option><option value="50">50 KB</option>
+          <option value="100">100 KB</option><option value="200">200 KB</option>
+          <option value="custom">Custom KB</option>
+        </select>
+      </label>
+      <label class="ic-field">Custom KB
+        <input id="customKb" type="number" min="5" value="50">
+      </label>
+      <label class="ic-field">Output Format
+        <select id="outputFormat"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WEBP</option></select>
+      </label>
+      <label class="ic-field">Width
+        <input id="resizeWidth" type="number" placeholder="Auto">
+      </label>
+      <label class="ic-field">Height
+        <input id="resizeHeight" type="number" placeholder="Auto">
+      </label>
+      <label class="ic-field">File Name
+        <input id="customName" placeholder="rapid-job-compressed">
+      </label>
+      <label class="ic-field">Max Long Side
+        <select id="maxSide"><option value="0">Original</option><option value="800">800 px</option><option value="1200">1200 px</option><option value="1600" selected>1600 px</option><option value="2400">2400 px</option></select>
+      </label>
+    </div>
+
+    <div class="ic-checks">
+      <label class="ic-check"><input type="checkbox" id="keepAspect" checked> Maintain aspect ratio</label>
+      <label class="ic-check"><input type="checkbox" id="autoBest" checked> Auto best compression</label>
+      <label class="ic-check"><input type="checkbox" id="sharpen"> Sharpen image</label>
+      <label class="ic-check"><input type="checkbox" id="grayscale"> Grayscale</label>
+    </div>
+
+    <div class="ic-actions">
+      <button id="compressBtn">✨ Compress Images</button>
+      <button class="green" id="downloadAllBtn">⬇ Download All</button>
+      <button class="purple" id="copyBtn">📋 Copy Image</button>
+      <button class="orange" id="clearBtn">🗑 Clear</button>
+      <button class="gray" id="darkBtn">🌙 Dark Mode</button>
+    </div>
+
+    <div class="ic-progress-wrap">
+      <div class="ic-progress"><span id="progressBar"></span></div>
+      <div class="ic-progress-meta"><span id="progressText">Waiting for images</span><span id="progressTime">0 sec</span></div>
+    </div>
+
+    <div class="ic-stats">
+      <div class="ic-stat"><strong id="statFiles">0</strong><small>FILES</small></div>
+      <div class="ic-stat"><strong id="statOriginal">0 KB</strong><small>ORIGINAL</small></div>
+      <div class="ic-stat"><strong id="statCompressed">0 KB</strong><small>COMPRESSED</small></div>
+      <div class="ic-stat"><strong id="statSaved">0%</strong><small>SAVED</small></div>
+      <div class="ic-stat"><strong id="statResolution">--</strong><small>RESOLUTION</small></div>
+      <div class="ic-stat"><strong id="statFormat">--</strong><small>FORMAT</small></div>
+    </div>
+
+    <div class="ic-gallery" id="gallery"></div>
+  </section>
+
+  <section class="rj-panel" id="comparePanel">
+    <div class="ic-preview-grid">
+      <div class="ic-preview-box"><h4>Original</h4><img id="originalPreview" alt="Original preview"></div>
+      <div class="ic-preview-box"><h4>Compressed</h4><img id="compressedPreview" alt="Compressed preview"></div>
+    </div>
+    <div class="ic-compare" id="compareBox">
+      <img id="compareOriginal" alt="">
+      <div class="after-wrap" id="afterWrap"><img id="compareCompressed" alt=""></div>
+      <input id="compareSlider" type="range" min="0" max="100" value="50">
+    </div>
+    <div class="ic-actions">
+      <button class="gray" id="zoomInBtn">🔍 Zoom In</button>
+      <button class="gray" id="zoomOutBtn">🔎 Zoom Out</button>
+      <button class="purple" id="fullscreenBtn">⛶ Full Screen</button>
+    </div>
+  </section>
+
+  <section class="rj-panel" id="toolsPanel">
+    <div class="ic-tools-grid">
+      <div class="ic-tool-card">
+        <h4>Rotate / Flip</h4>
+        <div class="btns">
+          <button id="rotateLeft">↶ Left</button><button id="rotateRight">↷ Right</button>
+          <button class="green" id="flipH">↔ Flip H</button><button class="green" id="flipV">↕ Flip V</button>
+        </div>
+      </div>
+      <div class="ic-tool-card">
+        <h4>Crop Center</h4>
+        <label>Aspect Ratio<select id="cropRatio"><option value="1">1:1</option><option value="0.75">3:4</option><option value="0.8">4:5</option><option value="1.333">4:3</option><option value="1.777">16:9</option></select></label>
+        <button id="cropBtn" style="margin-top:10px">Crop Selected</button>
+      </div>
+      <div class="ic-tool-card">
+        <h4>Add Watermark</h4>
+        <input id="watermarkText" placeholder="Rapid Job">
+        <div class="btns"><button id="watermarkBtn">Apply Watermark</button></div>
+      </div>
+      <div class="ic-tool-card">
+        <h4>Background Cleanup</h4>
+        <p>Applies white background behind transparent images.</p>
+        <button id="whiteBgBtn">Apply White Background</button>
+      </div>
+      <div class="ic-tool-card">
+        <h4>Enhance</h4>
+        <p>Brightness, contrast and mild sharpening.</p>
+        <button id="enhanceBtn">Auto Enhance</button>
+      </div>
+      <div class="ic-tool-card">
+        <h4>Convert Format</h4>
+        <p>Select JPG, PNG or WEBP in Compress tab and compress again.</p>
+        <button class="gray" data-go="compressPanel">Go to Compressor</button>
+      </div>
+    </div>
+    <div class="ic-watermark-preview"><canvas id="toolCanvas"></canvas></div>
+  </section>
+
+</div>
+</div></section></main><footer class="footer"><img src="rapid-job-logo-horizontal.png" alt="Rapid Job"><p>Fast Government Job Updates</p><p>© 2022 - 2026 Rapid Job</p></footer></div><script src="common.js"></script>
+<script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+const compressor=$('rjCompressor');
+let files=[],results=[],selectedIndex=0,zoom=1,toolRotation=0,toolFlipX=1,toolFlipY=1;
+
+function bytesToText(b){
+  if(!b)return'0 KB';
+  const u=['B','KB','MB','GB'];let i=Math.floor(Math.log(b)/Math.log(1024));
+  return (b/Math.pow(1024,i)).toFixed(i?2:0)+' '+u[i];
+}
+function extFor(type){return type==='image/png'?'png':type==='image/webp'?'webp':'jpg'}
+function downloadBlob(blob,name){
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+function readImage(file){
+  return new Promise((resolve,reject)=>{
+    const img=new Image(),url=URL.createObjectURL(file);
+    img.onload=()=>{URL.revokeObjectURL(url);resolve(img)};
+    img.onerror=reject;img.src=url;
+  });
+}
+function canvasBlob(canvas,type,quality){
+  return new Promise(resolve=>canvas.toBlob(resolve,type,quality));
+}
+function targetKbValue(){
+  const v=$('targetSize').value;
+  return v==='custom'?Math.max(5,+$('customKb').value||50):+v||0;
+}
+function drawFiltered(img,w,h){
+  const c=document.createElement('canvas');c.width=w;c.height=h;
+  const x=c.getContext('2d');
+  if($('outputFormat').value==='image/jpeg'){x.fillStyle='#fff';x.fillRect(0,0,w,h)}
+  x.filter=$('grayscale').checked?'grayscale(1)':'none';
+  x.drawImage(img,0,0,w,h);
+  if($('sharpen').checked){
+    x.globalAlpha=.22;x.filter='contrast(1.15)';x.drawImage(c,0,0,w,h);x.globalAlpha=1;x.filter='none';
+  }
+  return c;
+}
+async function compressOne(file,index,total){
+  const img=await readImage(file);
+  let w=img.naturalWidth,h=img.naturalHeight;
+  const maxSide=+$('maxSide').value||0;
+  if(maxSide&&Math.max(w,h)>maxSide){const r=maxSide/Math.max(w,h);w=Math.round(w*r);h=Math.round(h*r)}
+  const rw=+$('resizeWidth').value||0,rh=+$('resizeHeight').value||0;
+  if(rw||rh){
+    if($('keepAspect').checked){
+      const ratio=w/h;
+      if(rw){w=rw;h=Math.round(rw/ratio)}else{h=rh;w=Math.round(rh*ratio)}
+    }else{w=rw||w;h=rh||h}
+  }
+  const canvas=drawFiltered(img,w,h);
+  const type=$('outputFormat').value;
+  let quality=(+$('qualityRange').value||75)/100;
+  let blob=await canvasBlob(canvas,type,quality);
+  const target=targetKbValue()*1024;
+  if(target&&type!=='image/png'){
+    let low=.05,high=quality,best=blob;
+    for(let i=0;i<9;i++){
+      const mid=(low+high)/2,trial=await canvasBlob(canvas,type,mid);
+      if(trial.size<=target){best=trial;low=mid}else high=mid;
+    }
+    blob=best;
+  }else if($('autoBest').checked&&blob.size>file.size&&type!=='image/png'){
+    quality=Math.max(.35,quality-.2);blob=await canvasBlob(canvas,type,quality);
+  }
+  const url=URL.createObjectURL(blob);
+  return {file,img,blob,url,width:w,height:h,type,originalSize:file.size,compressedSize:blob.size,name:file.name};
+}
+function renderGallery(){
+  $('gallery').innerHTML=results.map((r,i)=>`
+    <div class="ic-card">
+      <img src="${r.url}" alt="">
+      <h5>${r.name}</h5>
+      <p>${bytesToText(r.originalSize)} → ${bytesToText(r.compressedSize)}</p>
+      <p>${r.width}×${r.height} • ${Math.max(0,Math.round((1-r.compressedSize/r.originalSize)*100))}% saved</p>
+      <div class="mini-actions">
+        <button data-select="${i}">Preview</button>
+        <button class="green" data-download="${i}">Download</button>
+      </div>
+    </div>`).join('');
+}
+function updateStats(){
+  const os=results.reduce((a,b)=>a+b.originalSize,0),cs=results.reduce((a,b)=>a+b.compressedSize,0);
+  $('statFiles').textContent=results.length;
+  $('statOriginal').textContent=bytesToText(os);
+  $('statCompressed').textContent=bytesToText(cs);
+  $('statSaved').textContent=os?Math.max(0,Math.round((1-cs/os)*100))+'%':'0%';
+  const r=results[0];
+  $('statResolution').textContent=r?r.width+'×'+r.height:'--';
+  $('statFormat').textContent=r?r.type.split('/')[1].toUpperCase():'--';
+}
+function selectResult(i){
+  selectedIndex=i;const r=results[i];if(!r)return;
+  $('originalPreview').src=URL.createObjectURL(r.file);$('compressedPreview').src=r.url;
+  $('compareOriginal').src=URL.createObjectURL(r.file);$('compareCompressed').src=r.url;
+  zoom=1;applyZoom();
+}
+function applyZoom(){
+  ['originalPreview','compressedPreview','compareOriginal','compareCompressed'].forEach(id=>$(id).style.transform=`scale(${zoom})`);
+}
+async function processFiles(){
+  if(!files.length)return alert('Please choose images first.');
+  results.forEach(r=>URL.revokeObjectURL(r.url));results=[];
+  const started=Date.now();$('progressBar').style.width='0%';
+  for(let i=0;i<files.length;i++){
+    $('progressText').textContent=`Compressing ${i+1} of ${files.length}`;
+    const r=await compressOne(files[i],i,files.length);results.push(r);
+    $('progressBar').style.width=((i+1)/files.length*100)+'%';
+    $('progressTime').textContent=((Date.now()-started)/1000).toFixed(1)+' sec';
+  }
+  $('progressText').textContent='Compression complete';
+  renderGallery();updateStats();selectResult(0);
+}
+function addFiles(list){
+  files=[...list].filter(f=>f.type.startsWith('image/'));
+  $('progressText').textContent=files.length+' image(s) selected';
+  $('statFiles').textContent=files.length;
+}
+$('cf').addEventListener('change',e=>addFiles(e.target.files));
+const dz=$('dropZone');
+['dragenter','dragover'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.add('drag')}));
+['dragleave','drop'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.remove('drag')}));
+dz.addEventListener('drop',e=>addFiles(e.dataTransfer.files));
+document.addEventListener('paste',e=>{
+  const list=[...e.clipboardData.items].filter(i=>i.type.startsWith('image/')).map(i=>i.getAsFile());
+  if(list.length)addFiles(list);
+});
+$('qualityRange').addEventListener('input',e=>$('qualityValue').textContent=e.target.value);
+$('presetButtons').addEventListener('click',e=>{
+  const kb=e.target.dataset.kb;if(!kb)return;
+  $('targetSize').value=['20','50','100','200'].includes(kb)?kb:'custom';$('customKb').value=kb;
+  document.querySelectorAll('.ic-preset').forEach(b=>b.classList.remove('active'));e.target.classList.add('active');
+});
+$('compressBtn').addEventListener('click',processFiles);
+$('gallery').addEventListener('click',e=>{
+  if(e.target.dataset.select!==undefined)selectResult(+e.target.dataset.select);
+  if(e.target.dataset.download!==undefined){
+    const r=results[+e.target.dataset.download],base=($('customName').value.trim()||r.name.replace(/\.[^.]+$/,''));
+    downloadBlob(r.blob,base+'-'+(+e.target.dataset.download+1)+'.'+extFor(r.type));
+  }
+});
+$('downloadAllBtn').addEventListener('click',()=>{
+  if(!results.length)return alert('Compress images first.');
+  results.forEach((r,i)=>setTimeout(()=>{
+    const base=$('customName').value.trim()||r.name.replace(/\.[^.]+$/,'');
+    downloadBlob(r.blob,base+'-'+(i+1)+'.'+extFor(r.type));
+  },i*250));
+});
+$('copyBtn').addEventListener('click',async()=>{
+  const r=results[selectedIndex];if(!r)return alert('Compress image first.');
+  try{await navigator.clipboard.write([new ClipboardItem({[r.type]:r.blob})]);alert('Image copied.')}catch{alert('Copy is not supported for this format/browser.')}
+});
+$('clearBtn').addEventListener('click',()=>{
+  results.forEach(r=>URL.revokeObjectURL(r.url));files=[];results=[];$('gallery').innerHTML='';
+  $('progressBar').style.width='0%';$('progressText').textContent='Waiting for images';updateStats();
+});
+$('compareSlider').addEventListener('input',e=>$('afterWrap').style.width=e.target.value+'%');
+$('zoomInBtn').addEventListener('click',()=>{zoom=Math.min(2.5,zoom+.15);applyZoom()});
+$('zoomOutBtn').addEventListener('click',()=>{zoom=Math.max(.5,zoom-.15);applyZoom()});
+$('fullscreenBtn').addEventListener('click',()=>document.fullscreenElement?document.exitFullscreen():$('compareBox').requestFullscreen());
+$('darkBtn').addEventListener('click',()=>{compressor.classList.toggle('ic-dark');$('darkBtn').textContent=compressor.classList.contains('ic-dark')?'☀ Light Mode':'🌙 Dark Mode'});
+
+document.querySelectorAll('.rj-tab').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('.rj-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.rj-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');$(btn.dataset.panel).classList.add('active');
+}));
+document.querySelectorAll('[data-go]').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelector(`.rj-tab[data-panel="${btn.dataset.go}"]`).click();
+}));
+
+async function loadSelectedToTool(){
+  const r=results[selectedIndex];if(!r)return null;
+  const img=await readImage(r.file),c=$('toolCanvas'),ctx=c.getContext('2d');
+  c.width=img.width;c.height=img.height;ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(img,0,0);return {r,img,c,ctx};
+}
+async function redrawTransform(){
+  const x=await loadSelectedToTool();if(!x)return alert('Compress or select an image first.');
+  const {img,c,ctx}=x,rad=toolRotation*Math.PI/180;
+  const swap=Math.abs(toolRotation)%180===90;c.width=swap?img.height:img.width;c.height=swap?img.width:img.height;
+  ctx.translate(c.width/2,c.height/2);ctx.rotate(rad);ctx.scale(toolFlipX,toolFlipY);ctx.drawImage(img,-img.width/2,-img.height/2);
+}
+$('rotateLeft').addEventListener('click',()=>{toolRotation=(toolRotation-90)%360;redrawTransform()});
+$('rotateRight').addEventListener('click',()=>{toolRotation=(toolRotation+90)%360;redrawTransform()});
+$('flipH').addEventListener('click',()=>{toolFlipX*=-1;redrawTransform()});
+$('flipV').addEventListener('click',()=>{toolFlipY*=-1;redrawTransform()});
+$('cropBtn').addEventListener('click',async()=>{
+  const x=await loadSelectedToTool();if(!x)return alert('Select an image first.');
+  const {img,c,ctx}=x,ratio=+$('cropRatio').value;let sw=img.width,sh=img.height;
+  if(sw/sh>ratio)sw=sh*ratio;else sh=sw/ratio;
+  const sx=(img.width-sw)/2,sy=(img.height-sh)/2;c.width=sw;c.height=sh;ctx.drawImage(img,sx,sy,sw,sh,0,0,sw,sh);
+});
+$('watermarkBtn').addEventListener('click',async()=>{
+  const x=await loadSelectedToTool();if(!x)return alert('Select an image first.');
+  const {c,ctx}=x,text=$('watermarkText').value||'Rapid Job';
+  ctx.font=`bold ${Math.max(22,c.width/22)}px Arial`;ctx.fillStyle='rgba(255,255,255,.72)';ctx.strokeStyle='rgba(0,0,0,.35)';
+  ctx.textAlign='right';ctx.strokeText(text,c.width-24,c.height-28);ctx.fillText(text,c.width-24,c.height-28);
+});
+$('whiteBgBtn').addEventListener('click',async()=>{
+  const r=results[selectedIndex];if(!r)return alert('Select an image first.');
+  const img=await readImage(r.file),c=$('toolCanvas'),ctx=c.getContext('2d');c.width=img.width;c.height=img.height;ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);ctx.drawImage(img,0,0);
+});
+$('enhanceBtn').addEventListener('click',async()=>{
+  const r=results[selectedIndex];if(!r)return alert('Select an image first.');
+  const img=await readImage(r.file),c=$('toolCanvas'),ctx=c.getContext('2d');c.width=img.width;c.height=img.height;
+  ctx.filter='brightness(1.06) contrast(1.08) saturate(1.05)';ctx.drawImage(img,0,0);ctx.filter='none';
+});
+
+updateStats();
+})();
+</script>
+
+<script>
+(function(){
+  const dateEl=document.getElementById('rjDate');
+  const timeEl=document.getElementById('rjTime');
+  function updateRapidJobClock(){
+    const now=new Date();
+    if(dateEl){
+      dateEl.textContent=new Intl.DateTimeFormat('en-IN',{
+        weekday:'long',day:'2-digit',month:'long',year:'numeric'
+      }).format(now);
+    }
+    if(timeEl){
+      timeEl.textContent=new Intl.DateTimeFormat('en-IN',{
+        hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true
+      }).format(now);
+    }
+  }
+  updateRapidJobClock();
+  setInterval(updateRapidJobClock,1000);
+})();
+</script>
+</body></html>
