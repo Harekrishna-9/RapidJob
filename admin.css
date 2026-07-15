@@ -1654,3 +1654,15 @@ body{
     min-width:46px !important;
   }
 }
+/* Rapid Job title thoda upar */
+.brand-title{
+    display:flex !important;
+    align-items:flex-start !important;
+    gap:12px;
+}
+
+.brand-name{
+    position:relative !important;
+    top:-4px !important;   /* -3px ya -5px bhi kar sakte ho */
+    line-height:1.05 !important;
+}
