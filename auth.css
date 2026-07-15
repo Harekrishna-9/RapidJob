@@ -192,3 +192,107 @@
     width:210px !important;
   }
 }
+/* ===== PREMIUM PROFILE PHOTO UPLOAD BUTTON ===== */
+
+.profile-premium-page #profilePhotoFile{
+  width:100%;
+  max-width:310px;
+  padding:6px;
+  border:1px solid #cfe2f7;
+  border-radius:14px;
+  background:linear-gradient(135deg,#ffffff,#f1f8ff);
+  color:#526987;
+  font-size:13px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(7,91,216,.08);
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+.profile-premium-page #profilePhotoFile:hover{
+  transform:translateY(-2px);
+  border-color:#75b9ff;
+  box-shadow:0 13px 28px rgba(7,91,216,.15);
+}
+
+.profile-premium-page #profilePhotoFile:focus{
+  outline:none;
+  border-color:#087cf0;
+  box-shadow:
+    0 0 0 4px rgba(8,124,240,.12),
+    0 13px 28px rgba(7,91,216,.15);
+}
+
+/* Choose File button */
+.profile-premium-page #profilePhotoFile::file-selector-button{
+  min-height:38px;
+  margin-right:12px;
+  padding:9px 16px;
+  border:0;
+  border-radius:10px;
+  color:#fff;
+  font-size:13px;
+  font-weight:900;
+  cursor:pointer;
+  background:linear-gradient(
+    135deg,
+    #087cf0,
+    #075bd8,
+    #25c5df
+  );
+  background-size:220% 220%;
+  box-shadow:0 9px 20px rgba(7,91,216,.22);
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease;
+  animation:profileUploadFlow 4s ease infinite;
+}
+
+.profile-premium-page #profilePhotoFile::file-selector-button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 13px 27px rgba(7,91,216,.30);
+}
+
+/* Chrome / Safari old support */
+.profile-premium-page #profilePhotoFile::-webkit-file-upload-button{
+  min-height:38px;
+  margin-right:12px;
+  padding:9px 16px;
+  border:0;
+  border-radius:10px;
+  color:#fff;
+  font-size:13px;
+  font-weight:900;
+  cursor:pointer;
+  background:linear-gradient(
+    135deg,
+    #087cf0,
+    #075bd8,
+    #25c5df
+  );
+  box-shadow:0 9px 20px rgba(7,91,216,.22);
+}
+
+@keyframes profileUploadFlow{
+  0%,100%{
+    background-position:0% 50%;
+  }
+
+  50%{
+    background-position:100% 50%;
+  }
+}
+
+@media(max-width:600px){
+  .profile-premium-page #profilePhotoFile{
+    max-width:100%;
+  }
+
+  .profile-premium-page #profilePhotoFile::file-selector-button{
+    padding:8px 12px;
+    margin-right:8px;
+  }
+}
