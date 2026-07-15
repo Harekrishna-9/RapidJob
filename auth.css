@@ -473,3 +473,9 @@
     width:auto !important;
   }
 }
+/* Login state visibility fix */
+#rjLoginLink[hidden],
+#rjSignupLink[hidden],
+#rjUserMenu[hidden] {
+  display: none !important;
+}
