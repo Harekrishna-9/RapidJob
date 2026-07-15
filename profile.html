@@ -1,0 +1,42 @@
+<!doctype html><html><head><title>My Profile | Rapid Job</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="auth.css?v=1"><script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
+<script defer src="auth.js?v=1"></script></head>
+<body class="user-page"><div class="user-shell"><aside class="user-sidebar">
+<div class="user-side-brand"><span class="auth-logo">RJ</span> Rapid Job</div>
+<nav class="user-nav">
+<a href="user-dashboard.html"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+<a href="profile.html"><i class="fa-solid fa-user-pen"></i> My Profile</a>
+<a href="user-dashboard.html#saved"><i class="fa-solid fa-bookmark"></i> Saved Jobs</a>
+<a href="user-dashboard.html#notifications"><i class="fa-solid fa-bell"></i> Notifications</a>
+<a href="index.html"><i class="fa-solid fa-house"></i> Website Home</a>
+<button id="userLogout"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+</nav></aside>
+<main class="user-main"><header class="user-topbar"><h2>My Profile</h2><span data-user-email></span></header>
+<div class="user-content">
+<div class="user-grid">
+<section class="user-panel">
+<h3>Profile Information</h3><div class="auth-message" id="authMessage"></div>
+<form id="profileForm">
+<div class="profile-photo-wrap"><img class="profile-photo" id="profilePhoto" src="https://ui-avatars.com/api/?name=Rapid+Job&background=087cf0&color=fff" alt="Profile photo"><div><input id="profilePhotoFile" type="file" accept="image/*"><small>JPG/PNG under 2 MB</small></div></div>
+<div class="auth-grid">
+<label class="auth-field">Full Name<div class="auth-input-wrap"><input id="profile_name" required></div></label>
+<label class="auth-field">Email<div class="auth-input-wrap"><input id="profile_email" disabled></div></label>
+<label class="auth-field">Mobile<div class="auth-input-wrap"><input id="profile_mobile" inputmode="numeric"></div></label>
+<label class="auth-field">State<div class="auth-input-wrap"><select id="profile_state"><option>Bihar</option><option>Jharkhand</option><option>Uttar Pradesh</option><option>Delhi</option><option>West Bengal</option><option>Other</option></select></div></label>
+<label class="auth-field">District<div class="auth-input-wrap"><input id="profile_district"></div></label>
+<label class="auth-field">Qualification<div class="auth-input-wrap"><select id="profile_qualification"><option>10th</option><option>12th</option><option>ITI / Diploma</option><option>Graduation</option><option>Post Graduation</option></select></div></label>
+<label class="auth-field full">Preferred Exams<div class="auth-input-wrap"><input id="profile_preferredExams" placeholder="Railway, SSC, Banking"></div></label>
+</div><button class="auth-primary" id="profileSave" type="submit"><span class="auth-btn-text">Save Profile</span><span class="auth-loader"></span></button>
+</form></section>
+<section class="user-panel"><h3>Account Settings</h3>
+<p>Email verification: <b id="verificationStatus">Checking...</b></p><button class="user-btn" id="verifyEmailBtn">Send Verification Email</button>
+<div class="user-panel account-danger" style="margin-top:18px"><h3>Delete Account Request</h3><p>Your request will be sent to Admin for review.</p><button class="user-btn red" id="deleteAccountBtn">Request Account Deletion</button></div>
+</section></div></div></main></div>
+<div class="auth-modal" id="deleteModal"><div class="auth-modal-box"><div class="auth-modal-icon">🗑</div><h3>Delete Account Request?</h3><p>Tell us the reason. Admin will review your request.</p><textarea id="deleteReason" style="width:100%;min-height:80px;padding:10px;border:1px solid #d5e7fa;border-radius:12px"></textarea><div class="auth-modal-actions"><button class="user-btn light" onclick="closeAuthModal()">Cancel</button><button class="user-btn red" id="confirmDeleteAccount">Send Request</button></div></div></div>
+</body></html>

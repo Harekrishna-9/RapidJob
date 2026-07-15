@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign Up | Rapid Job</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="auth.css?v=1"><script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
+<script defer src="auth.js?v=1"></script></head>
+<body class="auth-page">
+<header class="auth-topbar"><a class="auth-brand" href="index.html"><span class="auth-logo">RJ</span> Rapid Job</a><a class="auth-home" href="index.html"><i class="fa-solid fa-house"></i> Home</a></header>
+<main class="auth-layout">
+<section class="auth-visual"><div class="auth-visual-content"><span>Rapid Job Account</span><h1>Build Your Personal Job Hub</h1><p>Create one secure account for job alerts, bookmarks, mock tests, downloads and study planning.</p>
+<div class="auth-benefits"><div class="auth-benefit">🔖 Save jobs and bookmarks</div><div class="auth-benefit">🔔 Personal job notifications</div><div class="auth-benefit">📊 Mock test and quiz history</div><div class="auth-benefit">📅 Saved study timetable</div></div></div></section>
+<section class="auth-form-side"><div class="auth-card">
+<h2>Create Account</h2><p class="auth-subtitle">Join Rapid Job for personalised updates and study features.</p>
+<div class="auth-message" id="authMessage"></div>
+<form id="signupForm"><div class="auth-grid">
+<label class="auth-field full">Full Name<div class="auth-input-wrap"><i class="fa-solid fa-user"></i><input id="signupName" required placeholder="Your full name"></div></label>
+<label class="auth-field">Email<div class="auth-input-wrap"><i class="fa-solid fa-envelope"></i><input id="signupEmail" type="email" required placeholder="Email address"></div></label>
+<label class="auth-field">Mobile<div class="auth-input-wrap"><i class="fa-solid fa-phone"></i><input id="signupMobile" inputmode="numeric" pattern="[0-9]{10}" placeholder="10-digit mobile"></div></label>
+<label class="auth-field">State<div class="auth-input-wrap"><i class="fa-solid fa-location-dot"></i><select id="signupState"><option>Bihar</option><option>Jharkhand</option><option>Uttar Pradesh</option><option>Delhi</option><option>West Bengal</option><option>Other</option></select></div></label>
+<label class="auth-field">Qualification<div class="auth-input-wrap"><i class="fa-solid fa-graduation-cap"></i><select id="signupQualification"><option>10th</option><option>12th</option><option>ITI / Diploma</option><option>Graduation</option><option>Post Graduation</option></select></div></label>
+<label class="auth-field full">Preferred Exams<div class="auth-input-wrap"><i class="fa-solid fa-list-check"></i><input id="signupExams" placeholder="Railway, SSC, Banking, Defence"></div></label>
+<label class="auth-field">Password<div class="auth-input-wrap"><i class="fa-solid fa-lock"></i><input id="signupPassword" type="password" required minlength="8"><button class="auth-show" id="showSignupPassword" type="button"><i class="fa-solid fa-eye"></i></button></div><div class="password-meter"><span id="passwordMeterBar"></span></div><small class="password-hint">8+ characters with number or capital letter.</small></label>
+<label class="auth-field">Confirm Password<div class="auth-input-wrap"><i class="fa-solid fa-lock"></i><input id="signupConfirm" type="password" required><button class="auth-show" id="showSignupConfirm" type="button"><i class="fa-solid fa-eye"></i></button></div></label>
+</div>
+<label class="auth-check"><input id="acceptTerms" type="checkbox"> I agree to the <a href="terms.html">Terms</a> and <a href="privacy-policy.html">Privacy Policy</a>.</label>
+<button class="auth-primary" id="signupSubmit" type="submit" style="margin-top:14px"><span class="auth-btn-text">Create Rapid Job Account</span><span class="auth-loader"></span></button>
+</form><p class="auth-switch">Already registered? <a href="login.html">Login</a></p></div></section>
+</main></body></html>
