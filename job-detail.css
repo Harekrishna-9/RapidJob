@@ -1192,3 +1192,52 @@ body::after{width:330px;height:330px;right:-110px;bottom:8%;background:radial-gr
     }
 
 }
+/* ===== Auto Size Important Link Buttons ===== */
+
+.important-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    align-items:center;
+}
+
+.important-links .imp-card{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    width:auto !important;
+    min-width:180px;
+    max-width:100%;
+
+    padding:12px 18px;
+    white-space:nowrap;
+
+    border-radius:12px;
+    font-weight:700;
+    font-size:15px;
+    text-decoration:none;
+
+    transition:.35s ease;
+}
+
+.important-links .imp-card:hover{
+    transform:translateY(-3px) scale(1.03);
+}
+@media (max-width:768px){
+
+    .important-links{
+        gap:10px;
+    }
+
+    .important-links .imp-card{
+        min-width:100%;
+        width:100%;
+        justify-content:center;
+        white-space:normal;
+        text-align:center;
+        padding:12px;
+        font-size:14px;
+    }
+
+}
