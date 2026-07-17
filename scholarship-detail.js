@@ -133,7 +133,7 @@ function importantLinkRows(p){
 }
 function yellowLinkTable(rows){
   if(!rows.length) return "";
-  return `<h2 class="fj-section-title">Important Links</h2><div class="fj-table-wrap"><table class="fj-table fj-yellow-table"><tbody>${rows.map(r=>`<tr><td>${esc(r[0]||"Link")}</td><td><a href="${esc(r[2]||"#")}" ${(r[2]&&r[2]!=="#")?"target='_blank' rel='noopener'":""}>${esc(r[1]||"Click Here")}</a></td></tr>`).join("")}</tbody></table></div>`;
+  return `<h2 class="fj-section-title">${esc(field(p,["importantLinksHeading","linkHeading"],"Important Links"))}</h2><div class="fj-table-wrap"><table class="fj-table fj-yellow-table"><tbody>${rows.map(r=>`<tr><td>${esc(r[0]||"Link")}</td><td><a href="${esc(r[2]||"#")}" ${(r[2]&&r[2]!=="#")?"target='_blank' rel='noopener'":""}>${esc(r[1]||"Click Here")}</a></td></tr>`).join("")}</tbody></table></div>`;
 }
 function collectTopLinks(p){
   const arr=[];
@@ -293,7 +293,7 @@ function renderScholarshipDetail(p){
     ${fullCard("Eligibility", field(p,["eligibility"],"Check official notification."))}
     ${docs.length?`<section class="fj-full-card"><h2>Required Documents</h2><ul>${docs.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></section>`:""}
     ${customSectionsHtml(p)}
-    ${links.length?`<h2 class="fj-section-title">Important Links</h2><div class="fj-table-wrap"><table class="fj-table fj-yellow-table"><tbody>${links.map(l=>`<tr><td>${esc(l.title)}</td><td><a href="${esc(l.url||'#')}" ${(l.url&&l.url!=='#')?"target='_blank' rel='noopener'":""}>${esc(l.buttonType||'Click Here')}</a></td></tr>`).join("")}</tbody></table></div>`:""}`;
+   ${links.length?`<h2 class="fj-section-title">${esc(field(p,["importantLinksHeading","linkHeading"],"Important Links"))}</h2><div class="fj-table-wrap"><table class="fj-table fj-yellow-table"><tbody>${links.map(l=>`<tr><td>${esc(l.title)}</td><td><a href="${esc(l.url||'#')}" ${(l.url&&l.url!=='#')?"target='_blank' rel='noopener'":""}>${esc(l.buttonType||'Click Here')}</a></td></tr>`).join("")}</tbody></table></div>`:""}`;
   setupShare(title);
 }
 function renderDetail(p){
