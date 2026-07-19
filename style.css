@@ -2352,3 +2352,50 @@ body{
         font-size:12px !important;
     }
 }
+.premium-mode{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    height:46px;
+    padding:0 18px;
+    border:none;
+    border-radius:999px;
+    cursor:pointer;
+    color:#fff;
+    font-size:15px;
+    font-weight:700;
+    background:linear-gradient(135deg,#0b84ff,#075ee8);
+    box-shadow:0 10px 25px rgba(7,94,232,.25);
+    transition:.3s;
+}
+
+.premium-mode:hover{
+    transform:translateY(-2px);
+    box-shadow:0 15px 35px rgba(7,94,232,.35);
+}
+
+.mode-icon{
+    width:28px;
+    height:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:rgba(255,255,255,.18);
+}
+
+.mode-text{
+    white-space:nowrap;
+}
+
+@media(max-width:768px){
+    .premium-mode{
+        width:44px;
+        padding:0;
+        justify-content:center;
+    }
+
+    .mode-text{
+        display:none;
+    }
+}
