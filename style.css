@@ -2137,3 +2137,54 @@ body{
         max-width: 245px !important;
     }
 }
+/* ============================
+   RAPID JOB HEADER LOGO FIX
+   ============================ */
+
+.brand-wrap{
+    display:flex !important;
+    align-items:center !important;
+    height:120px !important;
+}
+
+.rapid-main-logo{
+    display:flex !important;
+    align-items:center !important;
+    text-decoration:none !important;
+}
+
+.rapid-main-logo img{
+    display:block !important;
+    height:105px !important;      /* Logo size */
+    width:auto !important;
+    max-width:430px !important;
+    object-fit:contain !important;
+    border:none !important;
+    background:transparent !important;
+    box-shadow:none !important;
+}
+
+.site-head{
+    min-height:120px !important;
+    padding:15px 45px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+}
+
+@media (max-width:768px){
+
+    .site-head{
+        min-height:85px !important;
+        padding:10px 15px !important;
+    }
+
+    .brand-wrap{
+        height:70px !important;
+    }
+
+    .rapid-main-logo img{
+        height:62px !important;
+        max-width:240px !important;
+    }
+}
