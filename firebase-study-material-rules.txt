@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "studyMaterials": {
+      ".read": true,
+      ".write": true
+    }
+  }
+}
+
+Merge only the studyMaterials node into your existing Firebase rules.

@@ -1,9 +1,17 @@
-Rapid Job State SVG Icons
+Upload all files to the GitHub root.
 
-Upload this folder inside your repository as:
-images/states/
+Updated:
+admin.html
+admin.css
+admin.js
 
-Expected filenames:
-ap.svg, assam.svg, bihar.svg, chhattisgarh.svg, delhi.svg,
-jharkhand.svg, haryana.svg, hp.svg, mp.svg, odisha.svg,
-rajasthan.svg, telangana.svg, uk.svg, up.svg, wb.svg
+New:
+study-material.html
+study-material.css
+study-material.js
+study-material-detail.html
+study-material-detail.js
+firebase-study-material-rules.txt
+
+Open admin.html > Study Material Manager.
+PDF stays on Google Drive. Data saves in Firebase Realtime Database under studyMaterials/.
