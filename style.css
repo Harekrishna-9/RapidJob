@@ -2188,3 +2188,167 @@ body{
         max-width:240px !important;
     }
 }
+/* =========================================
+   RAPID JOB PROFESSIONAL WHITE HEADER
+   ========================================= */
+
+.site-head{
+    min-height:150px !important;
+    padding:18px 42px !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+
+    background:
+        linear-gradient(#ffffff,#ffffff) padding-box,
+        linear-gradient(90deg,#075ee8,#12c4df,#075ee8) border-box !important;
+
+    border-top:7px solid #075ee8 !important;
+    border-bottom:7px solid #075ee8 !important;
+    border-left:0 !important;
+    border-right:0 !important;
+
+    color:#071a4d !important;
+    overflow:hidden !important;
+    box-shadow:0 8px 24px rgba(7,94,232,.15) !important;
+}
+
+/* Purane animated circles hide */
+.site-head::before,
+.site-head::after{
+    display:none !important;
+}
+
+/* Logo left side */
+.brand-wrap{
+    display:flex !important;
+    align-items:center !important;
+    height:115px !important;
+    flex-shrink:0 !important;
+}
+
+.rapid-main-logo{
+    display:flex !important;
+    align-items:center !important;
+    height:115px !important;
+    text-decoration:none !important;
+}
+
+.rapid-main-logo img{
+    display:block !important;
+    height:108px !important;
+    width:auto !important;
+    max-width:460px !important;
+    max-height:108px !important;
+    object-fit:contain !important;
+    object-position:left center !important;
+
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+}
+
+/* Right controls */
+.header-actions{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-end !important;
+    gap:16px !important;
+    position:relative !important;
+    z-index:5 !important;
+    margin-left:auto !important;
+}
+
+.date-time-pill{
+    color:#ffffff !important;
+    background:linear-gradient(135deg,#0878f5,#0759d8) !important;
+    border:1px solid rgba(255,255,255,.55) !important;
+    box-shadow:0 8px 18px rgba(7,94,232,.23) !important;
+}
+
+.mode-btn{
+    background:linear-gradient(135deg,#0878f5,#0759d8) !important;
+    color:#ffffff !important;
+    border:1px solid rgba(255,255,255,.55) !important;
+}
+
+/* Login button */
+.rj-auth-login{
+    background:linear-gradient(135deg,#0878f5,#0759d8) !important;
+    color:#ffffff !important;
+    border:1px solid #075ee8 !important;
+}
+
+/* Sign Up button */
+.rj-auth-signup{
+    background:#ffffff !important;
+    color:#075ee8 !important;
+    border:2px solid #075ee8 !important;
+}
+
+/* Navigation ke upar halka gap */
+.top-nav{
+    margin-top:10px !important;
+}
+
+/* Tablet */
+@media(max-width:1100px){
+
+    .site-head{
+        min-height:125px !important;
+        padding:14px 22px !important;
+    }
+
+    .brand-wrap,
+    .rapid-main-logo{
+        height:92px !important;
+    }
+
+    .rapid-main-logo img{
+        height:88px !important;
+        max-height:88px !important;
+        max-width:350px !important;
+    }
+
+    .date-time-pill{
+        display:none !important;
+    }
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+    .site-head{
+        min-height:96px !important;
+        padding:10px 12px !important;
+        border-top-width:5px !important;
+        border-bottom-width:5px !important;
+    }
+
+    .brand-wrap,
+    .rapid-main-logo{
+        height:68px !important;
+    }
+
+    .rapid-main-logo img{
+        height:64px !important;
+        max-height:64px !important;
+        max-width:220px !important;
+    }
+
+    .header-actions{
+        gap:7px !important;
+    }
+
+    .mode-btn{
+        width:42px !important;
+        height:38px !important;
+    }
+
+    .rj-auth-login,
+    .rj-auth-signup{
+        padding:9px 10px !important;
+        font-size:12px !important;
+    }
+}
