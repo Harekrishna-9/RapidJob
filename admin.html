@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rapid Job Admin CMS</title>
+  <link rel="stylesheet" href="admin.css?v=520" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
+  <script defer src="admin.js?v=520"></script>
+</head>
+<body class="admin-locked">
+  <div class="admin-login-screen" id="adminLoginScreen">
+    <div class="login-bg-orb orb-one"></div>
+    <div class="login-bg-orb orb-two"></div>
+    <div class="admin-login-card">
+      <div class="login-logo">RJ</div>
+      <h1>Rapid Job Admin</h1>
+      <p>Login with email and secret code</p>
+      <div class="login-field">
+        <label for="adminEmail">Email Address</label>
+        <div class="login-input-wrap"><i class="fa-solid fa-envelope"></i><input id="adminEmail" type="email" placeholder="Enter admin email" autocomplete="email" /></div>
+      </div>
+      <div class="login-field">
+        <label for="adminSecret">Secret Code</label>
+        <div class="login-input-wrap"><i class="fa-solid fa-key"></i><input id="adminSecret" type="password" placeholder="Enter secret code" autocomplete="current-password" /><button type="button" class="show-secret" id="toggleSecret" aria-label="Show secret code"><i class="fa-solid fa-eye"></i></button></div>
+      </div>
+      <div class="login-error" id="loginError"></div>
+      <button type="button" class="login-btn" id="adminLoginBtn"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
+      <small>Protected Admin Panel</small>
+    </div>
+  </div>
+  <div class="admin-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-card">
+        <div class="brand-title"><div class="brand-logo">RJ</div><div class="brand-name">Rapid Job</div></div>
+        <div class="admin-role"><i class="fa-solid fa-shield-halved"></i> Super Admin</div>
+        <div class="admin-name"><i class="fa-solid fa-user"></i> Harekrishna Patel</div>
+      </div>
+      <nav class="side-nav" id="sideNav">
+        <button class="active" data-page="dashboard"><i class="fa-solid fa-chart-line"></i> Dashboard</button>
+        <a class="side-link" href="job-editor.html"><i class="fa-solid fa-briefcase"></i> Job Editor</a>
+        <a class="side-link" href="blog-editor.html"><i class="fa-solid fa-newspaper"></i> Blog / Article Editor</a>
+        <a class="side-link scholarship-link" href="scholarship-editor.html"><i class="fa-solid fa-graduation-cap"></i> Scholarship Editor</a>
+        <button data-page="studyMaterialManager"><i class="fa-solid fa-book-open-reader"></i> Study Material Manager</button>
+
+        <div class="content-nav-group" id="contentNavGroup">
+          <div class="content-manager-toggle" id="contentManagerToggle" role="button" tabindex="0" aria-expanded="false">
+            <span><i class="fa-solid fa-folder-tree"></i> Content Manager</span>
+            <i class="fa-solid fa-chevron-down content-arrow"></i>
+          </div>
+          <div class="content-submenu" id="contentSubmenu">
+            <button data-page="bannerManager"><i class="fa-solid fa-images"></i> Banner Slider</button>
+            <button data-page="advertisementManager"><i class="fa-solid fa-rectangle-ad"></i> Advertisement</button>
+            <button data-page="popupManager"><i class="fa-solid fa-bullhorn"></i> Popup Announcement</button>
+            <button data-page="noticeManager"><i class="fa-solid fa-thumbtack"></i> Notice Board</button>
+            <button data-page="examCalendarManager"><i class="fa-solid fa-calendar-days"></i> Exam Calendar</button>
+            <button data-page="categoryManager"><i class="fa-solid fa-folder-open"></i> Categories</button>
+            <button data-page="tagManager"><i class="fa-solid fa-tags"></i> Tags</button>
+          </div>
+        </div>
+        <button data-page="messages"><i class="fa-solid fa-envelope"></i> Contact Messages <span id="msgBadge">0</span></button>
+        <button data-page="breaking"><i class="fa-solid fa-bolt"></i> Breaking News</button>
+        <button data-page="media"><i class="fa-solid fa-folder-open"></i> Media Manager</button>
+        <button data-page="notifications"><i class="fa-solid fa-bell"></i> Notifications <span id="notificationBadge">0</span></button>
+        <button data-page="users"><i class="fa-solid fa-users"></i> User Manager</button>
+        <button data-page="seoAds"><i class="fa-solid fa-magnifying-glass-chart"></i> SEO & Ads</button>
+        <button data-page="security"><i class="fa-solid fa-shield-halved"></i> Security & Logs</button>
+        <button data-page="backup"><i class="fa-solid fa-database"></i> Backup & Restore</button>
+        <button data-page="settings"><i class="fa-solid fa-gear"></i> Settings</button>
+      </nav>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+        <div class="search"><i class="fa-solid fa-search"></i><input id="searchInput" placeholder="Search posts..." /></div>
+        <a class="top-btn top-link" href="job-editor.html"><i class="fa-solid fa-plus"></i> New Job</a>
+        <a class="top-btn top-link" href="blog-editor.html"><i class="fa-solid fa-newspaper"></i> New Blog</a>
+        <button class="top-btn" id="themeBtn"><i class="fa-solid fa-moon"></i></button>
+        <button class="top-btn logout-btn" id="adminLogout"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </header>
+      <section id="app"></section>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+</body>
+</html>
