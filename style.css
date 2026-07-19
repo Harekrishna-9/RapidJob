@@ -2074,3 +2074,66 @@ body{
     width:auto;
     display:block;
 }
+/* ===== HEADER LOGO FIX ===== */
+
+.site-head {
+    min-height: 112px !important;
+    height: 112px !important;
+    padding: 12px 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    overflow: hidden !important;
+}
+
+.brand-wrap {
+    height: 88px !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+}
+
+.rapid-main-logo {
+    display: flex !important;
+    align-items: center !important;
+    height: 88px !important;
+    width: auto !important;
+    text-decoration: none !important;
+}
+
+.rapid-main-logo img {
+    display: block !important;
+    width: auto !important;
+    height: 78px !important;
+    max-width: 340px !important;
+    max-height: 78px !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+}
+
+.header-actions {
+    position: static !important;
+    margin-left: auto !important;
+    align-self: center !important;
+}
+
+/* Mobile fix */
+
+@media (max-width: 768px) {
+    .site-head {
+        min-height: 90px !important;
+        height: 90px !important;
+        padding: 8px 15px !important;
+    }
+
+    .brand-wrap,
+    .rapid-main-logo {
+        height: 70px !important;
+    }
+
+    .rapid-main-logo img {
+        height: 62px !important;
+        max-height: 62px !important;
+        max-width: 245px !important;
+    }
+}
