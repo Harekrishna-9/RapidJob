@@ -469,3 +469,73 @@
     }
 
 }
+/* ===== CONTACT PAGE SAME FOOTER FOR TOOLS PAGE ===== */
+
+.rj-footer{
+    width:100%;
+    margin-top:45px;
+    padding:22px 15px 20px;
+    text-align:center;
+    color:#fff;
+    background:linear-gradient(90deg,#1267ea 0%,#13b8cf 100%);
+}
+
+.rj-footer h3{
+    margin:0 0 12px;
+    font-size:20px;
+    font-weight:800;
+    color:#fff;
+}
+
+.footer-icons{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:24px;
+    margin-bottom:12px;
+}
+
+.footer-icons span{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+    transition:transform .25s ease, opacity .25s ease;
+}
+
+.footer-icons span:hover{
+    transform:translateY(-4px) scale(1.1);
+    opacity:.85;
+}
+
+.rj-footer p{
+    margin:0;
+    color:#fff;
+    font-size:14px;
+    font-weight:500;
+}
+
+@media(max-width:600px){
+
+    .rj-footer{
+        padding:20px 12px 18px;
+    }
+
+    .rj-footer h3{
+        font-size:18px;
+    }
+
+    .footer-icons{
+        gap:20px;
+    }
+
+    .footer-icons span{
+        font-size:19px;
+    }
+
+    .rj-footer p{
+        font-size:12px;
+    }
+}
