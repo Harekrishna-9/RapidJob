@@ -2064,3 +2064,13 @@ body{
 @media print{
   .rj-ad-slot,.rj-announcement-overlay{display:none!important}
 }
+.rapid-main-logo{
+    display:flex;
+    align-items:center;
+}
+
+.rapid-main-logo img{
+    height:72px;
+    width:auto;
+    display:block;
+}
